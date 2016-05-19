@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AEH_BDModelStoreContainer" CdmEntityContainer="AEH_BDEntities">
+    <EntitySetMapping Name="PessoaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Pessoa)">
+        <MappingFragment StoreEntitySet="PessoaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="NumSns" ColumnName="NumSns" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Morada" ColumnName="Morada" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Utilizador)">
+        <MappingFragment StoreEntitySet="PessoaSet_Utilizador">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomeUtilizador" ColumnName="NomeUtilizador" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="TipoUtilizador" ColumnName="TipoUtilizador" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Paciente)">
+        <MappingFragment StoreEntitySet="PessoaSet_Paciente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

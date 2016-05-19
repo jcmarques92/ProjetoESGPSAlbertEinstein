@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AEH_BDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AEH_BDModelStoreContainer">
+    <EntitySet Name="PessoaSet" EntityType="AEH_BDModel.Store.PessoaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PessoaSet_Utilizador" EntityType="AEH_BDModel.Store.PessoaSet_Utilizador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PessoaSet_Paciente" EntityType="AEH_BDModel.Store.PessoaSet_Paciente" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Utilizador_inherits_Pessoa" Association="AEH_BDModel.Store.FK_Utilizador_inherits_Pessoa">
+      <End Role="Pessoa" EntitySet="PessoaSet" />
+      <End Role="Utilizador" EntitySet="PessoaSet_Utilizador" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paciente_inherits_Pessoa" Association="AEH_BDModel.Store.FK_Paciente_inherits_Pessoa">
+      <End Role="Pessoa" EntitySet="PessoaSet" />
+      <End Role="Paciente" EntitySet="PessoaSet_Paciente" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PessoaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataNascimento" Type="datetime" Nullable="false" />
+    <Property Name="NumSns" Type="int" Nullable="false" />
+    <Property Name="Genero" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Morada" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefone" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PessoaSet_Utilizador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="NomeUtilizador" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipoUtilizador" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ativo" Type="bit" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PessoaSet_Paciente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Utilizador_inherits_Pessoa">
+    <End Role="Pessoa" Type="AEH_BDModel.Store.PessoaSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Utilizador" Type="AEH_BDModel.Store.PessoaSet_Utilizador" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Utilizador">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paciente_inherits_Pessoa">
+    <End Role="Pessoa" Type="AEH_BDModel.Store.PessoaSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Paciente" Type="AEH_BDModel.Store.PessoaSet_Paciente" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AEH_BDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AEH_BDEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="PessoaSet" EntityType="AEH_BDModel.Pessoa" />
+        </EntityContainer>
+        <EntityType Name="Utilizador" BaseType="AEH_BDModel.Pessoa">
+          <Property Name="NomeUtilizador" Nullable="false" Type="String" />
+          <Property Name="Password" Nullable="false" Type="String" />
+          <Property Name="TipoUtilizador" Nullable="false" Type="String" />
+          <Property Name="Ativo" Nullable="false" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="DataNascimento" Type="DateTime" Nullable="false" />
+          <Property Name="NumSns" Type="Int32" Nullable="false" />
+          <Property Name="Genero" Type="String" Nullable="false" />
+          <Property Name="Morada" Type="String" Nullable="false" />
+          <Property Name="Telefone" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paciente" BaseType="AEH_BDModel.Pessoa" />
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AEH_BDModelStoreContainer" CdmEntityContainer="AEH_BDEntities">
+    <EntitySetMapping Name="PessoaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Pessoa)">
+        <MappingFragment StoreEntitySet="PessoaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="NumSns" ColumnName="NumSns" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Morada" ColumnName="Morada" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Utilizador)">
+        <MappingFragment StoreEntitySet="PessoaSet_Utilizador">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomeUtilizador" ColumnName="NomeUtilizador" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="TipoUtilizador" ColumnName="TipoUtilizador" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Paciente)">
+        <MappingFragment StoreEntitySet="PessoaSet_Paciente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

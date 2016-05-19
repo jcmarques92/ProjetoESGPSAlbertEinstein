@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AEH_BDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AEH_BDModelStoreContainer">
+    <EntitySet Name="PessoaSet" EntityType="AEH_BDModel.Store.PessoaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PessoaSet_Utilizador" EntityType="AEH_BDModel.Store.PessoaSet_Utilizador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PessoaSet_Paciente" EntityType="AEH_BDModel.Store.PessoaSet_Paciente" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Utilizador_inherits_Pessoa" Association="AEH_BDModel.Store.FK_Utilizador_inherits_Pessoa">
+      <End Role="Pessoa" EntitySet="PessoaSet" />
+      <End Role="Utilizador" EntitySet="PessoaSet_Utilizador" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paciente_inherits_Pessoa" Association="AEH_BDModel.Store.FK_Paciente_inherits_Pessoa">
+      <End Role="Pessoa" EntitySet="PessoaSet" />
+      <End Role="Paciente" EntitySet="PessoaSet_Paciente" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PessoaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataNascimento" Type="datetime" Nullable="false" />
+    <Property Name="NumSns" Type="int" Nullable="false" />
+    <Property Name="Genero" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Morada" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefone" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PessoaSet_Utilizador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="NomeUtilizador" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipoUtilizador" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ativo" Type="bit" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PessoaSet_Paciente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Utilizador_inherits_Pessoa">
+    <End Role="Pessoa" Type="AEH_BDModel.Store.PessoaSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Utilizador" Type="AEH_BDModel.Store.PessoaSet_Utilizador" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Utilizador">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paciente_inherits_Pessoa">
+    <End Role="Pessoa" Type="AEH_BDModel.Store.PessoaSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Paciente" Type="AEH_BDModel.Store.PessoaSet_Paciente" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
