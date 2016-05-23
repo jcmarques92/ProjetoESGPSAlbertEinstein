@@ -31,6 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPaciente));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -94,13 +99,20 @@
             this.labelTelefoneFax = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.panelLogotipo = new System.Windows.Forms.Panel();
-            this.listBoxPacientes = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnPacientes = new System.Windows.Forms.Button();
             this.btnUtilizadores = new System.Windows.Forms.Button();
             this.panelCabecalho = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -137,6 +149,18 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
+            this.tabPage1.Controls.Add(this.label21);
+            this.tabPage1.Controls.Add(this.label20);
+            this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.label18);
+            this.tabPage1.Controls.Add(this.label17);
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.label15);
+            this.tabPage1.Controls.Add(this.label14);
+            this.tabPage1.Controls.Add(this.label13);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.btnLimpar);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label3);
@@ -159,6 +183,51 @@
             this.tabPage1.Size = new System.Drawing.Size(1002, 326);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados Demográficos";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(883, 73);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "label14";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(883, 14);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "label13";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(400, 182);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "label11";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(401, 18);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "label10";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(889, 134);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "label9";
             // 
             // btnLimpar
             // 
@@ -224,9 +293,11 @@
             // tbSns
             // 
             this.tbSns.Location = new System.Drawing.Point(687, 89);
+            this.tbSns.MaxLength = 9;
             this.tbSns.Name = "tbSns";
             this.tbSns.Size = new System.Drawing.Size(241, 20);
             this.tbSns.TabIndex = 23;
+            this.tbSns.TextChanged += new System.EventHandler(this.tbSns_TextChanged);
             // 
             // tbEmail
             // 
@@ -234,6 +305,7 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(241, 20);
             this.tbEmail.TabIndex = 22;
+            this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             // 
             // tbTelefone
             // 
@@ -241,6 +313,7 @@
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(241, 20);
             this.tbTelefone.TabIndex = 21;
+            this.tbTelefone.TextChanged += new System.EventHandler(this.tbTelefone_TextChanged);
             // 
             // tbMorada
             // 
@@ -248,6 +321,7 @@
             this.tbMorada.Name = "tbMorada";
             this.tbMorada.Size = new System.Drawing.Size(241, 20);
             this.tbMorada.TabIndex = 20;
+            this.tbMorada.TextChanged += new System.EventHandler(this.tbMorada_TextChanged);
             // 
             // tbNome
             // 
@@ -255,6 +329,7 @@
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(241, 20);
             this.tbNome.TabIndex = 16;
+            this.tbNome.TextChanged += new System.EventHandler(this.tbNome_TextChanged);
             // 
             // label6
             // 
@@ -826,14 +901,6 @@
             this.panelLogotipo.Size = new System.Drawing.Size(1163, 42);
             this.panelLogotipo.TabIndex = 40;
             // 
-            // listBoxPacientes
-            // 
-            this.listBoxPacientes.FormattingEnabled = true;
-            this.listBoxPacientes.Location = new System.Drawing.Point(100, 110);
-            this.listBoxPacientes.Name = "listBoxPacientes";
-            this.listBoxPacientes.Size = new System.Drawing.Size(1010, 199);
-            this.listBoxPacientes.TabIndex = 38;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -910,19 +977,100 @@
             this.panelCabecalho.Size = new System.Drawing.Size(1163, 56);
             this.panelCabecalho.TabIndex = 39;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(100, 122);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1010, 196);
+            this.listView1.TabIndex = 43;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(449, 38);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(11, 13);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(449, 95);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(11, 13);
+            this.label16.TabIndex = 30;
+            this.label16.Text = "*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(448, 203);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(11, 13);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "*";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(931, 34);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(11, 13);
+            this.label18.TabIndex = 32;
+            this.label18.Text = "*";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(931, 93);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(11, 13);
+            this.label19.TabIndex = 33;
+            this.label19.Text = "*";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(931, 152);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(11, 13);
+            this.label20.TabIndex = 34;
+            this.label20.Text = "*";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(448, 152);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(11, 13);
+            this.label21.TabIndex = 35;
+            this.label21.Text = "*";
+            // 
             // FormPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 774);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.panelLogotipo);
-            this.Controls.Add(this.listBoxPacientes);
             this.Controls.Add(this.panelCabecalho);
             this.Name = "FormPaciente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Albert Einstein Hospital";
+            this.Load += new System.EventHandler(this.FormPaciente_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1020,12 +1168,24 @@
         private System.Windows.Forms.Label labelTelefoneFax;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Panel panelLogotipo;
-        private System.Windows.Forms.ListBox listBoxPacientes;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnPacientes;
         private System.Windows.Forms.Button btnUtilizadores;
         private System.Windows.Forms.Panel panelCabecalho;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
     }
 }

@@ -129,6 +129,18 @@
   <metadata name="Dosagem.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="DataInicio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DataFim.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Medicamento.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Dosagem.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -233,7 +245,7 @@
         OLEy2TS9bwY1W/pM5HnVHOt87Muh12wLNm/S31a/u7P44P3Ih3tLtz+Wf8r87LIstvz9S8vX0G/C3x59
         P7gitHL7h9OP5Z+pq7jV/DWOtZJfDL+y16H1+PWFDauNa5vcm4c3F7f0toq3vm1bbdfs2D/ST1Fh9/qA
         CPoAoJ9vb38TAQB7EoDN/O3t9Yrt7c1KuNh4CkBX8O//K3bvGjoASgd2UH9v0/J/fiEF4F9smn9YzsHY
-        0wAAAAlwSFlzAAALDwAACw8BkvkDpQAAFBBJREFUeF7tnYeXVMUSxt//8vSZgYeYMGefEXNAJagEAZEo
+        0wAAAAlwSFlzAAALDAAACwwBP0AiyAAAFBBJREFUeF7tnYeXVMUSxt//8vSZgYeYMGefEXNAJagEAZEo
         qKiYMAEGTIgIiBhRUUAMmEAwIEkkRwUREJCgIMF+99ezPdT01E0zszu7eOuc7+zO7eq+Yfp+XVVd3fOv
         vi/PMnWFT3/41Sz/dZvFd0t+U3W+DY5v3v6XBf9rOhlqH5d3etEc/O/ri9Dzha9V/Qzp0fqOt9RnfNN9
         76v6tY1bn55imh7ZOUMtgWdcp4T740+/Gye/bPozVof/NZ0MtY/9nXAffvtH8+T4hQV47N35qm5tob4R
