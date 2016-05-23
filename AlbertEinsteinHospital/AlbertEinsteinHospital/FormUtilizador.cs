@@ -17,6 +17,7 @@ namespace AlbertEinsteinHospital
         bool ativo;
         List<Utilizador> listaUtilizadores;
         Utilizador utilizador;
+        int sns;
 
         public FormUtilizador(Utilizador utilizador)
         {
@@ -39,6 +40,7 @@ namespace AlbertEinsteinHospital
                 item1 = new ListViewItem(listaUtilizadores[i].Nome.ToString());
                 item1.SubItems.Add(listaUtilizadores[i].DataNascimento.ToString());
                 item1.SubItems.Add(listaUtilizadores[i].NumSns.ToString());
+                item1.SubItems.Add(listaUtilizadores[i].TipoUtilizador.ToString());
 
                 listView1.Items.Add(item1);
             }
@@ -80,22 +82,44 @@ namespace AlbertEinsteinHospital
 
                 RegistarUtilizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, tbPassword.Text, cbTipoUtilizador.Text);
                 MessageBox.Show("Utilizador Registado com Sucesso!", "Sucesso");
-                LimparCampos();
-
+                limparCampos();
+                atualizar();
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("Erro!");
             }
  
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
+        private void atualizar()
         {
-            LimparCampos();
+            listView1.Items.Clear();
+
+            listaUtilizadores = GetUtilizadores().ToList();
+
+            ListViewItem item1 = new ListViewItem();
+
+            listView1.FullRowSelect = true;
+
+            for (int i = 0; i < listaUtilizadores.Count; i++)
+            {
+
+                item1 = new ListViewItem(listaUtilizadores[i].Nome.ToString());
+                item1.SubItems.Add(listaUtilizadores[i].DataNascimento.ToString());
+                item1.SubItems.Add(listaUtilizadores[i].NumSns.ToString());
+                item1.SubItems.Add(listaUtilizadores[i].TipoUtilizador.ToString());
+
+                listView1.Items.Add(item1);
+            }
         }
 
-        public void LimparCampos()
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+        }
+
+        public void limparCampos()
         {
             tbNome.Clear();
             tbEmail.Clear();
@@ -134,6 +158,27 @@ namespace AlbertEinsteinHospital
 
             Utilizador utilizador = bd.PessoaSet.OfType<Utilizador>().Where(i => i.Id == 1).FirstOrDefault();
 
+        }
+
+        public void AtualizarUtilizador(string nome, DateTime dataNascim, string genero, string morada, int telefone, bool ativo, string email, int sns, string nomeUtilizador, string password, string tipoUtilizador)
+        {
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            Utilizador u = bd.PessoaSet.OfType<Utilizador>().Where(i => i.NumSns == sns).FirstOrDefault();
+
+            u.Nome = nome;
+            u.DataNascimento = dataNascim;
+            u.Genero = genero;
+            u.Morada = morada;
+            u.Telefone = telefone;
+            u.Ativo = ativo;
+            u.Email = email;
+            u.NumSns = sns;
+            u.NomeUtilizador = nomeUtilizador;
+            u.Password = password;
+            u.TipoUtilizador = tipoUtilizador;
+
+            bd.SaveChanges();
         }
 
         public List<Utilizador> GetUtilizadores()
@@ -212,7 +257,7 @@ namespace AlbertEinsteinHospital
         {
             if (listView1.SelectedIndices.Count <= 0)
             {
-                LimparCampos();
+                limparCampos();
                 btnRegistar.Enabled = true;
                 btnProcurar.Enabled = true;
                 return;
@@ -223,6 +268,7 @@ namespace AlbertEinsteinHospital
             if (intselectedindex >= 0)
             {
                 utilizador = listaUtilizadores[intselectedindex];
+                sns = listaUtilizadores[intselectedindex].NumSns;
                 preencherFormulario(utilizador);
                 btnRegistar.Enabled = false;
                 btnProcurar.Enabled = false;                
@@ -234,7 +280,7 @@ namespace AlbertEinsteinHospital
 
         private void preencherFormulario(Utilizador u)
         {
-            LimparCampos();
+            limparCampos();
       
             tbNome.Text = u.Nome;
             dtDataNascim.Value = u.DataNascimento;
@@ -266,6 +312,36 @@ namespace AlbertEinsteinHospital
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            if (rbMasculino.Checked)
+            {
+                genero = "M";
+            }
+            else if (rbFeminino.Checked)
+            {
+                genero = "F";
+            }
+
+            if (ckAtivo.Checked == true)
+            {
+                ativo = false;
+            }
+            else
+            {
+                ativo = true;
+            }
+
+            try
+            {
+
+                AtualizarUtilizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, tbPassword.Text, cbTipoUtilizador.Text);
+                MessageBox.Show("Utilizador Atualizado com Sucesso!", "Sucesso");
+                atualizar();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro!");
+            }
         }
     }
 }

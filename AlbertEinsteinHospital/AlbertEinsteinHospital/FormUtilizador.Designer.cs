@@ -40,6 +40,8 @@
             this.tbTelefone = new System.Windows.Forms.TextBox();
             this.tbMorada = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.rbFeminino = new System.Windows.Forms.RadioButton();
+            this.rbMasculino = new System.Windows.Forms.RadioButton();
             this.cbTipoUtilizador = new System.Windows.Forms.ComboBox();
             this.tbNome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -70,8 +72,7 @@
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.rbMasculino = new System.Windows.Forms.RadioButton();
-            this.rbFeminino = new System.Windows.Forms.RadioButton();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage1.SuspendLayout();
             this.panelLogotipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -204,8 +205,32 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados Demográficos";
             // 
+            // rbFeminino
+            // 
+            this.rbFeminino.AutoSize = true;
+            this.rbFeminino.Location = new System.Drawing.Point(321, 135);
+            this.rbFeminino.Name = "rbFeminino";
+            this.rbFeminino.Size = new System.Drawing.Size(67, 17);
+            this.rbFeminino.TabIndex = 30;
+            this.rbFeminino.TabStop = true;
+            this.rbFeminino.Text = "Feminino";
+            this.rbFeminino.UseVisualStyleBackColor = true;
+            // 
+            // rbMasculino
+            // 
+            this.rbMasculino.AutoSize = true;
+            this.rbMasculino.Location = new System.Drawing.Point(227, 135);
+            this.rbMasculino.Name = "rbMasculino";
+            this.rbMasculino.Size = new System.Drawing.Size(73, 17);
+            this.rbMasculino.TabIndex = 29;
+            this.rbMasculino.TabStop = true;
+            this.rbMasculino.Text = "Masculino";
+            this.rbMasculino.UseVisualStyleBackColor = true;
+            // 
             // cbTipoUtilizador
             // 
+            this.cbTipoUtilizador.BackColor = System.Drawing.SystemColors.Window;
+            this.cbTipoUtilizador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoUtilizador.FormattingEnabled = true;
             this.cbTipoUtilizador.Items.AddRange(new object[] {
             "Administrador de Sistema",
@@ -525,7 +550,8 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Nome,
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader3});
             this.listView1.Location = new System.Drawing.Point(72, 93);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(1001, 185);
@@ -537,39 +563,22 @@
             // Nome
             // 
             this.Nome.Text = "Nome";
-            this.Nome.Width = 230;
+            this.Nome.Width = 266;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Data de Nascimento";
-            this.columnHeader1.Width = 575;
+            this.columnHeader1.Width = 295;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Número de SNS";
-            this.columnHeader2.Width = 189;
+            this.columnHeader2.Width = 140;
             // 
-            // rbMasculino
+            // columnHeader3
             // 
-            this.rbMasculino.AutoSize = true;
-            this.rbMasculino.Location = new System.Drawing.Point(227, 135);
-            this.rbMasculino.Name = "rbMasculino";
-            this.rbMasculino.Size = new System.Drawing.Size(73, 17);
-            this.rbMasculino.TabIndex = 29;
-            this.rbMasculino.TabStop = true;
-            this.rbMasculino.Text = "Masculino";
-            this.rbMasculino.UseVisualStyleBackColor = true;
-            // 
-            // rbFeminino
-            // 
-            this.rbFeminino.AutoSize = true;
-            this.rbFeminino.Location = new System.Drawing.Point(321, 135);
-            this.rbFeminino.Name = "rbFeminino";
-            this.rbFeminino.Size = new System.Drawing.Size(67, 17);
-            this.rbFeminino.TabIndex = 30;
-            this.rbFeminino.TabStop = true;
-            this.rbFeminino.Text = "Feminino";
-            this.rbFeminino.UseVisualStyleBackColor = true;
+            this.columnHeader3.Text = "Tipo de Utilizador";
+            this.columnHeader3.Width = 287;
             // 
             // FormUtilizador
             // 
@@ -644,5 +653,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.RadioButton rbFeminino;
         private System.Windows.Forms.RadioButton rbMasculino;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
