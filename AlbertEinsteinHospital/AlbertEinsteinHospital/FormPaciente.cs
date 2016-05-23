@@ -111,7 +111,7 @@ namespace AlbertEinsteinHospital
             Regex modelo = new Regex(@"^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$");
             if (modelo.IsMatch(tbEmail.Text))
             {
-                tbEmail.ForeColor = Color.White;
+                tbEmail.ForeColor = Color.Green;
             }
             else
             {
