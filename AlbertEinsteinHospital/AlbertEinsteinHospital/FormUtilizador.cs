@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -45,6 +46,12 @@ namespace AlbertEinsteinHospital
                 listView1.Items.Add(item1);
             }
 
+            if (cbTipoUtilizador.SelectedValue != null)
+            {
+                label28.Visible = false;
+            }
+
+            hideLabels();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -134,6 +141,7 @@ namespace AlbertEinsteinHospital
             ckAtivo.Checked = false;
             cbTipoUtilizador.SelectedIndex = -1;
             dtDataNascim.ResetText();
+            label28.Visible = true;
         }
 
         public void RegistarUtilizador(string nome, DateTime dataNascim, string genero, string morada, int telefone, bool ativo, string email, int sns, string nomeUtilizador, string password, string tipoUtilizador)
@@ -373,6 +381,192 @@ namespace AlbertEinsteinHospital
                 listView1.Items.Add(item1);
             }
 
+        }
+
+        private void tbNome_TextChanged(object sender, EventArgs e)
+        {
+            Regex modelo = new Regex(@"^[aA-zZ]+((\s[aA-zZ]+)+)?$");
+            if (modelo.IsMatch(tbNome.Text))
+            {
+                tbNome.ForeColor = Color.Green;
+                label16.Text = "";
+                label15.Visible = false;
+            }
+            else
+            {
+                tbNome.ForeColor = Color.Red;
+                tbNome.Clear();
+                label16.BackColor = Color.Red;
+                label16.ForeColor = Color.White;
+                label16.Text = "Insira letras de aA-zZ";
+                label15.Visible = true;
+            }
+        }
+
+        private void dtDataNascim_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtDataNascim != null)
+            {
+                label23.Visible = false;
+            }
+            else
+            {
+                label23.Visible = true;
+            }
+        }
+
+        private void rbChecked()
+        {
+            if (rbFeminino.Checked || rbMasculino.Checked)
+            {
+                label25.Visible = false;
+            }
+            else
+            {
+                label25.Visible = true;
+            }
+        }
+
+        private void rbMasculino_CheckedChanged(object sender, EventArgs e)
+        {
+            rbChecked();
+        }
+
+        private void rbFeminino_CheckedChanged(object sender, EventArgs e)
+        {
+            rbChecked();
+        }
+
+        private void tbMorada_TextChanged(object sender, EventArgs e)
+        {
+            if (tbMorada.Text != "")
+            {
+                tbMorada.ForeColor = Color.Green;
+                label12.Text = "";
+                label21.Visible = false;
+            }
+            else
+            {
+                tbMorada.ForeColor = Color.Red;
+                label12.BackColor = Color.Red;
+                label12.ForeColor = Color.White;
+                label12.Text = "Insira a morada";
+                label21.Visible = true;
+
+            }
+        }
+
+        private void tbTelefone_TextChanged(object sender, EventArgs e)
+        {
+            Regex modelo = new Regex("^[0-9]+$");
+            if (modelo.IsMatch(tbTelefone.Text))
+            {
+                tbTelefone.ForeColor = Color.Green;
+                label24.Text = "";
+                label17.Visible = false;
+            }
+            else
+            {
+                tbTelefone.ForeColor = Color.Red;
+                label24.BackColor = Color.Red;
+                label24.ForeColor = Color.White;
+                label24.Text = "Formato de telefone incorreto";
+                tbTelefone.Clear();
+                label17.Visible = true;
+            }
+        }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+            Regex modelo = new Regex(@"^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$");
+            if (modelo.IsMatch(tbEmail.Text))
+            {
+                tbEmail.ForeColor = Color.Green;
+                label13.Text = "";
+                label18.Visible = false;
+            }
+            else
+            {
+                tbEmail.ForeColor = Color.Red;
+                label13.BackColor = Color.Red;
+                label13.ForeColor = Color.White;
+                label13.Text = "Formato de email incorreto";
+                label18.Visible = true;
+            }
+        }
+
+        private void tbSns_TextChanged(object sender, EventArgs e)
+        {
+            Regex modelo = new Regex("^[0-9]+$");
+            if (modelo.IsMatch(tbSns.Text))
+            {
+                tbSns.ForeColor = Color.Green;
+                label14.Text = "";
+                label19.Visible = false;
+            }
+            else
+            {
+                tbSns.ForeColor = Color.Red;
+                label14.BackColor = Color.Red;
+                label14.ForeColor = Color.White;
+                label14.Text = "Valores entre 0-9";
+                tbSns.Clear();
+                label19.Visible = true;
+            }
+        }
+
+        private void tbNomeUtilizador_TextChanged(object sender, EventArgs e)
+        {
+            if (tbNomeUtilizador.Text != "")
+            {
+                tbNomeUtilizador.ForeColor = Color.Green;
+                label22.Text = "";
+                label20.Visible = false;
+            }
+            else
+            {
+                tbNomeUtilizador.ForeColor = Color.Red;
+                label22.BackColor = Color.Red;
+                label22.ForeColor = Color.White;
+                label22.Text = "Insira um nome de utilizador";
+                label20.Visible = true;
+
+            }
+        }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (tbPassword.Text != "")
+            {
+                tbPassword.ForeColor = Color.Green;
+                label26.Text = "";
+                label27.Visible = false;
+            }
+            else
+            {
+                tbPassword.ForeColor = Color.Red;
+                label26.BackColor = Color.Red;
+                label26.ForeColor = Color.White;
+                label26.Text = "Insira uma password";
+                label27.Visible = true;
+
+            }
+        }
+
+        private void cbTipoUtilizador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label28.Visible = false;
+        }
+
+        private void hideLabels()
+        {
+            label12.Text = "";
+            label13.Text = "";
+            label14.Text = "";
+            label16.Text = "";
+            label22.Text = "";
+            label24.Text = "";
+            label26.Text = "";
         }
     }
 }
