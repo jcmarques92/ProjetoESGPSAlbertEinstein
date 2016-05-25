@@ -31,6 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPaciente));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.rbFeminino = new System.Windows.Forms.RadioButton();
+            this.rbMasculino = new System.Windows.Forms.RadioButton();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -49,8 +58,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.ckFeminino = new System.Windows.Forms.CheckBox();
-            this.ckMasculino = new System.Windows.Forms.CheckBox();
             this.dtDataNascim = new System.Windows.Forms.DateTimePicker();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -106,13 +113,6 @@
             this.btnUtilizadores = new System.Windows.Forms.Button();
             this.panelCabecalho = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -149,6 +149,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
+            this.tabPage1.Controls.Add(this.rbFeminino);
+            this.tabPage1.Controls.Add(this.rbMasculino);
             this.tabPage1.Controls.Add(this.label21);
             this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.label19);
@@ -174,8 +176,6 @@
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.ckFeminino);
-            this.tabPage1.Controls.Add(this.ckMasculino);
             this.tabPage1.Controls.Add(this.dtDataNascim);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -183,6 +183,100 @@
             this.tabPage1.Size = new System.Drawing.Size(1002, 326);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados Demográficos";
+            // 
+            // rbFeminino
+            // 
+            this.rbFeminino.AutoSize = true;
+            this.rbFeminino.Location = new System.Drawing.Point(283, 149);
+            this.rbFeminino.Name = "rbFeminino";
+            this.rbFeminino.Size = new System.Drawing.Size(67, 17);
+            this.rbFeminino.TabIndex = 37;
+            this.rbFeminino.TabStop = true;
+            this.rbFeminino.Text = "Feminino";
+            this.rbFeminino.UseVisualStyleBackColor = true;
+            this.rbFeminino.CheckedChanged += new System.EventHandler(this.rbFeminino_CheckedChanged);
+            // 
+            // rbMasculino
+            // 
+            this.rbMasculino.AutoSize = true;
+            this.rbMasculino.Location = new System.Drawing.Point(204, 149);
+            this.rbMasculino.Name = "rbMasculino";
+            this.rbMasculino.Size = new System.Drawing.Size(73, 17);
+            this.rbMasculino.TabIndex = 36;
+            this.rbMasculino.TabStop = true;
+            this.rbMasculino.Text = "Masculino";
+            this.rbMasculino.UseVisualStyleBackColor = true;
+            this.rbMasculino.CheckedChanged += new System.EventHandler(this.rbMasculino_CheckedChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(448, 152);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(11, 13);
+            this.label21.TabIndex = 35;
+            this.label21.Text = "*";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(931, 152);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(11, 13);
+            this.label20.TabIndex = 34;
+            this.label20.Text = "*";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(931, 93);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(11, 13);
+            this.label19.TabIndex = 33;
+            this.label19.Text = "*";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(931, 34);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(11, 13);
+            this.label18.TabIndex = 32;
+            this.label18.Text = "*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(448, 203);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(11, 13);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(449, 95);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(11, 13);
+            this.label16.TabIndex = 30;
+            this.label16.Text = "*";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(449, 38);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(11, 13);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "*";
             // 
             // label14
             // 
@@ -310,6 +404,7 @@
             // tbTelefone
             // 
             this.tbTelefone.Location = new System.Drawing.Point(687, 148);
+            this.tbTelefone.MaxLength = 9;
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(241, 20);
             this.tbTelefone.TabIndex = 21;
@@ -367,32 +462,13 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Número de SNS";
             // 
-            // ckFeminino
-            // 
-            this.ckFeminino.AutoSize = true;
-            this.ckFeminino.Location = new System.Drawing.Point(284, 151);
-            this.ckFeminino.Name = "ckFeminino";
-            this.ckFeminino.Size = new System.Drawing.Size(68, 17);
-            this.ckFeminino.TabIndex = 19;
-            this.ckFeminino.Text = "Feminino";
-            this.ckFeminino.UseVisualStyleBackColor = true;
-            // 
-            // ckMasculino
-            // 
-            this.ckMasculino.AutoSize = true;
-            this.ckMasculino.Location = new System.Drawing.Point(204, 151);
-            this.ckMasculino.Name = "ckMasculino";
-            this.ckMasculino.Size = new System.Drawing.Size(74, 17);
-            this.ckMasculino.TabIndex = 18;
-            this.ckMasculino.Text = "Masculino";
-            this.ckMasculino.UseVisualStyleBackColor = true;
-            // 
             // dtDataNascim
             // 
             this.dtDataNascim.Location = new System.Drawing.Point(204, 91);
             this.dtDataNascim.Name = "dtDataNascim";
             this.dtDataNascim.Size = new System.Drawing.Size(241, 20);
             this.dtDataNascim.TabIndex = 17;
+            this.dtDataNascim.ValueChanged += new System.EventHandler(this.dtDataNascim_ValueChanged);
             // 
             // tabPage2
             // 
@@ -804,7 +880,7 @@
             this.panel2.Controls.Add(this.btnAtualizar);
             this.panel2.Location = new System.Drawing.Point(0, 324);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1163, 422);
+            this.panel2.Size = new System.Drawing.Size(1163, 414);
             this.panel2.TabIndex = 41;
             // 
             // btnProcurar
@@ -987,76 +1063,6 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(449, 38);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(11, 13);
-            this.label15.TabIndex = 29;
-            this.label15.Text = "*";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(449, 95);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(11, 13);
-            this.label16.TabIndex = 30;
-            this.label16.Text = "*";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(448, 203);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(11, 13);
-            this.label17.TabIndex = 31;
-            this.label17.Text = "*";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(931, 34);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(11, 13);
-            this.label18.TabIndex = 32;
-            this.label18.Text = "*";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(931, 93);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(11, 13);
-            this.label19.TabIndex = 33;
-            this.label19.Text = "*";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(931, 152);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(11, 13);
-            this.label20.TabIndex = 34;
-            this.label20.Text = "*";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(448, 152);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(11, 13);
-            this.label21.TabIndex = 35;
-            this.label21.Text = "*";
-            // 
             // FormPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1118,8 +1124,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckBox ckFeminino;
-        private System.Windows.Forms.CheckBox ckMasculino;
         private System.Windows.Forms.DateTimePicker dtDataNascim;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabControl tabControl2;
@@ -1187,5 +1191,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.RadioButton rbMasculino;
+        private System.Windows.Forms.RadioButton rbFeminino;
     }
 }

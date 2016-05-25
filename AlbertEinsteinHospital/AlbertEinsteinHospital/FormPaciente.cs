@@ -63,43 +63,23 @@ namespace AlbertEinsteinHospital
 
         private void tbTelefone_TextChanged(object sender, EventArgs e)
         {
-            //int number = 0 - 9;
-            //Regex rgx = new Regex(@"[z0-9]$");
-            //Match match = Regex.Match("10", numero2);
-            //string telefone2 = @"^[0-9]{2}-[0-9]{4}-[0-9]{4}$";
-
-            //string telefone2 = "[0-9]";
-
-            //Match match = Regex.Match("", telefone2);
-
-
-            //string numeroReal2 = "[0-9]";
-
-
-
-            //Match match = Regex.Match(numeroReal2);
-            //string email = tbTelefone.Text;
-            //string modelo = "[0-9]";
-
-
-            
-            var modelo = new Regex(@"^\d{2}-\d{4}-\d{4}$");
+            //@"^\(\d{3}\)\d{3}-\d{4}$" --> "(XXX) XXX-XXXX"
+            //@"\d{3}\d{6}$"
+            Regex modelo = new Regex(@"\d{9}$");
             if (modelo.IsMatch(tbTelefone.Text))
             {
-                tbTelefone.BackColor = Color.Green;
-                tbTelefone.ForeColor = Color.White;
-                label9.BackColor = Color.Green;
-                label9.ForeColor = Color.White;
-                label9.Text = "Sucesso";
+                tbTelefone.ForeColor = Color.Green;
+                label9.Text = "";
+                label20.Visible = false;
             }
             else
             {
-                tbTelefone.BackColor = Color.Red;
-                tbTelefone.ForeColor = Color.White;
+                tbTelefone.ForeColor = Color.Red;
                 label9.BackColor = Color.Red;
                 label9.ForeColor = Color.White;
-                label9.Text = "Insucesso: Valores entre 0-9";
-        }
+                label9.Text = "Formato de telefone incorreto";
+                label20.Visible = true;
+            }
 
         }
         
@@ -107,19 +87,20 @@ namespace AlbertEinsteinHospital
 
     private void tbEmail_TextChanged(object sender, EventArgs e)
         {
-            //32767
             Regex modelo = new Regex(@"^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$");
             if (modelo.IsMatch(tbEmail.Text))
             {
                 tbEmail.ForeColor = Color.Green;
+                label13.Text = "";
+                label18.Visible = false;
             }
             else
             {
-                tbEmail.BackColor = Color.Red;
-                tbEmail.ForeColor = Color.White;
+                tbEmail.ForeColor = Color.Red;
                 label13.BackColor = Color.Red;
                 label13.ForeColor = Color.White;
-                label13.Text = "Insucesso: Formato de email incorreto";
+                label13.Text = "Formato de email incorreto";
+                label18.Visible = true;
             }
         }
 
@@ -139,14 +120,9 @@ namespace AlbertEinsteinHospital
             Regex modelo = new Regex(@"^[aA-zZ]+((\s[aA-zZ]+)+)?$");
             if (modelo.IsMatch(tbNome.Text))
             {
-               
                 tbNome.ForeColor = Color.Green;
                 label10.Text = "";
-                if (tbNome!=null)
-                {
-                    label15.Visible = false;
-                }
-                
+                label15.Visible = false;
             }
             else
             {
@@ -155,25 +131,26 @@ namespace AlbertEinsteinHospital
                 label10.BackColor = Color.Red;
                 label10.ForeColor = Color.White;
                 label10.Text = "Insira letras de aA-zZ";
-                
-
+                label15.Visible = true;
             }
         }
 
         private void tbSns_TextChanged(object sender, EventArgs e)
         {
-            var modelo = new Regex("[0-9]");
+            Regex modelo = new Regex("[0-9]");
             if (modelo.IsMatch(tbSns.Text))
             {
-                tbSns.ForeColor = Color.White;
+                tbSns.ForeColor = Color.Green;
+                label14.Text = "";
+                label19.Visible = false;
             }
             else
             {
-                tbSns.BackColor = Color.Red;
-                tbSns.ForeColor = Color.White;
+                tbSns.ForeColor = Color.Red;
                 label14.BackColor = Color.Red;
                 label14.ForeColor = Color.White;
-                label14.Text = "Insucesso: Valores entre 0-9";
+                label14.Text = "Valores entre 0-9";
+                label19.Visible = true;
             }
         }
 
@@ -182,8 +159,8 @@ namespace AlbertEinsteinHospital
             if (tbMorada.Text != "")
             {
                 tbMorada.ForeColor = Color.Green;
-                label10.Text = "";
                 label11.Text ="";
+                label17.Visible = false;
             }
             else
             {
@@ -191,6 +168,7 @@ namespace AlbertEinsteinHospital
                 label11.BackColor = Color.Red;
                 label11.ForeColor = Color.White;
                 label11.Text = "Insira a morada";
+                label17.Visible = true;
 
             }
         }
@@ -202,6 +180,40 @@ namespace AlbertEinsteinHospital
             label11.Text = "";
             label13.Text = "";
             label14.Text = "";
+        }
+
+        private void dtDataNascim_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtDataNascim!=null)
+            {
+                label16.Visible = false;
+            }
+            else
+            {
+                label16.Visible = true;
+            }
+        }
+
+        private void rbChecked()
+        {
+            if (rbFeminino.Checked || rbMasculino.Checked)
+            {
+                label21.Visible = false;
+            }
+            else
+            {
+                label21.Visible = true;
+            }
+        }
+
+        private void rbFeminino_CheckedChanged(object sender, EventArgs e)
+        {
+            rbChecked();
+        }
+
+        private void rbMasculino_CheckedChanged(object sender, EventArgs e)
+        {
+            rbChecked();
         }
     }
 }
