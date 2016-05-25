@@ -366,6 +366,7 @@
             this.btnProcurar.TabIndex = 4;
             this.btnProcurar.Text = "PROCURAR";
             this.btnProcurar.UseVisualStyleBackColor = false;
+            this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
             // 
             // btnAtualizar
             // 

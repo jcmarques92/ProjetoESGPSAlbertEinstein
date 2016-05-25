@@ -117,6 +117,7 @@ namespace AlbertEinsteinHospital
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limparCampos();
+            atualizar();
         }
 
         public void limparCampos()
@@ -160,7 +161,7 @@ namespace AlbertEinsteinHospital
 
         }
 
-        public void AtualizarUtilizador(string nome, DateTime dataNascim, string genero, string morada, int telefone, bool ativo, string email, int sns, string nomeUtilizador, string password, string tipoUtilizador)
+        public void atualizarAtualizador(string nome, DateTime dataNascim, string genero, string morada, int telefone, bool ativo, string email, int sns, string nomeUtilizador, string password, string tipoUtilizador)
         {
             AEH_BDEntities bd = new AEH_BDEntities();
 
@@ -333,7 +334,7 @@ namespace AlbertEinsteinHospital
             try
             {
 
-                AtualizarUtilizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, tbPassword.Text, cbTipoUtilizador.Text);
+                atualizarAtualizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, tbPassword.Text, cbTipoUtilizador.Text);
                 MessageBox.Show("Utilizador Atualizado com Sucesso!", "Sucesso");
                 atualizar();
 
@@ -342,6 +343,36 @@ namespace AlbertEinsteinHospital
             {
                 MessageBox.Show("Erro!");
             }
+        }
+
+        private void btnProcurar_Click(object sender, EventArgs e)
+        {
+            procurarUtilizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, tbEmail.Text, tbSns.Text, tbTelefone.Text, tbNomeUtilizador.Text, cbTipoUtilizador.Text);
+        }
+
+        private void procurarUtilizador(string nome, DateTime dt, string genero, string morada, string email, string sns, string telefone, string nomeUtilizador, string tipoUtilizador)
+        {
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            List<Utilizador> listaPesquisa = bd.PessoaSet.OfType<Utilizador>().Where(i => i.Nome.ToLower().Contains(nome.ToLower()) || i.DataNascimento.Equals(dt) || i.Genero.ToLower().Equals(genero.ToLower()) || i.Morada.ToLower().Contains(morada.ToLower()) || i.Email.ToLower().Contains(email.ToLower()) || i.NumSns.ToString().ToLower().Contains(sns.ToLower()) || i.Telefone.ToString().ToLower().Contains(telefone.ToLower()) || i.NomeUtilizador.ToLower().Contains(nomeUtilizador.ToLower()) || i.TipoUtilizador.ToLower().Contains(tipoUtilizador.ToLower())).ToList();
+
+            listView1.Items.Clear();
+
+            ListViewItem item1 = new ListViewItem();
+
+            listView1.FullRowSelect = true;
+
+            for (int i = 0; i < listaPesquisa.Count; i++)
+            {
+
+                item1 = new ListViewItem(listaPesquisa[i].Nome.ToString());
+                item1.SubItems.Add(listaPesquisa[i].DataNascimento.ToString());
+                item1.SubItems.Add(listaPesquisa[i].NumSns.ToString());
+                item1.SubItems.Add(listaPesquisa[i].TipoUtilizador.ToString());
+
+                listView1.Items.Add(item1);
+            }
+
         }
     }
 }
