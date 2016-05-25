@@ -13,13 +13,18 @@ namespace AlbertEinsteinHospital
 {
     public partial class FormPaciente : Form
     {
+        Paciente paciente;
+        string genero;
+        List<Paciente> listaPacientes;
         Utilizador utilizador;
+        int sns;
+        Utilizador utilizadorLogado;
 
         public FormPaciente(Utilizador utilizador)
         {
-            this.utilizador = utilizador;
             InitializeComponent();
-
+            this.utilizadorLogado = utilizador;
+            listaPacientes = DadosPaciente.getPacientes().ToList();
         }
 
        private void btnVoltar_Click(object sender, EventArgs e)
@@ -36,30 +41,67 @@ namespace AlbertEinsteinHospital
 
         private void btnRegistar_Click(object sender, EventArgs e)
         {
-            registarPaciente(tbNome.Text, dtDataNascim.Value, int.Parse(tbSns.Text), "M", tbMorada.Text, int.Parse(tbTelefone.Text), tbEmail.Text);
+            if (rbMasculino.Checked)
+            {
+                genero = "M";
+            }
+            else if (rbFeminino.Checked)
+            {
+                genero = "F";
+            }
 
+            try
+            {
+                DadosPaciente.registarPaciente(tbNome.Text, dtDataNascim.Value, int.Parse(tbSns.Text), genero, tbMorada.Text, int.Parse(tbTelefone.Text), tbEmail.Text);
+                MessageBox.Show("Paciente Registado com Sucesso!", "Sucesso");
+                limparCampos();
+                atualizar();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro!");
+            }
         }
 
-        public void registarPaciente(string nome, DateTime dataNascim, int numSns, string genero, string morada, int telefone, string email)
+        public void limparCampos()
         {
-            AEH_BDEntities db = new AEH_BDEntities();
-
-            Paciente p = new Paciente();
-            p.Nome = nome;
-            p.DataNascimento = dataNascim;
-            p.NumSns = numSns;
-            p.Genero = genero;
-            p.Morada = morada;
-            p.Telefone = telefone;
-            p.Email = email;
-
-            db.PessoaSet.Add(p);
-            db.SaveChanges();
-
-            Paciente paciente = db.PessoaSet.OfType<Paciente>().Where(x => x.Id == 1).FirstOrDefault();
-            db.Dispose();
-
+            tbNome.Clear();
+            dtDataNascim.ResetText();
+            tbSns.Clear();
+            rbMasculino.Checked = false;
+            rbFeminino.Checked = false;
+            tbMorada.Clear();
+            tbTelefone.Clear();
+            tbEmail.Clear();
         }
+
+        private void atualizar()
+        {
+            listViewPacientes.Items.Clear();
+
+            listaPacientes = DadosPaciente.getPacientes().ToList();
+
+            ListViewItem item1 = new ListViewItem();
+
+            listViewPacientes.FullRowSelect = true;
+
+            for (int i = 0; i < listaPacientes.Count; i++)
+            {
+
+                item1 = new ListViewItem(listaPacientes[i].Nome.ToString());
+                item1.SubItems.Add(listaPacientes[i].DataNascimento.ToString());
+                item1.SubItems.Add(listaPacientes[i].Genero.ToString());
+                item1.SubItems.Add(listaPacientes[i].Morada.ToString());
+                item1.SubItems.Add(listaPacientes[i].Email.ToString());
+                item1.SubItems.Add(listaPacientes[i].NumSns.ToString());
+                item1.SubItems.Add(listaPacientes[i].Telefone.ToString());
+
+                listViewPacientes.Items.Add(item1);
+            }
+        }
+
+        
+
 
         private void tbTelefone_TextChanged(object sender, EventArgs e)
         {
@@ -106,12 +148,44 @@ namespace AlbertEinsteinHospital
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Paciente> paciente = new List<Paciente>();
-
-            foreach (var item in paciente)
+            if (listViewPacientes.SelectedIndices.Count <= 0)
             {
-
+                limparCampos();
+                btnRegistar.Enabled = true;
+                btnProcurar.Enabled = true;
+                return;
             }
+
+            int intselectedindex = listViewPacientes.SelectedIndices[0];
+
+            if (intselectedindex >= 0)
+            {
+                paciente = listaPacientes[intselectedindex];
+                sns = listaPacientes[intselectedindex].NumSns;
+                preencherFormulario(paciente);
+                btnRegistar.Enabled = false;
+                btnProcurar.Enabled = false;
+            }
+        }
+
+        private void preencherFormulario(Paciente p)
+        {
+            limparCampos();
+            tbNome.Text = p.Nome;
+            dtDataNascim.Value = p.DataNascimento;
+            if (p.Genero == "M")
+            {
+                rbMasculino.Checked = true;
+            }
+
+            else
+            {
+                rbFeminino.Checked = true;
+            }
+            tbMorada.Text = p.Morada;
+            tbTelefone.Text = p.Telefone.ToString();
+            tbEmail.Text = p.Email;
+            tbSns.Text = p.NumSns.ToString();
         }
 
         private void tbNome_TextChanged(object sender, EventArgs e)
@@ -175,6 +249,22 @@ namespace AlbertEinsteinHospital
 
         private void FormPaciente_Load(object sender, EventArgs e)
         {
+            label1.Text = utilizadorLogado.NomeUtilizador;
+
+            ListViewItem item1 = new ListViewItem();
+
+            listViewPacientes.FullRowSelect = true;
+
+            for (int i = 0; i < listaPacientes.Count; i++)
+            {
+
+                item1 = new ListViewItem(listaPacientes[i].Nome.ToString());
+                item1.SubItems.Add(listaPacientes[i].DataNascimento.ToString());
+                item1.SubItems.Add(listaPacientes[i].NumSns.ToString());
+
+                listViewPacientes.Items.Add(item1);
+            }
+
             label9.Text = "";
             label10.Text = "";
             label11.Text = "";
@@ -214,6 +304,64 @@ namespace AlbertEinsteinHospital
         private void rbMasculino_CheckedChanged(object sender, EventArgs e)
         {
             rbChecked();
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            if (rbMasculino.Checked)
+            {
+                genero = "M";
+            }
+            else if (rbFeminino.Checked)
+            {
+                genero = "F";
+            }
+
+            try
+            {
+                DadosPaciente.atualizarPaciente(tbNome.Text, dtDataNascim.Value, int.Parse(tbSns.Text), genero, tbMorada.Text, int.Parse(tbTelefone.Text), tbEmail.Text);
+                MessageBox.Show("Paciente Atualizado com Sucesso!", "Sucesso");
+                atualizar();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro!");
+            }
+        }
+
+        private void btnProcurar_Click(object sender, EventArgs e)
+        {
+            procurarPaciente(tbNome.Text, dtDataNascim.Value, tbSns.Text, genero, tbMorada.Text, tbTelefone.Text, tbEmail.Text);
+        }
+
+        private void procurarPaciente(string nome, DateTime dataNascim, string numSns, string genero, string morada, string telefone, string email)
+        {
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            List<Paciente> listaPesquisa = bd.PessoaSet.OfType<Paciente>().Where(i => i.Nome.ToLower().Contains(nome.ToLower()) || i.DataNascimento.Equals(dataNascim) || i.NumSns.ToString().ToLower().Contains(numSns.ToLower()) || i.Genero.ToLower().Equals(genero.ToLower()) || i.Morada.ToLower().Contains(morada.ToLower()) || i.Telefone.ToString().ToLower().Contains(telefone.ToLower()) || i.Email.ToLower().Contains(email.ToLower())).ToList();
+
+
+            listViewPacientes.Items.Clear();
+
+            ListViewItem item1 = new ListViewItem();
+
+            listViewPacientes.FullRowSelect = true;
+
+            for (int i = 0; i < listaPesquisa.Count; i++)
+            {
+
+                item1 = new ListViewItem(listaPesquisa[i].Nome.ToString());
+                item1.SubItems.Add(listaPesquisa[i].DataNascimento.ToString());
+                item1.SubItems.Add(listaPesquisa[i].NumSns.ToString());
+
+                listViewPacientes.Items.Add(item1);
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+            atualizar();
         }
     }
 }

@@ -112,7 +112,14 @@
             this.btnPacientes = new System.Windows.Forms.Button();
             this.btnUtilizadores = new System.Windows.Forms.Button();
             this.panelCabecalho = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewPacientes = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -335,6 +342,7 @@
             this.btnLimpar.TabIndex = 5;
             this.btnLimpar.Text = "Limpar Campos";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // label2
             // 
@@ -897,6 +905,7 @@
             this.btnProcurar.TabIndex = 32;
             this.btnProcurar.Text = "PROCURAR";
             this.btnProcurar.UseVisualStyleBackColor = false;
+            this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
             // 
             // btnRegistar
             // 
@@ -928,6 +937,7 @@
             this.btnAtualizar.TabIndex = 31;
             this.btnAtualizar.Text = "ATUALIZAR";
             this.btnAtualizar.UseVisualStyleBackColor = false;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // labelEmail
             // 
@@ -1053,22 +1063,61 @@
             this.panelCabecalho.Size = new System.Drawing.Size(1163, 56);
             this.panelCabecalho.TabIndex = 39;
             // 
-            // listView1
+            // listViewPacientes
             // 
-            this.listView1.Location = new System.Drawing.Point(100, 122);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1010, 196);
-            this.listView1.TabIndex = 43;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listViewPacientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.listViewPacientes.Location = new System.Drawing.Point(100, 122);
+            this.listViewPacientes.Name = "listViewPacientes";
+            this.listViewPacientes.Size = new System.Drawing.Size(1010, 196);
+            this.listViewPacientes.TabIndex = 43;
+            this.listViewPacientes.UseCompatibleStateImageBehavior = false;
+            this.listViewPacientes.View = System.Windows.Forms.View.Details;
+            this.listViewPacientes.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nome";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Data de Nascimento";
+            this.columnHeader2.Width = 118;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Género";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Morada";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Endereço de Email";
+            this.columnHeader5.Width = 110;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Número de SNS";
+            this.columnHeader6.Width = 101;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Telefone";
             // 
             // FormPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 774);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewPacientes);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.panelLogotipo);
@@ -1179,7 +1228,7 @@
         private System.Windows.Forms.Button btnUtilizadores;
         private System.Windows.Forms.Panel panelCabecalho;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewPacientes;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
@@ -1193,5 +1242,12 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.RadioButton rbMasculino;
         private System.Windows.Forms.RadioButton rbFeminino;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
