@@ -24,7 +24,7 @@ namespace AlbertEinsteinHospital
         {
             InitializeComponent();
             this.utilizadorLogado = utilizador;
-            listaUtilizadores = GetUtilizadores().ToList();
+            listaUtilizadores = DadosUtilizador.getUtilizadores().ToList();
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace AlbertEinsteinHospital
             try
             {
 
-                RegistarUtilizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, tbPassword.Text, cbTipoUtilizador.Text);
+                DadosUtilizador.registarUtilizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, tbPassword.Text, cbTipoUtilizador.Text);
                 MessageBox.Show("Utilizador Registado com Sucesso!", "Sucesso");
                 limparCampos();
                 atualizar();
@@ -103,7 +103,7 @@ namespace AlbertEinsteinHospital
         {
             listView1.Items.Clear();
 
-            listaUtilizadores = GetUtilizadores().ToList();
+            listaUtilizadores = DadosUtilizador.getUtilizadores().ToList();
 
             ListViewItem item1 = new ListViewItem();
 
@@ -142,61 +142,7 @@ namespace AlbertEinsteinHospital
             cbTipoUtilizador.SelectedIndex = -1;
             dtDataNascim.ResetText();
             label28.Visible = true;
-        }
-
-        public void RegistarUtilizador(string nome, DateTime dataNascim, string genero, string morada, int telefone, bool ativo, string email, int sns, string nomeUtilizador, string password, string tipoUtilizador)
-        {
-            AEH_BDEntities bd = new AEH_BDEntities();
-
-            Utilizador u = new Utilizador();
-
-            u.Nome = nome;
-            u.DataNascimento = dataNascim;
-            u.Genero = genero;
-            u.Morada = morada;
-            u.Telefone = telefone;
-            u.Ativo = ativo;
-            u.Email = email;
-            u.NumSns = sns;
-            u.NomeUtilizador = nomeUtilizador;
-            u.Password = password;
-            u.TipoUtilizador = tipoUtilizador;
-
-            bd.PessoaSet.Add(u);
-            bd.SaveChanges();
-
-            Utilizador utilizador = bd.PessoaSet.OfType<Utilizador>().Where(i => i.Id == 1).FirstOrDefault();
-
-        }
-
-        public void atualizarAtualizador(string nome, DateTime dataNascim, string genero, string morada, int telefone, bool ativo, string email, int sns, string nomeUtilizador, string password, string tipoUtilizador)
-        {
-            AEH_BDEntities bd = new AEH_BDEntities();
-
-            Utilizador u = bd.PessoaSet.OfType<Utilizador>().Where(i => i.NumSns == sns).FirstOrDefault();
-
-            u.Nome = nome;
-            u.DataNascimento = dataNascim;
-            u.Genero = genero;
-            u.Morada = morada;
-            u.Telefone = telefone;
-            u.Ativo = ativo;
-            u.Email = email;
-            u.NumSns = sns;
-            u.NomeUtilizador = nomeUtilizador;
-            u.Password = password;
-            u.TipoUtilizador = tipoUtilizador;
-
-            bd.SaveChanges();
-        }
-
-        public List<Utilizador> GetUtilizadores()
-        {
-            AEH_BDEntities bd = new AEH_BDEntities();
-
-            List<Utilizador> listaUtilizadores = bd.PessoaSet.OfType<Utilizador>().Where(u => u.Ativo == true).ToList();
-
-            return listaUtilizadores;
+            label23.Visible = true;
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
@@ -342,7 +288,7 @@ namespace AlbertEinsteinHospital
             try
             {
 
-                atualizarAtualizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, tbPassword.Text, cbTipoUtilizador.Text);
+                DadosUtilizador.atualizarAtualizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, tbPassword.Text, cbTipoUtilizador.Text);
                 MessageBox.Show("Utilizador Atualizado com Sucesso!", "Sucesso");
                 atualizar();
 
@@ -412,6 +358,9 @@ namespace AlbertEinsteinHospital
             else
             {
                 label23.Visible = true;
+                label29.BackColor = Color.Red;
+                label29.ForeColor = Color.White;
+                label29.Text = "Insira a data de nascimento";
             }
         }
 
@@ -567,6 +516,7 @@ namespace AlbertEinsteinHospital
             label22.Text = "";
             label24.Text = "";
             label26.Text = "";
+            label29.Text = "";
         }
     }
 }
