@@ -67,5 +67,13 @@ namespace AlbertEinsteinHospital
             frmRecuperar.ShowDialog();
             this.Close();
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FormInicial frmInicial = new FormInicial();
+            this.Hide();
+            frmInicial.ShowDialog();
+            this.Close();
+        }
     }
 }

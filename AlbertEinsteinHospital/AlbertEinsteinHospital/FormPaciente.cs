@@ -29,37 +29,65 @@ namespace AlbertEinsteinHospital
 
        private void btnVoltar_Click(object sender, EventArgs e)
         {
+            FormPrincipal frmPrincipal = new FormPrincipal(utilizadorLogado);
+            this.Hide();
+            frmPrincipal.ShowDialog();
+            this.Close();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Tem a certeza que pretende fazer logout?", "Logout", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                FormInicial frmInicial = new FormInicial();
+                this.Hide();
+                frmInicial.ShowDialog();
+                this.Close();
+            }
         }
 
         private void btnUtilizadores_Click(object sender, EventArgs e)
         {
+            FormUtilizador frmUtilizador = new FormUtilizador(utilizadorLogado);
+            this.Hide();
+            frmUtilizador.ShowDialog();
+            this.Close();
         }
+
+        /*public Utilizador tipoUtilizador()
+        {
+            char tpUtilizador;
+            if (utilizadorLogado.TipoUtilizador=="S")
+            {
+                return Convert.ToChar(tpUtilizador)="S";
+            }
+        }
+        */
 
         private void btnRegistar_Click(object sender, EventArgs e)
         {
-            if (rbMasculino.Checked)
+            if (utilizadorLogado.TipoUtilizador == "U")
             {
-                genero = "M";
-            }
-            else if (rbFeminino.Checked)
-            {
-                genero = "F";
-            }
+                if (rbMasculino.Checked)
+                {
+                    genero = "M";
+                }
+                else if (rbFeminino.Checked)
+                {
+                    genero = "F";
+                }
 
-            try
-            {
-                DadosPaciente.registarPaciente(tbNome.Text, dtDataNascim.Value, int.Parse(tbSns.Text), genero, tbMorada.Text, int.Parse(tbTelefone.Text), tbEmail.Text);
-                MessageBox.Show("Paciente Registado com Sucesso!", "Sucesso");
-                limparCampos();
-                atualizar();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Erro!");
+                try
+                {
+                    DadosPaciente.registarPaciente(tbNome.Text, dtDataNascim.Value, int.Parse(tbSns.Text), genero, tbMorada.Text, int.Parse(tbTelefone.Text), tbEmail.Text);
+                    MessageBox.Show("Paciente Registado com Sucesso!", "Sucesso");
+                    limparCampos();
+                    atualizar();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro!");
+                }
             }
         }
 
@@ -87,27 +115,23 @@ namespace AlbertEinsteinHospital
 
             for (int i = 0; i < listaPacientes.Count; i++)
             {
-
                 item1 = new ListViewItem(listaPacientes[i].Nome.ToString());
                 item1.SubItems.Add(listaPacientes[i].DataNascimento.ToString());
+                item1.SubItems.Add(listaPacientes[i].NumSns.ToString());
                 item1.SubItems.Add(listaPacientes[i].Genero.ToString());
                 item1.SubItems.Add(listaPacientes[i].Morada.ToString());
-                item1.SubItems.Add(listaPacientes[i].Email.ToString());
-                item1.SubItems.Add(listaPacientes[i].NumSns.ToString());
                 item1.SubItems.Add(listaPacientes[i].Telefone.ToString());
+                item1.SubItems.Add(listaPacientes[i].Email.ToString());
 
                 listViewPacientes.Items.Add(item1);
             }
         }
 
-        
-
-
         private void tbTelefone_TextChanged(object sender, EventArgs e)
         {
             //@"^\(\d{3}\)\d{3}-\d{4}$" --> "(XXX) XXX-XXXX"
             //@"\d{3}\d{6}$"
-            Regex modelo = new Regex(@"\d{9}$");
+            Regex modelo = new Regex("^[0-9]+$");
             if (modelo.IsMatch(tbTelefone.Text))
             {
                 tbTelefone.ForeColor = Color.Green;
@@ -177,15 +201,14 @@ namespace AlbertEinsteinHospital
             {
                 rbMasculino.Checked = true;
             }
-
             else
             {
                 rbFeminino.Checked = true;
             }
             tbMorada.Text = p.Morada;
-            tbTelefone.Text = p.Telefone.ToString();
             tbEmail.Text = p.Email;
             tbSns.Text = p.NumSns.ToString();
+            tbTelefone.Text = p.Telefone.ToString();
         }
 
         private void tbNome_TextChanged(object sender, EventArgs e)
@@ -211,7 +234,7 @@ namespace AlbertEinsteinHospital
 
         private void tbSns_TextChanged(object sender, EventArgs e)
         {
-            Regex modelo = new Regex("[0-9]");
+            Regex modelo = new Regex("^[0-9]+$");
             if (modelo.IsMatch(tbSns.Text))
             {
                 tbSns.ForeColor = Color.Green;
@@ -260,7 +283,11 @@ namespace AlbertEinsteinHospital
 
                 item1 = new ListViewItem(listaPacientes[i].Nome.ToString());
                 item1.SubItems.Add(listaPacientes[i].DataNascimento.ToString());
+                item1.SubItems.Add(listaPacientes[i].Genero.ToString());
+                item1.SubItems.Add(listaPacientes[i].Morada.ToString());
+                item1.SubItems.Add(listaPacientes[i].Email.ToString());
                 item1.SubItems.Add(listaPacientes[i].NumSns.ToString());
+                item1.SubItems.Add(listaPacientes[i].Telefone.ToString());
 
                 listViewPacientes.Items.Add(item1);
             }
@@ -289,10 +316,12 @@ namespace AlbertEinsteinHospital
             if (rbFeminino.Checked || rbMasculino.Checked)
             {
                 label21.Visible = false;
+                rbFeminino.ForeColor = Color.Red;
             }
             else
             {
                 label21.Visible = true;
+                rbMasculino.ForeColor = Color.Green;
             }
         }
 

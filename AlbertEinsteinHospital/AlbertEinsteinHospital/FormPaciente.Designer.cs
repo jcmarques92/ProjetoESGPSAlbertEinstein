@@ -1065,6 +1065,7 @@
             // 
             // listViewPacientes
             // 
+            this.listViewPacientes.BackColor = System.Drawing.SystemColors.Window;
             this.listViewPacientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -1073,6 +1074,7 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
+            this.listViewPacientes.ForeColor = System.Drawing.SystemColors.WindowText;
             this.listViewPacientes.Location = new System.Drawing.Point(100, 122);
             this.listViewPacientes.Name = "listViewPacientes";
             this.listViewPacientes.Size = new System.Drawing.Size(1010, 196);
@@ -1084,11 +1086,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Nome";
+            this.columnHeader1.Width = 186;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Data de Nascimento";
-            this.columnHeader2.Width = 118;
+            this.columnHeader2.Width = 125;
             // 
             // columnHeader3
             // 
@@ -1097,20 +1100,22 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Morada";
+            this.columnHeader4.Width = 292;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Endereço de Email";
-            this.columnHeader5.Width = 110;
+            this.columnHeader5.Width = 142;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Número de SNS";
-            this.columnHeader6.Width = 101;
+            this.columnHeader6.Width = 94;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Telefone";
+            this.columnHeader7.Width = 106;
             // 
             // FormPaciente
             // 

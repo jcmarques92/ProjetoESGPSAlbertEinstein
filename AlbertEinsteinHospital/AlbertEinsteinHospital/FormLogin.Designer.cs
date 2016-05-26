@@ -43,6 +43,7 @@
             this.labelEmail = new System.Windows.Forms.Label();
             this.panelLogotipo = new System.Windows.Forms.Panel();
             this.labelTelefoneFax = new System.Windows.Forms.Label();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.panelCabecalho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -114,6 +115,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(121)))), ((int)(((byte)(169)))));
+            this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -210,6 +212,21 @@
             this.labelTelefoneFax.TabIndex = 0;
             this.labelTelefoneFax.Text = "telefone: 244 777 000 | fax: 244 777 010";
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.btnVoltar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.ForeColor = System.Drawing.Color.White;
+            this.btnVoltar.Location = new System.Drawing.Point(14, 14);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(112, 22);
+            this.btnVoltar.TabIndex = 44;
+            this.btnVoltar.Text = "<< Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,5 +267,6 @@
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.Panel panelLogotipo;
         private System.Windows.Forms.Label labelTelefoneFax;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }
