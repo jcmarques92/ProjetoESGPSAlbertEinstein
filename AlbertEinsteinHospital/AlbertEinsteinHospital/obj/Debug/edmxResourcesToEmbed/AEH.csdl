@@ -2,6 +2,21 @@
 <Schema Namespace="AEH_BDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="AEH_BDEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="PessoaSet" EntityType="AEH_BDModel.Pessoa" />
+    <EntitySet Name="MedicacaoSet" EntityType="AEH_BDModel.Medicacao" />
+    <EntitySet Name="ExameSet" EntityType="AEH_BDModel.Exame" />
+    <EntitySet Name="SintomaSet" EntityType="AEH_BDModel.Sintoma" />
+    <AssociationSet Name="PacienteExame" Association="AEH_BDModel.PacienteExame">
+      <End Role="Paciente" EntitySet="PessoaSet" />
+      <End Role="Exame" EntitySet="ExameSet" />
+    </AssociationSet>
+    <AssociationSet Name="PacienteMedicacao" Association="AEH_BDModel.PacienteMedicacao">
+      <End Role="Paciente" EntitySet="PessoaSet" />
+      <End Role="Medicacao" EntitySet="MedicacaoSet" />
+    </AssociationSet>
+    <AssociationSet Name="PacienteSintoma" Association="AEH_BDModel.PacienteSintoma">
+      <End Role="Paciente" EntitySet="PessoaSet" />
+      <End Role="Sintoma" EntitySet="SintomaSet" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Utilizador" BaseType="AEH_BDModel.Pessoa">
     <Property Name="NomeUtilizador" Nullable="false" Type="String" />
@@ -22,5 +37,67 @@
     <Property Name="Telefone" Type="Int32" Nullable="false" />
     <Property Name="Email" Type="String" Nullable="false" />
   </EntityType>
-  <EntityType Name="Paciente" BaseType="AEH_BDModel.Pessoa" />
+  <EntityType Name="Paciente" BaseType="AEH_BDModel.Pessoa">
+    <NavigationProperty Name="Exame" Relationship="AEH_BDModel.PacienteExame" FromRole="Paciente" ToRole="Exame" />
+    <NavigationProperty Name="Medicacao" Relationship="AEH_BDModel.PacienteMedicacao" FromRole="Paciente" ToRole="Medicacao" />
+    <NavigationProperty Name="Sintoma" Relationship="AEH_BDModel.PacienteSintoma" FromRole="Paciente" ToRole="Sintoma" />
+  </EntityType>
+  <EntityType Name="Medicacao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataInicio" Type="DateTime" Nullable="false" />
+    <Property Name="DataFim" Type="DateTime" Nullable="false" />
+    <Property Name="Medicamento" Type="String" Nullable="false" />
+    <Property Name="Dosagem" Type="String" Nullable="false" />
+    <NavigationProperty Name="Paciente" Relationship="AEH_BDModel.PacienteMedicacao" FromRole="Medicacao" ToRole="Paciente" />
+  </EntityType>
+  <EntityType Name="Exame">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Imagem" Type="Binary" Nullable="false" />
+    <Property Name="Notas" Type="String" Nullable="false" />
+    <NavigationProperty Name="Paciente" Relationship="AEH_BDModel.PacienteExame" FromRole="Exame" ToRole="Paciente" />
+  </EntityType>
+  <EntityType Name="Sintoma">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompromissoViaAerea" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="RespiracaoIneficaz" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <NavigationProperty Name="Paciente" Relationship="AEH_BDModel.PacienteSintoma" FromRole="Sintoma" ToRole="Paciente" />
+    <Property Name="CriancaNaoReativa" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="Choque" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="IncapacidadeArticular" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="TaquicardiaAcentuada" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="PEFRmb" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="SAO2mb" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="AlteracaoConsciencia" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="PEFRb" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="SAO2b" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="HistoriaAsma" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="Asma" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="Broncospasmo" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="ProvavelInfecaoRespiratoria" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="ProblemaRecente" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="Outro" Type="Boolean" Nullable="false" DefaultValue="false" />
+    <Property Name="OutroDescricao" Type="String" Nullable="true" />
+    <Property Name="Notas" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="PacienteExame">
+    <End Type="AEH_BDModel.Paciente" Role="Paciente" Multiplicity="0..1" />
+    <End Type="AEH_BDModel.Exame" Role="Exame" Multiplicity="*" />
+  </Association>
+  <Association Name="PacienteMedicacao">
+    <End Type="AEH_BDModel.Paciente" Role="Paciente" Multiplicity="0..1" />
+    <End Type="AEH_BDModel.Medicacao" Role="Medicacao" Multiplicity="*" />
+  </Association>
+  <Association Name="PacienteSintoma">
+    <End Type="AEH_BDModel.Paciente" Role="Paciente" Multiplicity="0..1" />
+    <End Type="AEH_BDModel.Sintoma" Role="Sintoma" Multiplicity="*" />
+  </Association>
 </Schema>

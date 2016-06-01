@@ -7,15 +7,30 @@
     <Schema Namespace="AEH_BDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="AEH_BDModelStoreContainer">
     <EntitySet Name="PessoaSet" EntityType="AEH_BDModel.Store.PessoaSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PessoaSet_Utilizador" EntityType="AEH_BDModel.Store.PessoaSet_Utilizador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MedicacaoSet" EntityType="AEH_BDModel.Store.MedicacaoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ExameSet" EntityType="AEH_BDModel.Store.ExameSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SintomaSet" EntityType="AEH_BDModel.Store.SintomaSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PessoaSet_Paciente" EntityType="AEH_BDModel.Store.PessoaSet_Paciente" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_Utilizador_inherits_Pessoa" Association="AEH_BDModel.Store.FK_Utilizador_inherits_Pessoa">
-      <End Role="Pessoa" EntitySet="PessoaSet" />
-      <End Role="Utilizador" EntitySet="PessoaSet_Utilizador" />
+    <EntitySet Name="PessoaSet_Utilizador" EntityType="AEH_BDModel.Store.PessoaSet_Utilizador" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PacienteExame" Association="AEH_BDModel.Store.PacienteExame">
+      <End Role="Paciente" EntitySet="PessoaSet_Paciente" />
+      <End Role="Exame" EntitySet="ExameSet" />
+    </AssociationSet>
+    <AssociationSet Name="PacienteMedicacao" Association="AEH_BDModel.Store.PacienteMedicacao">
+      <End Role="Paciente" EntitySet="PessoaSet_Paciente" />
+      <End Role="Medicacao" EntitySet="MedicacaoSet" />
+    </AssociationSet>
+    <AssociationSet Name="PacienteSintoma" Association="AEH_BDModel.Store.PacienteSintoma">
+      <End Role="Paciente" EntitySet="PessoaSet_Paciente" />
+      <End Role="Sintoma" EntitySet="SintomaSet" />
     </AssociationSet>
     <AssociationSet Name="FK_Paciente_inherits_Pessoa" Association="AEH_BDModel.Store.FK_Paciente_inherits_Pessoa">
       <End Role="Pessoa" EntitySet="PessoaSet" />
       <End Role="Paciente" EntitySet="PessoaSet_Paciente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Utilizador_inherits_Pessoa" Association="AEH_BDModel.Store.FK_Utilizador_inherits_Pessoa">
+      <End Role="Pessoa" EntitySet="PessoaSet" />
+      <End Role="Utilizador" EntitySet="PessoaSet_Utilizador" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="PessoaSet">
@@ -31,6 +46,58 @@
     <Property Name="Telefone" Type="int" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="MedicacaoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataInicio" Type="datetime" Nullable="false" />
+    <Property Name="DataFim" Type="datetime" Nullable="false" />
+    <Property Name="Medicamento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Dosagem" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Paciente_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ExameSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Imagem" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Notas" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Paciente_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SintomaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompromissoViaAerea" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="RespiracaoIneficaz" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="CriancaNaoReativa" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="Choque" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="IncapacidadeArticular" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="TaquicardiaAcentuada" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="PEFRmb" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="SAO2mb" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="AlteracaoConsciencia" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="PEFRb" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="SAO2b" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="HistoriaAsma" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="Asma" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="Broncospasmo" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="ProvavelInfecaoRespiratoria" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="ProblemaRecente" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="Outro" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="OutroDescricao" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Notas" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Paciente_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PessoaSet_Paciente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="PessoaSet_Utilizador">
     <Key>
       <PropertyRef Name="Id" />
@@ -41,23 +108,39 @@
     <Property Name="Ativo" Type="bit" Nullable="false" />
     <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="PessoaSet_Paciente">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-  </EntityType>
-  <Association Name="FK_Utilizador_inherits_Pessoa">
-    <End Role="Pessoa" Type="AEH_BDModel.Store.PessoaSet" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Utilizador" Type="AEH_BDModel.Store.PessoaSet_Utilizador" Multiplicity="0..1" />
+  <Association Name="PacienteExame">
+    <End Role="Paciente" Type="AEH_BDModel.Store.PessoaSet_Paciente" Multiplicity="0..1" />
+    <End Role="Exame" Type="AEH_BDModel.Store.ExameSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Pessoa">
+      <Principal Role="Paciente">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Utilizador">
+      <Dependent Role="Exame">
+        <PropertyRef Name="Paciente_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PacienteMedicacao">
+    <End Role="Paciente" Type="AEH_BDModel.Store.PessoaSet_Paciente" Multiplicity="0..1" />
+    <End Role="Medicacao" Type="AEH_BDModel.Store.MedicacaoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
         <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medicacao">
+        <PropertyRef Name="Paciente_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PacienteSintoma">
+    <End Role="Paciente" Type="AEH_BDModel.Store.PessoaSet_Paciente" Multiplicity="0..1" />
+    <End Role="Sintoma" Type="AEH_BDModel.Store.SintomaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sintoma">
+        <PropertyRef Name="Paciente_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -75,12 +158,41 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Utilizador_inherits_Pessoa">
+    <End Role="Pessoa" Type="AEH_BDModel.Store.PessoaSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Utilizador" Type="AEH_BDModel.Store.PessoaSet_Utilizador" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Utilizador">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AEH_BDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="AEH_BDEntities" annotation:LazyLoadingEnabled="true" >
           <EntitySet Name="PessoaSet" EntityType="AEH_BDModel.Pessoa" />
+          <EntitySet Name="MedicacaoSet" EntityType="AEH_BDModel.Medicacao" />
+          <EntitySet Name="ExameSet" EntityType="AEH_BDModel.Exame" />
+          <EntitySet Name="SintomaSet" EntityType="AEH_BDModel.Sintoma" />
+          <AssociationSet Name="PacienteExame" Association="AEH_BDModel.PacienteExame">
+            <End Role="Paciente" EntitySet="PessoaSet" />
+            <End Role="Exame" EntitySet="ExameSet" />
+          </AssociationSet>
+          <AssociationSet Name="PacienteMedicacao" Association="AEH_BDModel.PacienteMedicacao">
+            <End Role="Paciente" EntitySet="PessoaSet" />
+            <End Role="Medicacao" EntitySet="MedicacaoSet" />
+          </AssociationSet>
+          <AssociationSet Name="PacienteSintoma" Association="AEH_BDModel.PacienteSintoma">
+            <End Role="Paciente" EntitySet="PessoaSet" />
+            <End Role="Sintoma" EntitySet="SintomaSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Utilizador" BaseType="AEH_BDModel.Pessoa">
           <Property Name="NomeUtilizador" Nullable="false" Type="String" />
@@ -101,7 +213,69 @@
           <Property Name="Telefone" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" />
         </EntityType>
-        <EntityType Name="Paciente" BaseType="AEH_BDModel.Pessoa" />
+        <EntityType Name="Paciente" BaseType="AEH_BDModel.Pessoa" >
+          <NavigationProperty Name="Exame" Relationship="AEH_BDModel.PacienteExame" FromRole="Paciente" ToRole="Exame" />
+          <NavigationProperty Name="Medicacao" Relationship="AEH_BDModel.PacienteMedicacao" FromRole="Paciente" ToRole="Medicacao" />
+          <NavigationProperty Name="Sintoma" Relationship="AEH_BDModel.PacienteSintoma" FromRole="Paciente" ToRole="Sintoma" />
+        </EntityType>
+        <EntityType Name="Medicacao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataInicio" Type="DateTime" Nullable="false" />
+          <Property Name="DataFim" Type="DateTime" Nullable="false" />
+          <Property Name="Medicamento" Type="String" Nullable="false" />
+          <Property Name="Dosagem" Type="String" Nullable="false" />
+          <NavigationProperty Name="Paciente" Relationship="AEH_BDModel.PacienteMedicacao" FromRole="Medicacao" ToRole="Paciente" />
+        </EntityType>
+        <EntityType Name="Exame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imagem" Type="Binary" Nullable="false" />
+          <Property Name="Notas" Type="String" Nullable="false" />
+          <NavigationProperty Name="Paciente" Relationship="AEH_BDModel.PacienteExame" FromRole="Exame" ToRole="Paciente" />
+        </EntityType>
+        <EntityType Name="Sintoma">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompromissoViaAerea" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="RespiracaoIneficaz" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <NavigationProperty Name="Paciente" Relationship="AEH_BDModel.PacienteSintoma" FromRole="Sintoma" ToRole="Paciente" />
+          <Property Name="CriancaNaoReativa" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="Choque" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="IncapacidadeArticular" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="TaquicardiaAcentuada" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="PEFRmb" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="SAO2mb" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="AlteracaoConsciencia" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="PEFRb" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="SAO2b" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="HistoriaAsma" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="Asma" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="Broncospasmo" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="ProvavelInfecaoRespiratoria" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="ProblemaRecente" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="Outro" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <Property Name="OutroDescricao" Type="String" Nullable="true" />
+          <Property Name="Notas" Type="String" Nullable="true" />
+        </EntityType>
+        <Association Name="PacienteExame">
+          <End Type="AEH_BDModel.Paciente" Role="Paciente" Multiplicity="0..1" />
+          <End Type="AEH_BDModel.Exame" Role="Exame" Multiplicity="*" />
+        </Association>
+        <Association Name="PacienteMedicacao">
+          <End Type="AEH_BDModel.Paciente" Role="Paciente" Multiplicity="0..1" />
+          <End Type="AEH_BDModel.Medicacao" Role="Medicacao" Multiplicity="*" />
+        </Association>
+        <Association Name="PacienteSintoma">
+          <End Type="AEH_BDModel.Paciente" Role="Paciente" Multiplicity="0..1" />
+          <End Type="AEH_BDModel.Sintoma" Role="Sintoma" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -121,6 +295,11 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
         </MappingFragment>
       </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Paciente)">
+        <MappingFragment StoreEntitySet="PessoaSet_Paciente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Utilizador)">
         <MappingFragment StoreEntitySet="PessoaSet_Utilizador">
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -130,12 +309,80 @@
           <ScalarProperty Name="Ativo" ColumnName="Ativo" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Paciente)">
-        <MappingFragment StoreEntitySet="PessoaSet_Paciente">
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicacaoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Medicacao)">
+        <MappingFragment StoreEntitySet="MedicacaoSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+          <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+          <ScalarProperty Name="Medicamento" ColumnName="Medicamento" />
+          <ScalarProperty Name="Dosagem" ColumnName="Dosagem" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ExameSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Exame)">
+        <MappingFragment StoreEntitySet="ExameSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Imagem" ColumnName="Imagem" />
+          <ScalarProperty Name="Notas" ColumnName="Notas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SintomaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Sintoma)">
+        <MappingFragment StoreEntitySet="SintomaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompromissoViaAerea" ColumnName="CompromissoViaAerea" />
+          <ScalarProperty Name="RespiracaoIneficaz" ColumnName="RespiracaoIneficaz" />
+          <ScalarProperty Name="CriancaNaoReativa" ColumnName="CriancaNaoReativa" />
+          <ScalarProperty Name="Choque" ColumnName="Choque" />
+          <ScalarProperty Name="IncapacidadeArticular" ColumnName="IncapacidadeArticular" />
+          <ScalarProperty Name="TaquicardiaAcentuada" ColumnName="TaquicardiaAcentuada" />
+          <ScalarProperty Name="PEFRmb" ColumnName="PEFRmb" />
+          <ScalarProperty Name="SAO2mb" ColumnName="SAO2mb" />
+          <ScalarProperty Name="AlteracaoConsciencia" ColumnName="AlteracaoConsciencia" />
+          <ScalarProperty Name="PEFRb" ColumnName="PEFRb" />
+          <ScalarProperty Name="SAO2b" ColumnName="SAO2b" />
+          <ScalarProperty Name="HistoriaAsma" ColumnName="HistoriaAsma" />
+          <ScalarProperty Name="Asma" ColumnName="Asma" />
+          <ScalarProperty Name="Broncospasmo" ColumnName="Broncospasmo" />
+          <ScalarProperty Name="ProvavelInfecaoRespiratoria" ColumnName="ProvavelInfecaoRespiratoria" />
+          <ScalarProperty Name="ProblemaRecente" ColumnName="ProblemaRecente" />
+          <ScalarProperty Name="Outro" ColumnName="Outro" />
+          <ScalarProperty Name="OutroDescricao" ColumnName="OutroDescricao" />
+          <ScalarProperty Name="Notas" ColumnName="Notas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PacienteExame" TypeName="AEH_BDModel.PacienteExame" StoreEntitySet="ExameSet">
+      <EndProperty Name="Paciente">
+        <ScalarProperty Name="Id" ColumnName="Paciente_Id" />
+      </EndProperty>
+      <EndProperty Name="Exame">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Paciente_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PacienteMedicacao" TypeName="AEH_BDModel.PacienteMedicacao" StoreEntitySet="MedicacaoSet">
+      <EndProperty Name="Paciente">
+        <ScalarProperty Name="Id" ColumnName="Paciente_Id" />
+      </EndProperty>
+      <EndProperty Name="Medicacao">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Paciente_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PacienteSintoma" TypeName="AEH_BDModel.PacienteSintoma" StoreEntitySet="SintomaSet">
+      <EndProperty Name="Paciente">
+        <ScalarProperty Name="Id" ColumnName="Paciente_Id" />
+      </EndProperty>
+      <EndProperty Name="Sintoma">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Paciente_Id" IsNull="false" />
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

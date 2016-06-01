@@ -14,5 +14,20 @@ namespace AlbertEinsteinHospital
     
     public partial class Paciente : Pessoa
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Paciente()
+        {
+            this.Exame = new HashSet<Exame>();
+            this.Medicacao = new HashSet<Medicacao>();
+            this.Sintoma = new HashSet<Sintoma>();
+        }
+    
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Exame> Exame { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Medicacao> Medicacao { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sintoma> Sintoma { get; set; }
     }
 }

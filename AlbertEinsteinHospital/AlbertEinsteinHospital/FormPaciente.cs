@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -16,7 +17,6 @@ namespace AlbertEinsteinHospital
         Paciente paciente;
         string genero;
         List<Paciente> listaPacientes;
-        Utilizador utilizador;
         int sns;
         Utilizador utilizadorLogado;
 
@@ -66,8 +66,8 @@ namespace AlbertEinsteinHospital
 
         private void btnRegistar_Click(object sender, EventArgs e)
         {
-            if (utilizadorLogado.TipoUtilizador == "U")
-            {
+            //if (utilizadorLogado.TipoUtilizador == "U")
+            //{
                 if (rbMasculino.Checked)
                 {
                     genero = "M";
@@ -88,7 +88,7 @@ namespace AlbertEinsteinHospital
                 {
                     MessageBox.Show("Erro!");
                 }
-            }
+            //}
         }
 
         public void limparCampos()
@@ -186,10 +186,17 @@ namespace AlbertEinsteinHospital
             {
                 paciente = listaPacientes[intselectedindex];
                 sns = listaPacientes[intselectedindex].NumSns;
+                listBoxSintomasPacienteSelecionado.DataSource = paciente.Sintoma.ToList();
                 preencherFormulario(paciente);
+                mostrarExames(paciente);
                 btnRegistar.Enabled = false;
                 btnProcurar.Enabled = false;
             }
+        }
+
+        private void mostrarExames(Paciente p)
+        {
+            listBoxExamesPacienteSelecionado.DataSource = getExames();
         }
 
         private void preencherFormulario(Paciente p)
@@ -391,6 +398,253 @@ namespace AlbertEinsteinHospital
         {
             limparCampos();
             atualizar();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            registarMedicacao(dateTimePicker1.Value, dateTimePicker2.Value, textBox2.Text, textBox3.Text);
+        }
+
+        private void registarMedicacao(DateTime dtinicio, DateTime dtfim, string medicamento, string dosagem)
+        {
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            Paciente paciente = bd.PessoaSet.OfType<Paciente>().Where(i => i.NumSns == sns).FirstOrDefault();
+
+            Medicacao m = new Medicacao();
+            m.Paciente = paciente;
+            m.DataInicio = dtinicio;
+            m.DataFim = dtfim;
+            m.Medicamento = medicamento;
+            m.Dosagem = dosagem;
+
+            bd.MedicacaoSet.Add(m);
+            bd.SaveChanges();
+            bd.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            registarExames(tbCaminho.Text, rtbNotas.Text);
+        }
+
+        private byte[] converterImagem(string caminhoImagem)
+        {
+            byte[] data = null;
+            FileInfo fInfo = new FileInfo(caminhoImagem);
+            long numBytes = fInfo.Length;
+            FileStream fStream = new FileStream(caminhoImagem, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fStream);
+            data = br.ReadBytes((int)numBytes);
+            return data;
+        }
+
+        private void registarExames(string caminhoImagem, string notas)
+        {
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            Paciente paciente = bd.PessoaSet.OfType<Paciente>().Where(i => i.NumSns == sns).FirstOrDefault();
+
+            Exame e = new Exame();
+            e.Paciente = paciente;
+            e.Imagem = converterImagem(caminhoImagem);
+            e.Notas = notas;
+
+            bd.ExameSet.Add(e);
+            bd.SaveChanges();
+            bd.Dispose();
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string file = openFileDialog1.FileName;
+                    tbCaminho.Text = file;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro!");
+            }
+        }
+
+        private void registarSintoma()
+        {
+            bool viaAerea = false;
+            bool respiracaoIneficaz = false;
+            bool crNaoReativa = false;
+            bool choque = false;
+            bool incArticular = false;
+            bool taquicardia = false;
+            bool pefrMb = false;
+            bool sao2Mb = false;
+            bool alterConsciencia = false;
+            bool pefrB = false;
+            bool sao2B = false;
+            bool historiaAsma = false;
+            bool asma = false;
+            bool broncospasmo = false;
+            bool provInfResp = false;
+            bool probRecente = false;
+            bool outro = false;
+
+            string outroDesc = null;
+
+            if (checkBox1.Checked)
+            {
+                viaAerea = true;
+            }
+
+            if (checkBox2.Checked)
+            {
+                respiracaoIneficaz = true;
+            }
+
+            if (checkBox3.Checked)
+            {
+                crNaoReativa = true;
+            }
+
+            if (checkBox4.Checked)
+            {
+                choque = true;
+            }
+
+            if (checkBox5.Checked)
+            {
+                incArticular = true;
+            }
+
+            if (checkBox6.Checked)
+            {
+                taquicardia = true;
+            }
+
+            if (checkBox7.Checked)
+            {
+                historiaAsma = true;
+            }
+
+            if (checkBox8.Checked)
+            {
+                sao2B = true;
+            }
+
+            if (checkBox9.Checked)
+            {
+                pefrB = true;
+            }
+
+            if (checkBox10.Checked)
+            {
+                alterConsciencia = true;
+            }
+
+            if (checkBox11.Checked)
+            {
+                sao2Mb = true;
+            }
+
+            if (checkBox12.Checked)
+            {
+                pefrMb = true;
+            }
+
+            if (checkBox14.Checked)
+            {
+                outro = true;
+                outroDesc = textBox1.Text;
+            }
+
+            if (checkBox15.Checked)
+            {
+                probRecente = true;
+            }
+
+            if (checkBox16.Checked)
+            {
+                provInfResp = true;
+            }
+
+            if (checkBox17.Checked)
+            {
+                broncospasmo = true;
+            }
+
+            if (checkBox18.Checked)
+            {
+                asma = true;
+            }
+
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            Paciente paciente = bd.PessoaSet.OfType<Paciente>().Where(i => i.NumSns == sns).FirstOrDefault();
+
+            Sintoma s = new Sintoma();
+            s.Paciente = paciente;
+            s.CompromissoViaAerea = viaAerea;
+            s.RespiracaoIneficaz = respiracaoIneficaz;
+            s.CriancaNaoReativa = crNaoReativa;
+            s.Choque = choque;
+            s.IncapacidadeArticular = incArticular;
+            s.TaquicardiaAcentuada = taquicardia;
+            s.PEFRmb = pefrMb;
+            s.SAO2mb = sao2Mb;
+            s.AlteracaoConsciencia = alterConsciencia;
+            s.PEFRb = pefrB;
+            s.SAO2b = sao2B;
+            s.HistoriaAsma = historiaAsma;
+            s.Asma = asma;
+            s.Broncospasmo = broncospasmo;
+            s.ProvavelInfecaoRespiratoria = provInfResp;
+            s.ProblemaRecente = probRecente;
+            s.Outro = outro;
+            s.OutroDescricao = outroDesc;
+            s.Notas = richTextBox2.Text;
+
+            bd.SintomaSet.Add(s);
+            bd.SaveChanges();
+            bd.Dispose();
+        }
+
+        private List<Sintoma> getSintomas()
+        {
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            List<Sintoma> listaSintomas = bd.SintomaSet.Where(i => i.Paciente.NumSns == sns).ToList();
+
+            return listaSintomas;
+        }
+
+        private List<Medicacao> getMedicacao()
+        {
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            List<Medicacao> listaMedicacao = bd.MedicacaoSet.Where(i => i.Paciente.NumSns == sns).ToList();
+
+            return listaMedicacao;
+        }
+
+        private List<Exame> getExames()
+        {
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            List<Exame> listaExames = bd.ExameSet.Where(i => i.Paciente.NumSns == sns).ToList();
+
+            return listaExames;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            registarSintoma();
         }
     }
 }

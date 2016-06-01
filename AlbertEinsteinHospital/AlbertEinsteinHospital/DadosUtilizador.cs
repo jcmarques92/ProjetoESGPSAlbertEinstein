@@ -58,7 +58,7 @@ namespace AlbertEinsteinHospital
         {
             AEH_BDEntities bd = new AEH_BDEntities();
 
-            List<Utilizador> listaUtilizadores = bd.PessoaSet.OfType<Utilizador>().Where(u => u.Ativo == true).ToList();
+            List<Utilizador> listaUtilizadores = bd.PessoaSet.OfType<Utilizador>().ToList();
 
             return listaUtilizadores;
         }

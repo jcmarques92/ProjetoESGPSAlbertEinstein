@@ -14,6 +14,11 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
         </MappingFragment>
       </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Paciente)">
+        <MappingFragment StoreEntitySet="PessoaSet_Paciente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Utilizador)">
         <MappingFragment StoreEntitySet="PessoaSet_Utilizador">
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -23,11 +28,79 @@
           <ScalarProperty Name="Ativo" ColumnName="Ativo" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Paciente)">
-        <MappingFragment StoreEntitySet="PessoaSet_Paciente">
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicacaoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Medicacao)">
+        <MappingFragment StoreEntitySet="MedicacaoSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+          <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+          <ScalarProperty Name="Medicamento" ColumnName="Medicamento" />
+          <ScalarProperty Name="Dosagem" ColumnName="Dosagem" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ExameSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Exame)">
+        <MappingFragment StoreEntitySet="ExameSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Imagem" ColumnName="Imagem" />
+          <ScalarProperty Name="Notas" ColumnName="Notas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SintomaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Sintoma)">
+        <MappingFragment StoreEntitySet="SintomaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompromissoViaAerea" ColumnName="CompromissoViaAerea" />
+          <ScalarProperty Name="RespiracaoIneficaz" ColumnName="RespiracaoIneficaz" />
+          <ScalarProperty Name="CriancaNaoReativa" ColumnName="CriancaNaoReativa" />
+          <ScalarProperty Name="Choque" ColumnName="Choque" />
+          <ScalarProperty Name="IncapacidadeArticular" ColumnName="IncapacidadeArticular" />
+          <ScalarProperty Name="TaquicardiaAcentuada" ColumnName="TaquicardiaAcentuada" />
+          <ScalarProperty Name="PEFRmb" ColumnName="PEFRmb" />
+          <ScalarProperty Name="SAO2mb" ColumnName="SAO2mb" />
+          <ScalarProperty Name="AlteracaoConsciencia" ColumnName="AlteracaoConsciencia" />
+          <ScalarProperty Name="PEFRb" ColumnName="PEFRb" />
+          <ScalarProperty Name="SAO2b" ColumnName="SAO2b" />
+          <ScalarProperty Name="HistoriaAsma" ColumnName="HistoriaAsma" />
+          <ScalarProperty Name="Asma" ColumnName="Asma" />
+          <ScalarProperty Name="Broncospasmo" ColumnName="Broncospasmo" />
+          <ScalarProperty Name="ProvavelInfecaoRespiratoria" ColumnName="ProvavelInfecaoRespiratoria" />
+          <ScalarProperty Name="ProblemaRecente" ColumnName="ProblemaRecente" />
+          <ScalarProperty Name="Outro" ColumnName="Outro" />
+          <ScalarProperty Name="OutroDescricao" ColumnName="OutroDescricao" />
+          <ScalarProperty Name="Notas" ColumnName="Notas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PacienteExame" TypeName="AEH_BDModel.PacienteExame" StoreEntitySet="ExameSet">
+      <EndProperty Name="Paciente">
+        <ScalarProperty Name="Id" ColumnName="Paciente_Id" />
+      </EndProperty>
+      <EndProperty Name="Exame">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Paciente_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PacienteMedicacao" TypeName="AEH_BDModel.PacienteMedicacao" StoreEntitySet="MedicacaoSet">
+      <EndProperty Name="Paciente">
+        <ScalarProperty Name="Id" ColumnName="Paciente_Id" />
+      </EndProperty>
+      <EndProperty Name="Medicacao">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Paciente_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PacienteSintoma" TypeName="AEH_BDModel.PacienteSintoma" StoreEntitySet="SintomaSet">
+      <EndProperty Name="Paciente">
+        <ScalarProperty Name="Id" ColumnName="Paciente_Id" />
+      </EndProperty>
+      <EndProperty Name="Sintoma">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Paciente_Id" IsNull="false" />
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>
