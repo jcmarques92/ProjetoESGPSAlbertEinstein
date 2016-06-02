@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/30/2016 23:33:47
--- Generated from EDMX file: D:\Joao\Escola\IS\2º Ano\2º Semestre\ESGPGS\Projeto\ProjetoESGPSAlbertEinstein\AlbertEinsteinHospital\AlbertEinsteinHospital\AEH.edmx
+-- Date Created: 06/02/2016 17:35:29
+-- Generated from EDMX file: D:\Joao\Desktop\Andre\ProjetoESGPSAlbertEinstein\AlbertEinsteinHospital\AlbertEinsteinHospital\AEH.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -115,6 +115,15 @@ CREATE TABLE [dbo].[SintomaSet] (
     [Outro] bit  NOT NULL,
     [OutroDescricao] nvarchar(max)  NULL,
     [Notas] nvarchar(max)  NULL,
+    [Paciente_Id] int  NULL,
+    [Consulta_Id] int  NULL
+);
+GO
+
+-- Creating table 'ConsultaSet'
+CREATE TABLE [dbo].[ConsultaSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Diagnostico] nvarchar(max)  NOT NULL,
     [Paciente_Id] int  NULL
 );
 GO
@@ -160,6 +169,12 @@ GO
 -- Creating primary key on [Id] in table 'SintomaSet'
 ALTER TABLE [dbo].[SintomaSet]
 ADD CONSTRAINT [PK_SintomaSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'ConsultaSet'
+ALTER TABLE [dbo].[ConsultaSet]
+ADD CONSTRAINT [PK_ConsultaSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -222,6 +237,36 @@ GO
 CREATE INDEX [IX_FK_PacienteSintoma]
 ON [dbo].[SintomaSet]
     ([Paciente_Id]);
+GO
+
+-- Creating foreign key on [Paciente_Id] in table 'ConsultaSet'
+ALTER TABLE [dbo].[ConsultaSet]
+ADD CONSTRAINT [FK_PacienteConsulta]
+    FOREIGN KEY ([Paciente_Id])
+    REFERENCES [dbo].[PessoaSet_Paciente]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PacienteConsulta'
+CREATE INDEX [IX_FK_PacienteConsulta]
+ON [dbo].[ConsultaSet]
+    ([Paciente_Id]);
+GO
+
+-- Creating foreign key on [Consulta_Id] in table 'SintomaSet'
+ALTER TABLE [dbo].[SintomaSet]
+ADD CONSTRAINT [FK_ConsultaSintoma]
+    FOREIGN KEY ([Consulta_Id])
+    REFERENCES [dbo].[ConsultaSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ConsultaSintoma'
+CREATE INDEX [IX_FK_ConsultaSintoma]
+ON [dbo].[SintomaSet]
+    ([Consulta_Id]);
 GO
 
 -- Creating foreign key on [Id] in table 'PessoaSet_Paciente'

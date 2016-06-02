@@ -105,13 +105,16 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.listBox5 = new System.Windows.Forms.ListBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.listViewConsultas = new System.Windows.Forms.ListView();
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.listBoxExamesPacienteSelecionado = new System.Windows.Forms.ListBox();
+            this.listViewExames = new System.Windows.Forms.ListView();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.rtbDiagnostico = new System.Windows.Forms.RichTextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.listBoxSintomasPacienteSelecionado = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -1004,30 +1007,36 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.listBox5);
-            this.groupBox7.Controls.Add(this.listBox4);
-            this.groupBox7.Location = new System.Drawing.Point(409, 112);
+            this.groupBox7.Controls.Add(this.listViewConsultas);
+            this.groupBox7.Location = new System.Drawing.Point(409, 111);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(571, 92);
-            this.groupBox7.TabIndex = 4;
+            this.groupBox7.TabIndex = 5;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Histórico Clínico";
             // 
-            // listBox5
+            // listViewConsultas
             // 
-            this.listBox5.FormattingEnabled = true;
-            this.listBox5.Location = new System.Drawing.Point(282, 17);
-            this.listBox5.Name = "listBox5";
-            this.listBox5.Size = new System.Drawing.Size(283, 69);
-            this.listBox5.TabIndex = 1;
+            this.listViewConsultas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader10,
+            this.columnHeader11});
+            this.listViewConsultas.Location = new System.Drawing.Point(6, 17);
+            this.listViewConsultas.Name = "listViewConsultas";
+            this.listViewConsultas.Size = new System.Drawing.Size(559, 69);
+            this.listViewConsultas.TabIndex = 45;
+            this.listViewConsultas.UseCompatibleStateImageBehavior = false;
+            this.listViewConsultas.View = System.Windows.Forms.View.Details;
+            this.listViewConsultas.SelectedIndexChanged += new System.EventHandler(this.listViewConsultas_SelectedIndexChanged);
+            this.listViewConsultas.DoubleClick += new System.EventHandler(this.listViewConsultas_DoubleClick);
             // 
-            // listBox4
+            // columnHeader10
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(6, 15);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(270, 69);
-            this.listBox4.TabIndex = 0;
+            this.columnHeader10.Text = "Id";
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Diagnóstico";
+            this.columnHeader11.Width = 486;
             // 
             // button4
             // 
@@ -1041,10 +1050,11 @@
             this.button4.TabIndex = 0;
             this.button4.Text = "Guardar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.listBoxExamesPacienteSelecionado);
+            this.groupBox6.Controls.Add(this.listViewExames);
             this.groupBox6.Location = new System.Drawing.Point(6, 111);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(391, 92);
@@ -1052,18 +1062,31 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Exames";
             // 
-            // listBoxExamesPacienteSelecionado
+            // listViewExames
             // 
-            this.listBoxExamesPacienteSelecionado.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxExamesPacienteSelecionado.FormattingEnabled = true;
-            this.listBoxExamesPacienteSelecionado.Location = new System.Drawing.Point(6, 16);
-            this.listBoxExamesPacienteSelecionado.Name = "listBoxExamesPacienteSelecionado";
-            this.listBoxExamesPacienteSelecionado.Size = new System.Drawing.Size(379, 65);
-            this.listBoxExamesPacienteSelecionado.TabIndex = 0;
+            this.listViewExames.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader8,
+            this.columnHeader9});
+            this.listViewExames.Location = new System.Drawing.Point(6, 16);
+            this.listViewExames.Name = "listViewExames";
+            this.listViewExames.Size = new System.Drawing.Size(379, 69);
+            this.listViewExames.TabIndex = 45;
+            this.listViewExames.UseCompatibleStateImageBehavior = false;
+            this.listViewExames.View = System.Windows.Forms.View.Details;
+            this.listViewExames.DoubleClick += new System.EventHandler(this.listViewExames_DoubleClick);
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Id";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Notas";
+            this.columnHeader9.Width = 298;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.richTextBox3);
+            this.groupBox5.Controls.Add(this.rtbDiagnostico);
             this.groupBox5.Location = new System.Drawing.Point(6, 210);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(974, 51);
@@ -1071,14 +1094,14 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Diagnóstico";
             // 
-            // richTextBox3
+            // rtbDiagnostico
             // 
-            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox3.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(962, 26);
-            this.richTextBox3.TabIndex = 0;
-            this.richTextBox3.Text = "";
+            this.rtbDiagnostico.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbDiagnostico.Location = new System.Drawing.Point(6, 19);
+            this.rtbDiagnostico.Name = "rtbDiagnostico";
+            this.rtbDiagnostico.Size = new System.Drawing.Size(962, 26);
+            this.rtbDiagnostico.TabIndex = 0;
+            this.rtbDiagnostico.Text = "";
             // 
             // groupBox4
             // 
@@ -1535,14 +1558,10 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ListBox listBox5;
-        private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.ListBox listBoxExamesPacienteSelecionado;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox rtbDiagnostico;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ListBox listBoxSintomasPacienteSelecionado;
         private System.Windows.Forms.Panel panel2;
@@ -1610,5 +1629,12 @@
         private System.Windows.Forms.ToolStripMenuItem lOGOUTToolStripMenuItem;
         private System.Windows.Forms.Panel panelCabecalho;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.ListView listViewConsultas;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ListView listViewExames;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }

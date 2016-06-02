@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Joao\Escola\IS\2º Ano\2º Semestre\ESGPGS\Projeto\ProjetoESGPSAlbertEinstein\AlbertEinsteinHospital\AlbertEinsteinHospital\AEH.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Joao\Desktop\Andre\ProjetoESGPSAlbertEinstein\AlbertEinsteinHospital\AlbertEinsteinHospital\AEH.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

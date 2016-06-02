@@ -76,6 +76,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AEH.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Consulta.cs">
+      <DependentUpon>AEH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DadosPaciente.cs" />
+    <Compile Include="DadosUtilizador.cs" />
+    <Compile Include="Exame.cs">
+      <DependentUpon>AEH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormExame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExame.Designer.cs">
+      <DependentUpon>FormExame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHistorico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistorico.Designer.cs">
+      <DependentUpon>FormHistorico.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +132,9 @@
     <Compile Include="FormInicial.Designer.cs">
       <DependentUpon>FormInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Medicacao.cs">
+      <DependentUpon>AEH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Paciente.cs">
       <DependentUpon>AEH.tt</DependentUpon>
     </Compile>
@@ -120,9 +143,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sintoma.cs">
+      <DependentUpon>AEH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Utilizador.cs">
       <DependentUpon>AEH.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormExame.resx">
+      <DependentUpon>FormExame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHistorico.resx">
+      <DependentUpon>FormHistorico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>

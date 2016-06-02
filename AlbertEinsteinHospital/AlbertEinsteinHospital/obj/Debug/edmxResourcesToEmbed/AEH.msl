@@ -75,6 +75,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ConsultaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Consulta)">
+        <MappingFragment StoreEntitySet="ConsultaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="PacienteExame" TypeName="AEH_BDModel.PacienteExame" StoreEntitySet="ExameSet">
       <EndProperty Name="Paciente">
         <ScalarProperty Name="Id" ColumnName="Paciente_Id" />
@@ -101,6 +109,24 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
       <Condition ColumnName="Paciente_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PacienteConsulta" TypeName="AEH_BDModel.PacienteConsulta" StoreEntitySet="ConsultaSet">
+      <EndProperty Name="Paciente">
+        <ScalarProperty Name="Id" ColumnName="Paciente_Id" />
+      </EndProperty>
+      <EndProperty Name="Consulta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Paciente_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ConsultaSintoma" TypeName="AEH_BDModel.ConsultaSintoma" StoreEntitySet="SintomaSet">
+      <EndProperty Name="Consulta">
+        <ScalarProperty Name="Id" ColumnName="Consulta_Id" />
+      </EndProperty>
+      <EndProperty Name="Sintoma">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Consulta_Id" IsNull="false" />
     </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

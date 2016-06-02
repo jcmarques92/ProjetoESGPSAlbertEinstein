@@ -47,34 +47,44 @@ namespace AlbertEinsteinHospital
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AEH_BDEntities bd = new AEH_BDEntities();
+            try
+            {
+                AEH_BDEntities bd = new AEH_BDEntities();
 
-            string email = textBox1.Text;
+                string email = textBox1.Text;
 
-            Utilizador utilizador = bd.PessoaSet.OfType<Utilizador>().Where(u => u.Email.ToLower().Equals(email.ToLower())).FirstOrDefault();
+                Utilizador utilizador = bd.PessoaSet.OfType<Utilizador>().Where(u => u.Email.ToLower().Equals(email.ToLower())).FirstOrDefault();
 
-            string novaPassword = createPassword(6);
+                string novaPassword = createPassword(6);
 
-            login = new NetworkCredential("alberteinsteinhospitalesgps@gmail.com", "projetoesgps2016");
-            client = new SmtpClient("smtp.gmail.com");
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.Credentials = login;
-            msg = new MailMessage { From = new MailAddress("alberteinsteinhospitalesgps@gmail.com") };
-            msg.To.Add(new MailAddress(email));
-            msg.Subject = "Recuperação de Password";
-            msg.Body = "A sua nova password é: " + novaPassword;
-            msg.BodyEncoding = Encoding.UTF8;
-            msg.IsBodyHtml = true;
-            msg.Priority = MailPriority.Normal;
-            msg.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
-            string userstate = "Sending...";
-            client.SendAsync(msg, userstate);
+                login = new NetworkCredential("alberteinsteinhospitalesgps@gmail.com", "projetoesgps2016");
+                client = new SmtpClient("smtp.gmail.com");
+                client.Port = 587;
+                client.EnableSsl = true;
+                client.Credentials = login;
+                msg = new MailMessage { From = new MailAddress("alberteinsteinhospitalesgps@gmail.com") };
+                msg.To.Add(new MailAddress(email));
+                msg.Subject = "Recuperação de Password";
+                msg.Body = "A sua nova password é: " + novaPassword;
+                msg.BodyEncoding = Encoding.UTF8;
+                msg.IsBodyHtml = true;
+                msg.Priority = MailPriority.Normal;
+                msg.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                string userstate = "Sending...";
+                client.SendAsync(msg, userstate);
 
-            utilizador.Password = DadosUtilizador.GetMD5(novaPassword);
+                utilizador.Password = DadosUtilizador.GetMD5(novaPassword);
 
-            bd.SaveChanges();
-            bd.Dispose();
+                bd.SaveChanges();
+                bd.Dispose();
+            }
+            catch (Exception)
+            {
+                if (textBox1.Text == null || textBox1.Text.Equals("e-mail"))
+                {
+                    MessageBox.Show("Deve introduzir o seu endereço de email");
+                };
+            }
         }
 
         public string createPassword(int length)

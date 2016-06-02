@@ -19,6 +19,7 @@ namespace AlbertEinsteinHospital
         List<Paciente> listaPacientes;
         int sns;
         Utilizador utilizadorLogado;
+        List<Exame> listaExames;
 
         public FormPaciente(Utilizador utilizador)
         {
@@ -43,20 +44,8 @@ namespace AlbertEinsteinHospital
             this.Close();
         }
 
-        /*public Utilizador tipoUtilizador()
-        {
-            char tpUtilizador;
-            if (utilizadorLogado.TipoUtilizador=="S")
-            {
-                return Convert.ToChar(tpUtilizador)="S";
-            }
-        }
-        */
-
         private void btnRegistar_Click(object sender, EventArgs e)
         {
-            //if (utilizadorLogado.TipoUtilizador == "U")
-            //{
                 if (rbMasculino.Checked)
                 {
                     genero = "M";
@@ -77,7 +66,6 @@ namespace AlbertEinsteinHospital
                 {
                     MessageBox.Show("Erro!");
                 }
-            //}
         }
 
         public void limparCampos()
@@ -90,6 +78,34 @@ namespace AlbertEinsteinHospital
             tbMorada.Clear();
             tbTelefone.Clear();
             tbEmail.Clear();
+            dateTimePicker1.ResetText();
+            dateTimePicker2.ResetText();
+            textBox2.Clear();
+            textBox3.Clear();
+            tbCaminho.Clear();
+            rtbNotas.Clear();
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            checkBox4.Checked = false;
+            checkBox5.Checked = false;
+            checkBox6.Checked = false;
+            checkBox7.Checked = false;
+            checkBox8.Checked = false;
+            checkBox9.Checked = false;
+            checkBox10.Checked = false;
+            checkBox11.Checked = false;
+            checkBox12.Checked = false;
+            checkBox14.Checked = false;
+            checkBox15.Checked = false;
+            checkBox16.Checked = false;
+            checkBox17.Checked = false;
+            checkBox18.Checked = false;
+            textBox1.Clear();
+            listViewExames.Items.Clear();
+            listViewConsultas.Items.Clear();
+            rtbDiagnostico.Clear();
+            listBoxSintomasPacienteSelecionado.DataSource = null;
         }
 
         private void atualizar()
@@ -118,8 +134,6 @@ namespace AlbertEinsteinHospital
 
         private void tbTelefone_TextChanged(object sender, EventArgs e)
         {
-            //@"^\(\d{3}\)\d{3}-\d{4}$" --> "(XXX) XXX-XXXX"
-            //@"\d{3}\d{6}$"
             Regex modelo = new Regex("^[0-9]+$");
             if (modelo.IsMatch(tbTelefone.Text))
             {
@@ -178,16 +192,129 @@ namespace AlbertEinsteinHospital
                 sns = listaPacientes[intselectedindex].NumSns;
                 listBoxSintomasPacienteSelecionado.DataSource = paciente.Sintoma.ToList();
                 preencherFormulario(paciente);
-                mostrarExames(paciente);
+                mostrarExames();
+                mostrarSintomas();
+                mostrarConsultas();
                 btnRegistar.Enabled = false;
                 btnProcurar.Enabled = false;
+                listaExames = getExames().ToList();
                 label26.Text = ("Paciente " + (intselectedindex + 1) + " de " + totalItems);
             }
         }
 
-        private void mostrarExames(Paciente p)
+        private void mostrarSintomas()
         {
-            listBoxExamesPacienteSelecionado.DataSource = getExames();
+            List<Sintoma> listabool = getSintomas();
+            List<string> listaSintomas = new List<string>();
+
+            for (int i = 0; i < listabool.Count; i++)
+            {
+                if (listabool[i].CompromissoViaAerea == true)
+                {
+                    listaSintomas.Add("Compromisso da via aérea");
+                }
+                if (listabool[i].RespiracaoIneficaz == true)
+                {
+                    listaSintomas.Add("Respiração ineficaz");
+                }
+                if (listabool[i].CriancaNaoReativa == true)
+                {
+                    listaSintomas.Add("Criança não reativa");
+                }
+                if (listabool[i].Choque == true)
+                {
+                    listaSintomas.Add("Choque");
+                }
+                if (listabool[i].IncapacidadeArticular == true)
+                {
+                    listaSintomas.Add("Incapacidade de articular frases completas");
+                }
+                if (listabool[i].TaquicardiaAcentuada == true)
+                {
+                    listaSintomas.Add("Taquicardia acentuada");
+                }
+                if (listabool[i].PEFRmb == true)
+                {
+                    listaSintomas.Add("PEFR (Peak Expiratory Flow Rate) muito baixo");
+                }
+                if (listabool[i].SAO2mb == true)
+                {
+                    listaSintomas.Add("SAO2 (Arterial Oxygen Saturation) muito baixo");
+                }
+                if (listabool[i].AlteracaoConsciencia == true)
+                {
+                    listaSintomas.Add("Alteração do estado de consciência");
+                }
+                if (listabool[i].PEFRb == true)
+                {
+                    listaSintomas.Add("PEFR (Peak Expiratory Flow Rate) baixo");
+                }
+                if (listabool[i].SAO2b == true)
+                {
+                    listaSintomas.Add("SAO2 (Arterial Oxygen Saturation) baixo");
+                }
+                if (listabool[i].HistoriaAsma == true)
+                {
+                    listaSintomas.Add("História significativa de asma");
+                }
+                if (listabool[i].Asma == true)
+                {
+                    listaSintomas.Add("Asma sem melhoria com o seu tratamento habitual");
+                }
+                if (listabool[i].Broncospasmo == true)
+                {
+                    listaSintomas.Add("Broncospasmo");
+                }
+                if (listabool[i].ProvavelInfecaoRespiratoria == true)
+                {
+                    listaSintomas.Add("Provável infeção respiratória");
+                }
+                if (listabool[i].ProblemaRecente == true)
+                {
+                    listaSintomas.Add("Problema Recente");
+                }
+                if (listabool[i].Outro == true)
+                {
+                    listaSintomas.Add(listabool[i].OutroDescricao);
+                }
+            }
+            listBoxSintomasPacienteSelecionado.DataSource = listaSintomas;
+        }
+
+        private void mostrarExames()
+        {
+            List<Exame> listaExames = getExames();
+
+            ListViewItem item1 = new ListViewItem();
+
+            listViewExames.FullRowSelect = true;
+
+            for (int i = 0; i < listaExames.Count; i++)
+            {
+
+                item1 = new ListViewItem(listaExames[i].Id.ToString());
+                item1.SubItems.Add(listaExames[i].Notas.ToString());
+
+                listViewExames.Items.Add(item1);
+            }
+        }
+
+        private void mostrarConsultas()
+        {
+            List<Consulta> listaConsultas = getConsultas();
+
+            ListViewItem item1 = new ListViewItem();
+
+            listViewConsultas.FullRowSelect = true;
+
+            for (int i = 0; i < listaConsultas.Count; i++)
+            {
+
+                item1 = new ListViewItem(listaConsultas[i].Id.ToString());
+                item1.SubItems.Add(listaConsultas[i].Diagnostico.ToString());
+
+                listViewConsultas.Items.Add(item1);
+            }
         }
 
         private void preencherFormulario(Paciente p)
@@ -397,7 +524,23 @@ namespace AlbertEinsteinHospital
 
         private void button6_Click(object sender, EventArgs e)
         {
-            registarMedicacao(dateTimePicker1.Value, dateTimePicker2.Value, textBox2.Text, textBox3.Text);
+            if (paciente != null)
+            {
+                try
+                {
+                    registarMedicacao(dateTimePicker1.Value, dateTimePicker2.Value, textBox2.Text, textBox3.Text);
+                    limparCampos();
+                    MessageBox.Show("Medicação registada com sucesso");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao registar medicação");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para efetuar o registo da medicação deve selecionar um paciente na lista");
+            }
         }
 
         private void registarMedicacao(DateTime dtinicio, DateTime dtfim, string medicamento, string dosagem)
@@ -420,7 +563,23 @@ namespace AlbertEinsteinHospital
 
         private void button2_Click(object sender, EventArgs e)
         {
-            registarExames(tbCaminho.Text, rtbNotas.Text);
+            if (paciente != null)
+            {
+                try
+                {
+                    registarExames(tbCaminho.Text, rtbNotas.Text);
+                    MessageBox.Show("Exame registado com sucesso");
+                    limparCampos();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao registar exame");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para efetuar o registo de um exame deve selecionar um paciente na lista");
+            }
         }
 
         private byte[] converterImagem(string caminhoImagem)
@@ -637,9 +796,34 @@ namespace AlbertEinsteinHospital
             return listaExames;
         }
 
+        private List<Consulta> getConsultas()
+        {
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            List<Consulta> listaConsultas = bd.ConsultaSet.Where(i => i.Paciente.NumSns == sns).ToList();
+
+            return listaConsultas;
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            registarSintoma();
+            if (paciente != null)
+            {
+                try
+                {
+                    registarSintoma();
+                    MessageBox.Show("Sintomas registados com sucesso");
+                    limparCampos();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao registar sintomas");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para efetuar o registo dos sintomas deve selecionar um paciente na lista");
+            }
         }
 
         private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
@@ -691,7 +875,7 @@ namespace AlbertEinsteinHospital
                 listViewPacientes.Select();
                 listViewPacientes.Items[selectedItems + 1].EnsureVisible();
 
-                label26.Text = ("Paciente " + (selectedItems + 1) + " de " + totalItems);
+                label26.Text = ("Paciente " + (selectedItems + 2) + " de " + totalItems);
             }
         }
 
@@ -713,6 +897,64 @@ namespace AlbertEinsteinHospital
             this.Hide();
             frmPrincipal.ShowDialog();
             this.Close();
+        }
+
+        private void listViewExames_DoubleClick(object sender, EventArgs e)
+        {
+            int id = int.Parse(listViewExames.SelectedItems[0].SubItems[0].Text);
+
+            FormExame frmExame = new FormExame(id);
+            frmExame.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (paciente != null)
+            {
+                try
+                {
+                    registarConsulta();
+                    MessageBox.Show("Diagnóstico registado com sucesso");
+                    limparCampos();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao registar diagnóstico");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para efetuar o registo de um diagnóstico deve selecionar um paciente na lista");
+            }
+        }
+
+        private void registarConsulta()
+        {
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            Paciente paciente = bd.PessoaSet.OfType<Paciente>().Where(i => i.NumSns == sns).FirstOrDefault();
+
+            Consulta c = new Consulta();
+            c.Paciente = paciente;
+            c.Diagnostico = rtbDiagnostico.Text;
+            c.Sintoma = paciente.Sintoma;
+
+            bd.ConsultaSet.Add(c);
+            bd.SaveChanges();
+            bd.Dispose();
+        }
+
+        private void listViewConsultas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listViewConsultas_DoubleClick(object sender, EventArgs e)
+        {
+            int id = int.Parse(listViewConsultas.SelectedItems[0].SubItems[0].Text);
+
+            FormHistorico frmHistorico = new FormHistorico(id, paciente);
+            frmHistorico.ShowDialog();
         }
     }
 }

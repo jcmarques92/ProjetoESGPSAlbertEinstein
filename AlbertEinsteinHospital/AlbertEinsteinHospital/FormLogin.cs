@@ -25,6 +25,7 @@ namespace AlbertEinsteinHospital
         private void button1_Click(object sender, EventArgs e)
         {
             nomeUtilizador = tbUtilizador.Text;
+            //password = tbPassword.Text;
             password = DadosUtilizador.GetMD5(tbPassword.Text);
 
             if (!Login(nomeUtilizador, password))

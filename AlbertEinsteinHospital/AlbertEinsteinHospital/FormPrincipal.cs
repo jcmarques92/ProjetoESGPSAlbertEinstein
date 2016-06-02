@@ -13,7 +13,6 @@ namespace AlbertEinsteinHospital
     public partial class FormPrincipal : Form
     {
         Utilizador utilizador;
-        Utilizador utilizadorLogado;
 
         public FormPrincipal(Utilizador utilizador)
         {
@@ -55,7 +54,7 @@ namespace AlbertEinsteinHospital
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            FormPrincipal frmPrincipal = new FormPrincipal(utilizadorLogado);
+            FormPrincipal frmPrincipal = new FormPrincipal(utilizador);
             this.Hide();
             frmPrincipal.ShowDialog();
             this.Close();
