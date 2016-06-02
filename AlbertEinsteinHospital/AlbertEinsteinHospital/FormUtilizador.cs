@@ -509,6 +509,7 @@ namespace AlbertEinsteinHospital
             label24.Text = "";
             label26.Text = "";
             label29.Text = "";
+            label30.Text = "";
         }
 
         private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
@@ -543,31 +544,43 @@ namespace AlbertEinsteinHospital
 
         private void button8_Click(object sender, EventArgs e)
         {
-            int selectedIndex = listView1.SelectedIndices[0];
-            var totalItems = listView1.Items.Count;
-
-            if (selectedIndex != 0)
+            try
             {
-                listView1.Items[selectedIndex - 1].Selected = true;
-                listView1.Select();
-                listView1.Items[selectedIndex - 1].EnsureVisible();
+                int selectedIndex = listView1.SelectedIndices[0];
+                var totalItems = listView1.Items.Count;
 
-                label26.Text = ("Utilizador " + (selectedIndex + 1) + " de " + totalItems);
+                if (selectedIndex != 0)
+                {
+                    listView1.Items[selectedIndex - 1].Selected = true;
+                    listView1.Select();
+                    listView1.Items[selectedIndex - 1].EnsureVisible();
+                    label26.Text = ("Utilizador " + (selectedIndex) + " de " + totalItems);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Selecione um Utilizador");
             }
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            int selectedItems = listView1.SelectedItems[0].Index;
-            var totalItems = listView1.Items.Count;
-
-            if (selectedItems != (totalItems - 1))
+            try
             {
-                listView1.Items[selectedItems + 1].Selected = true;
-                listView1.Select();
-                listView1.Items[selectedItems + 1].EnsureVisible();
+                int selectedItems = listView1.SelectedIndices[0];
+                var totalItems = listView1.Items.Count;
 
-                label26.Text = ("Utilizador " + (selectedItems + 1) + " de " + totalItems);
+                if (selectedItems <= (totalItems - 1))
+                {
+                    listView1.Items[selectedItems + 1].Selected = true;
+                    listView1.Select();
+                    listView1.Items[selectedItems + 1].EnsureVisible();
+                    label26.Text = ("Utilizador " + (selectedItems + 1 + 1) + " de " + totalItems);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Selecione um Utilizador");
             }
         }
 

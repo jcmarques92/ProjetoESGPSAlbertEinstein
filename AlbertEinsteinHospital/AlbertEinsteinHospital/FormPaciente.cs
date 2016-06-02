@@ -190,7 +190,6 @@ namespace AlbertEinsteinHospital
             {
                 paciente = listaPacientes[intselectedindex];
                 sns = listaPacientes[intselectedindex].NumSns;
-                listBoxSintomasPacienteSelecionado.DataSource = paciente.Sintoma.ToList();
                 preencherFormulario(paciente);
                 mostrarExames();
                 mostrarSintomas();
@@ -422,6 +421,7 @@ namespace AlbertEinsteinHospital
             label11.Text = "";
             label13.Text = "";
             label14.Text = "";
+            label26.Text = "";
         }
 
         private void dtDataNascim_ValueChanged(object sender, EventArgs e)
@@ -850,32 +850,43 @@ namespace AlbertEinsteinHospital
 
         private void button8_Click(object sender, EventArgs e)
         {
-            int selectedIndex = listViewPacientes.SelectedIndices[0];
-            var totalItems = listViewPacientes.Items.Count;
-
-            if (selectedIndex != 0)
+            try
             {
-                listViewPacientes.Items[selectedIndex - 1].Selected = true;
-                listViewPacientes.Select();
-                listViewPacientes.Items[selectedIndex - 1].EnsureVisible();
+                int selectedIndex = listViewPacientes.SelectedIndices[0];
+                var totalItems = listViewPacientes.Items.Count;
 
-                label26.Text = ("Paciente " + (selectedIndex + 1) + " de " + totalItems);
+                if (selectedIndex != 0)
+                {
+                    listViewPacientes.Items[selectedIndex - 1].Selected = true;
+                    listViewPacientes.Select();
+                    listViewPacientes.Items[selectedIndex - 1].EnsureVisible();
+                    label26.Text = ("Paciente " + (selectedIndex) + " de " + totalItems);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Selecione um Paciente");
             }
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            //int selectedIndex = listViewPacientes.SelectedIndices[0];
-            int selectedItems = listViewPacientes.SelectedItems[0].Index;
-            var totalItems = listViewPacientes.Items.Count;
-
-            if (selectedItems != (totalItems - 1))
+            try
             {
-                listViewPacientes.Items[selectedItems + 1].Selected = true;
-                listViewPacientes.Select();
-                listViewPacientes.Items[selectedItems + 1].EnsureVisible();
+                int selectedItems = listViewPacientes.SelectedIndices[0];
+                var totalItems = listViewPacientes.Items.Count;
 
-                label26.Text = ("Paciente " + (selectedItems + 2) + " de " + totalItems);
+                if (selectedItems <= (totalItems - 1))
+                {
+                    listViewPacientes.Items[selectedItems + 1].Selected = true;
+                    listViewPacientes.Select();
+                    listViewPacientes.Items[selectedItems + 1].EnsureVisible();
+                    label26.Text = ("Paciente " + (selectedItems + 1 + 1) + " de " + totalItems);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Selecione um Paciente");
             }
         }
 
