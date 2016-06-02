@@ -87,7 +87,7 @@ namespace AlbertEinsteinHospital
             try
             {
 
-                DadosUtilizador.registarUtilizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, tbPassword.Text, cbTipoUtilizador.Text);
+                DadosUtilizador.registarUtilizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, DadosUtilizador.GetMD5(tbPassword.Text), cbTipoUtilizador.Text);
                 MessageBox.Show("Utilizador Registado com Sucesso!", "Sucesso");
                 limparCampos();
                 atualizar();
@@ -98,6 +98,8 @@ namespace AlbertEinsteinHospital
             }
  
         }
+
+
 
         private void atualizar()
         {
@@ -188,18 +190,6 @@ namespace AlbertEinsteinHospital
             this.Close();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Tem a certeza que pretende fazer logout?", "Logout", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                FormInicial frmInicial = new FormInicial();
-                this.Hide();
-                frmInicial.ShowDialog();
-                this.Close();
-            }
-                
-        }
-
         private void btnPacientes_Click(object sender, EventArgs e)
         {
             FormPaciente frmPaciente = new FormPaciente(utilizadorLogado);
@@ -219,6 +209,7 @@ namespace AlbertEinsteinHospital
             }
 
             int intselectedindex = listView1.SelectedIndices[0];
+            var totalItems = listView1.Items.Count;
 
             if (intselectedindex >= 0)
             {
@@ -226,7 +217,8 @@ namespace AlbertEinsteinHospital
                 sns = listaUtilizadores[intselectedindex].NumSns;
                 preencherFormulario(utilizador);
                 btnRegistar.Enabled = false;
-                btnProcurar.Enabled = false;                
+                btnProcurar.Enabled = false;
+                label30.Text = ("Utilizador " + (intselectedindex + 1) + " de " + totalItems);
             }
 
             
@@ -288,7 +280,7 @@ namespace AlbertEinsteinHospital
             try
             {
 
-                DadosUtilizador.atualizarAtualizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, tbPassword.Text, cbTipoUtilizador.Text);
+                DadosUtilizador.atualizarAtualizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, DadosUtilizador.GetMD5(tbPassword.Text), cbTipoUtilizador.Text);
                 MessageBox.Show("Utilizador Atualizado com Sucesso!", "Sucesso");
                 atualizar();
 
@@ -517,6 +509,78 @@ namespace AlbertEinsteinHospital
             label24.Text = "";
             label26.Text = "";
             label29.Text = "";
+        }
+
+        private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Tem a certeza que pretende fazer logout?", "Logout", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                FormInicial frmInicial = new FormInicial();
+                this.Hide();
+                frmInicial.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FormPrincipal frmPrincipal  = new FormPrincipal(utilizadorLogado);
+            this.Hide();
+            frmPrincipal.ShowDialog();
+            this.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            listView1.Items[0].Selected = true;
+            listView1.Select();
+            listView1.Items[0].EnsureVisible();
+
+            int selectedIndex = listView1.SelectedIndices[0];
+            var totalItems = listView1.Items.Count;
+            label30.Text = ("Utilizador " + (selectedIndex + 1) + " de " + totalItems);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = listView1.SelectedIndices[0];
+            var totalItems = listView1.Items.Count;
+
+            if (selectedIndex != 0)
+            {
+                listView1.Items[selectedIndex - 1].Selected = true;
+                listView1.Select();
+                listView1.Items[selectedIndex - 1].EnsureVisible();
+
+                label26.Text = ("Utilizador " + (selectedIndex + 1) + " de " + totalItems);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            int selectedItems = listView1.SelectedItems[0].Index;
+            var totalItems = listView1.Items.Count;
+
+            if (selectedItems != (totalItems - 1))
+            {
+                listView1.Items[selectedItems + 1].Selected = true;
+                listView1.Select();
+                listView1.Items[selectedItems + 1].EnsureVisible();
+
+                label26.Text = ("Utilizador " + (selectedItems + 1) + " de " + totalItems);
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            var items = listView1.Items.Count;
+            listView1.Items[items - 1].Selected = true;
+            listView1.Select();
+            listView1.Items[items - 1].EnsureVisible();
+
+            int selectedIndex = listView1.SelectedIndices[0];
+            var totalItems = listView1.Items.Count;
+            label26.Text = ("Utilizador " + (selectedIndex + 1) + " de " + totalItems);
         }
     }
 }

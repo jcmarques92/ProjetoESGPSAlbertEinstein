@@ -57,6 +57,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(350, 35);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panelCabecalho
             // 
@@ -82,6 +83,7 @@
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // panel1
             // 
@@ -171,11 +173,11 @@
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmail.ForeColor = System.Drawing.Color.White;
-            this.labelEmail.Location = new System.Drawing.Point(704, 9);
+            this.labelEmail.Location = new System.Drawing.Point(633, 9);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(313, 24);
+            this.labelEmail.Size = new System.Drawing.Size(441, 24);
             this.labelEmail.TabIndex = 1;
-            this.labelEmail.Text = "email: alberteinstein@gmail.com";
+            this.labelEmail.Text = "email: alberteinsteinhospitalesgps@gmail.com";
             // 
             // panelLogotipo
             // 

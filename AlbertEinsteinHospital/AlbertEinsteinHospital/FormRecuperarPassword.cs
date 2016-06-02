@@ -71,7 +71,7 @@ namespace AlbertEinsteinHospital
             string userstate = "Sending...";
             client.SendAsync(msg, userstate);
 
-            utilizador.Password = novaPassword;
+            utilizador.Password = DadosUtilizador.GetMD5(novaPassword);
 
             bd.SaveChanges();
             bd.Dispose();
@@ -87,6 +87,22 @@ namespace AlbertEinsteinHospital
                 res.Append(valid[rnd.Next(valid.Length)]);
             }
             return res.ToString();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            FormLogin frmLogin = new FormLogin();
+            this.Hide();
+            frmLogin.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FormInicial frmInicial = new FormInicial();
+            this.Hide();
+            frmInicial.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -24,5 +24,13 @@ namespace AlbertEinsteinHospital
             frmLogin.ShowDialog();
             this.Close();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FormInicial frmInicial = new FormInicial();
+            this.Hide();
+            frmInicial.ShowDialog();
+            this.Close();
+        }
     }
 }

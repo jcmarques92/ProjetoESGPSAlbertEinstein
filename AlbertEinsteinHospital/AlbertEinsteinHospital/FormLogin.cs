@@ -25,7 +25,7 @@ namespace AlbertEinsteinHospital
         private void button1_Click(object sender, EventArgs e)
         {
             nomeUtilizador = tbUtilizador.Text;
-            password = tbPassword.Text;
+            password = DadosUtilizador.GetMD5(tbPassword.Text);
 
             if (!Login(nomeUtilizador, password))
             {
@@ -69,6 +69,14 @@ namespace AlbertEinsteinHospital
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FormInicial frmInicial = new FormInicial();
+            this.Hide();
+            frmInicial.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             FormInicial frmInicial = new FormInicial();
             this.Hide();

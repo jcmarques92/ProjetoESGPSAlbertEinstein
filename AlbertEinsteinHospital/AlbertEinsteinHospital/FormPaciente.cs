@@ -35,17 +35,6 @@ namespace AlbertEinsteinHospital
             this.Close();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Tem a certeza que pretende fazer logout?", "Logout", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                FormInicial frmInicial = new FormInicial();
-                this.Hide();
-                frmInicial.ShowDialog();
-                this.Close();
-            }
-        }
-
         private void btnUtilizadores_Click(object sender, EventArgs e)
         {
             FormUtilizador frmUtilizador = new FormUtilizador(utilizadorLogado);
@@ -181,6 +170,7 @@ namespace AlbertEinsteinHospital
             }
 
             int intselectedindex = listViewPacientes.SelectedIndices[0];
+            var totalItems = listViewPacientes.Items.Count;
 
             if (intselectedindex >= 0)
             {
@@ -191,6 +181,7 @@ namespace AlbertEinsteinHospital
                 mostrarExames(paciente);
                 btnRegistar.Enabled = false;
                 btnProcurar.Enabled = false;
+                label26.Text = ("Paciente " + (intselectedindex + 1) + " de " + totalItems);
             }
         }
 
@@ -318,28 +309,32 @@ namespace AlbertEinsteinHospital
             }
         }
 
-        private void rbChecked()
+        private void rbFeminino_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbFeminino.Checked || rbMasculino.Checked)
+            if (rbFeminino.Checked)
             {
                 label21.Visible = false;
-                rbFeminino.ForeColor = Color.Red;
+                rbFeminino.ForeColor = Color.Green;
             }
             else
             {
                 label21.Visible = true;
-                rbMasculino.ForeColor = Color.Green;
+                rbFeminino.ForeColor = Color.Black;
             }
-        }
-
-        private void rbFeminino_CheckedChanged(object sender, EventArgs e)
-        {
-            rbChecked();
         }
 
         private void rbMasculino_CheckedChanged(object sender, EventArgs e)
         {
-            rbChecked();
+            if (rbMasculino.Checked)
+            {
+                label21.Visible = false;
+                rbMasculino.ForeColor = Color.Green;
+            }
+            else
+            {
+                label21.Visible = true;
+                rbMasculino.ForeColor = Color.Black;
+            }
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -645,6 +640,79 @@ namespace AlbertEinsteinHospital
         private void button3_Click(object sender, EventArgs e)
         {
             registarSintoma();
+        }
+
+        private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Tem a certeza que pretende fazer logout?", "Logout", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                FormInicial frmInicial = new FormInicial();
+                this.Hide();
+                frmInicial.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            listViewPacientes.Items[0].Selected = true;
+            listViewPacientes.Select();
+            listViewPacientes.Items[0].EnsureVisible();
+
+            int selectedIndex = listViewPacientes.SelectedIndices[0];
+            var totalItems = listViewPacientes.Items.Count;
+            label26.Text = ("Paciente " + (selectedIndex + 1) + " de " + totalItems);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = listViewPacientes.SelectedIndices[0];
+            var totalItems = listViewPacientes.Items.Count;
+
+            if (selectedIndex != 0)
+            {
+                listViewPacientes.Items[selectedIndex - 1].Selected = true;
+                listViewPacientes.Select();
+                listViewPacientes.Items[selectedIndex - 1].EnsureVisible();
+
+                label26.Text = ("Paciente " + (selectedIndex + 1) + " de " + totalItems);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            //int selectedIndex = listViewPacientes.SelectedIndices[0];
+            int selectedItems = listViewPacientes.SelectedItems[0].Index;
+            var totalItems = listViewPacientes.Items.Count;
+
+            if (selectedItems != (totalItems - 1))
+            {
+                listViewPacientes.Items[selectedItems + 1].Selected = true;
+                listViewPacientes.Select();
+                listViewPacientes.Items[selectedItems + 1].EnsureVisible();
+
+                label26.Text = ("Paciente " + (selectedItems + 1) + " de " + totalItems);
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            var items = listViewPacientes.Items.Count;
+            listViewPacientes.Items[items - 1].Selected = true;
+            listViewPacientes.Select();
+            listViewPacientes.Items[items - 1].EnsureVisible();
+
+            int selectedIndex = listViewPacientes.SelectedIndices[0];
+            var totalItems = listViewPacientes.Items.Count;
+            label26.Text = ("Paciente " + (selectedIndex + 1) + " de " + totalItems);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FormPrincipal frmPrincipal = new FormPrincipal(utilizadorLogado);
+            this.Hide();
+            frmPrincipal.ShowDialog();
+            this.Close();
         }
     }
 }
