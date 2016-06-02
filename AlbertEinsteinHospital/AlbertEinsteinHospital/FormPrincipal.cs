@@ -13,6 +13,7 @@ namespace AlbertEinsteinHospital
     public partial class FormPrincipal : Form
     {
         Utilizador utilizador;
+        Utilizador utilizadorLogado;
 
         public FormPrincipal(Utilizador utilizador)
         {
@@ -41,7 +42,7 @@ namespace AlbertEinsteinHospital
             this.Close();
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Tem a certeza que pretende fazer logout?", "Logout", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -50,6 +51,14 @@ namespace AlbertEinsteinHospital
                 frmInicial.ShowDialog();
                 this.Close();
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FormPrincipal frmPrincipal = new FormPrincipal(utilizadorLogado);
+            this.Hide();
+            frmPrincipal.ShowDialog();
+            this.Close();
         }
     }
 }

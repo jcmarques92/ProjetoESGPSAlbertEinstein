@@ -40,6 +40,7 @@
             this.tbTelefone = new System.Windows.Forms.TextBox();
             this.tbMorada = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -76,13 +77,7 @@
             this.labelTelefoneFax = new System.Windows.Forms.Label();
             this.panelLogotipo = new System.Windows.Forms.Panel();
             this.labelEmail = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.btnPacientes = new System.Windows.Forms.Button();
-            this.btnUtilizadores = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.panelCabecalho = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -90,13 +85,26 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label29 = new System.Windows.Forms.Label();
+            this.btnUtilizadores = new System.Windows.Forms.Button();
+            this.btnPacientes = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelCabecalho = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.wafToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lOGOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label30 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
             this.panelLogotipo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelCabecalho.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.panelCabecalho.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ckAtivo
@@ -244,10 +252,19 @@
             this.tabPage1.Controls.Add(this.dtDataNascim);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1006, 362);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados Demográficos";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(423, 71);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(41, 13);
+            this.label29.TabIndex = 53;
+            this.label29.Text = "label29";
             // 
             // label28
             // 
@@ -639,73 +656,11 @@
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmail.ForeColor = System.Drawing.Color.White;
-            this.labelEmail.Location = new System.Drawing.Point(704, 9);
+            this.labelEmail.Location = new System.Drawing.Point(582, 9);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(313, 24);
+            this.labelEmail.Size = new System.Drawing.Size(441, 24);
             this.labelEmail.TabIndex = 1;
-            this.labelEmail.Text = "email: alberteinstein@gmail.com";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(49, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 35);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1022, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(1067, 19);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "LOGOUT";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // btnPacientes
-            // 
-            this.btnPacientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.btnPacientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
-            this.btnPacientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
-            this.btnPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPacientes.ForeColor = System.Drawing.Color.White;
-            this.btnPacientes.Location = new System.Drawing.Point(923, 19);
-            this.btnPacientes.Name = "btnPacientes";
-            this.btnPacientes.Size = new System.Drawing.Size(84, 23);
-            this.btnPacientes.TabIndex = 1;
-            this.btnPacientes.Text = "PACIENTES";
-            this.btnPacientes.UseVisualStyleBackColor = false;
-            this.btnPacientes.Click += new System.EventHandler(this.btnPacientes_Click);
-            // 
-            // btnUtilizadores
-            // 
-            this.btnUtilizadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
-            this.btnUtilizadores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
-            this.btnUtilizadores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
-            this.btnUtilizadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUtilizadores.ForeColor = System.Drawing.Color.White;
-            this.btnUtilizadores.Location = new System.Drawing.Point(815, 19);
-            this.btnUtilizadores.Name = "btnUtilizadores";
-            this.btnUtilizadores.Size = new System.Drawing.Size(99, 23);
-            this.btnUtilizadores.TabIndex = 0;
-            this.btnUtilizadores.Text = "UTILIZADORES";
-            this.btnUtilizadores.UseVisualStyleBackColor = false;
+            this.labelEmail.Text = "email: alberteinsteinhospitalesgps@gmail.com";
             // 
             // btnVoltar
             // 
@@ -714,7 +669,7 @@
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.btnVoltar.Location = new System.Drawing.Point(72, 59);
+            this.btnVoltar.Location = new System.Drawing.Point(100, 73);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(112, 22);
             this.btnVoltar.TabIndex = 43;
@@ -722,27 +677,14 @@
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // panelCabecalho
-            // 
-            this.panelCabecalho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.panelCabecalho.Controls.Add(this.pictureBox1);
-            this.panelCabecalho.Controls.Add(this.label1);
-            this.panelCabecalho.Controls.Add(this.btnLogin);
-            this.panelCabecalho.Controls.Add(this.btnPacientes);
-            this.panelCabecalho.Controls.Add(this.btnUtilizadores);
-            this.panelCabecalho.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCabecalho.Location = new System.Drawing.Point(0, 0);
-            this.panelCabecalho.Name = "panelCabecalho";
-            this.panelCabecalho.Size = new System.Drawing.Size(1163, 56);
-            this.panelCabecalho.TabIndex = 40;
-            // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Controls.Add(this.btnProcurar);
             this.panel2.Controls.Add(this.btnAtualizar);
             this.panel2.Controls.Add(this.tabControl1);
             this.panel2.Controls.Add(this.btnRegistar);
+            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel2.Location = new System.Drawing.Point(4, 284);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1163, 456);
@@ -765,9 +707,10 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView1.Location = new System.Drawing.Point(72, 93);
+            this.listView1.Location = new System.Drawing.Point(100, 122);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1001, 185);
+            this.listView1.Size = new System.Drawing.Size(986, 114);
             this.listView1.TabIndex = 44;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -793,24 +736,191 @@
             this.columnHeader3.Text = "Tipo de Utilizador";
             this.columnHeader3.Width = 287;
             // 
-            // label29
+            // btnUtilizadores
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(423, 71);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(41, 13);
-            this.label29.TabIndex = 53;
-            this.label29.Text = "label29";
+            this.btnUtilizadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.btnUtilizadores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.btnUtilizadores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.btnUtilizadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUtilizadores.ForeColor = System.Drawing.Color.White;
+            this.btnUtilizadores.Location = new System.Drawing.Point(814, 17);
+            this.btnUtilizadores.Name = "btnUtilizadores";
+            this.btnUtilizadores.Size = new System.Drawing.Size(99, 23);
+            this.btnUtilizadores.TabIndex = 0;
+            this.btnUtilizadores.Text = "UTILIZADORES";
+            this.btnUtilizadores.UseVisualStyleBackColor = false;
+            // 
+            // btnPacientes
+            // 
+            this.btnPacientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
+            this.btnPacientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.btnPacientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.btnPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPacientes.ForeColor = System.Drawing.Color.White;
+            this.btnPacientes.Location = new System.Drawing.Point(922, 17);
+            this.btnPacientes.Name = "btnPacientes";
+            this.btnPacientes.Size = new System.Drawing.Size(84, 23);
+            this.btnPacientes.TabIndex = 1;
+            this.btnPacientes.Text = "PACIENTES";
+            this.btnPacientes.UseVisualStyleBackColor = false;
+            this.btnPacientes.Click += new System.EventHandler(this.btnPacientes_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.label1.Location = new System.Drawing.Point(1017, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
+            // 
+            // panelCabecalho
+            // 
+            this.panelCabecalho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
+            this.panelCabecalho.Controls.Add(this.pictureBox1);
+            this.panelCabecalho.Controls.Add(this.label1);
+            this.panelCabecalho.Controls.Add(this.btnUtilizadores);
+            this.panelCabecalho.Controls.Add(this.btnPacientes);
+            this.panelCabecalho.Controls.Add(this.menuStrip1);
+            this.panelCabecalho.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCabecalho.Location = new System.Drawing.Point(0, 0);
+            this.panelCabecalho.Name = "panelCabecalho";
+            this.panelCabecalho.Size = new System.Drawing.Size(1163, 54);
+            this.panelCabecalho.TabIndex = 45;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(46, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(350, 35);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wafToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(1075, 15, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1163, 37);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // wafToolStripMenuItem
+            // 
+            this.wafToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lOGOUTToolStripMenuItem});
+            this.wafToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("wafToolStripMenuItem.Image")));
+            this.wafToolStripMenuItem.Name = "wafToolStripMenuItem";
+            this.wafToolStripMenuItem.Size = new System.Drawing.Size(28, 20);
+            // 
+            // lOGOUTToolStripMenuItem
+            // 
+            this.lOGOUTToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lOGOUTToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.lOGOUTToolStripMenuItem.Name = "lOGOUTToolStripMenuItem";
+            this.lOGOUTToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.lOGOUTToolStripMenuItem.Text = "LOGOUT";
+            this.lOGOUTToolStripMenuItem.Click += new System.EventHandler(this.lOGOUTToolStripMenuItem_Click);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.label30.Location = new System.Drawing.Point(98, 239);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(41, 13);
+            this.label30.TabIndex = 46;
+            this.label30.Text = "label30";
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(75)))), ((int)(((byte)(124)))));
+            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button10.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Location = new System.Drawing.Point(175, 255);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(29, 23);
+            this.button10.TabIndex = 51;
+            this.button10.Text = ">>";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(75)))), ((int)(((byte)(124)))));
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button9.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Location = new System.Drawing.Point(153, 255);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(16, 23);
+            this.button9.TabIndex = 50;
+            this.button9.Text = ">";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(75)))), ((int)(((byte)(124)))));
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button8.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(133, 255);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(16, 23);
+            this.button8.TabIndex = 49;
+            this.button8.Text = "<";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(75)))), ((int)(((byte)(124)))));
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button7.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(99, 255);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(29, 23);
+            this.button7.TabIndex = 48;
+            this.button7.Text = "<<";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // FormUtilizador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 782);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.label30);
+            this.Controls.Add(this.panelCabecalho);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.panelLogotipo);
             this.Controls.Add(this.btnVoltar);
-            this.Controls.Add(this.panelCabecalho);
             this.Controls.Add(this.panel2);
             this.Name = "FormUtilizador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -821,12 +931,15 @@
             this.tabPage1.PerformLayout();
             this.panelLogotipo.ResumeLayout(false);
             this.panelLogotipo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelCabecalho.ResumeLayout(false);
-            this.panelCabecalho.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.panelCabecalho.ResumeLayout(false);
+            this.panelCabecalho.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -860,13 +973,7 @@
         private System.Windows.Forms.Label labelTelefoneFax;
         private System.Windows.Forms.Panel panelLogotipo;
         private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnPacientes;
-        private System.Windows.Forms.Button btnUtilizadores;
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.Panel panelCabecalho;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.ListView listView1;
@@ -894,5 +1001,18 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnPacientes;
+        private System.Windows.Forms.Button btnUtilizadores;
+        private System.Windows.Forms.Panel panelCabecalho;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem wafToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lOGOUTToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
     }
 }

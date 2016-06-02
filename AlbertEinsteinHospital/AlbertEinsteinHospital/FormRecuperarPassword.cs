@@ -47,6 +47,7 @@ namespace AlbertEinsteinHospital
 
         private void button1_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             try
             {
 
@@ -88,6 +89,36 @@ namespace AlbertEinsteinHospital
                     MessageBox.Show("Deve introduzir o seu endereço de email");
                 };
             }
+=======
+            AEH_BDEntities bd = new AEH_BDEntities();
+
+            string email = textBox1.Text;
+
+            Utilizador utilizador = bd.PessoaSet.OfType<Utilizador>().Where(u => u.Email.ToLower().Equals(email.ToLower())).FirstOrDefault();
+
+            string novaPassword = createPassword(6);
+
+            login = new NetworkCredential("alberteinsteinhospitalesgps@gmail.com", "projetoesgps2016");
+            client = new SmtpClient("smtp.gmail.com");
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.Credentials = login;
+            msg = new MailMessage { From = new MailAddress("alberteinsteinhospitalesgps@gmail.com") };
+            msg.To.Add(new MailAddress(email));
+            msg.Subject = "Recuperação de Password";
+            msg.Body = "A sua nova password é: " + novaPassword;
+            msg.BodyEncoding = Encoding.UTF8;
+            msg.IsBodyHtml = true;
+            msg.Priority = MailPriority.Normal;
+            msg.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+            string userstate = "Sending...";
+            client.SendAsync(msg, userstate);
+
+            utilizador.Password = DadosUtilizador.GetMD5(novaPassword);
+
+            bd.SaveChanges();
+            bd.Dispose();
+>>>>>>> 3fc660cee3b7512975e3b1c210e58be527884aa8
         }
 
         public string createPassword(int length)
@@ -109,5 +140,16 @@ namespace AlbertEinsteinHospital
             frmLogin.ShowDialog();
             this.Close();
         }
+<<<<<<< HEAD
+=======
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FormInicial frmInicial = new FormInicial();
+            this.Hide();
+            frmInicial.ShowDialog();
+            this.Close();
+        }
+>>>>>>> 3fc660cee3b7512975e3b1c210e58be527884aa8
     }
 }

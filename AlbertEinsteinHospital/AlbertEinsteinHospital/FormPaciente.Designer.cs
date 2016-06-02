@@ -124,10 +124,8 @@
             this.panelLogotipo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.btnPacientes = new System.Windows.Forms.Button();
             this.btnUtilizadores = new System.Windows.Forms.Button();
-            this.panelCabecalho = new System.Windows.Forms.Panel();
             this.listViewPacientes = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -137,9 +135,21 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+<<<<<<< HEAD
             this.listViewConsultas = new System.Windows.Forms.ListView();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+=======
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.wafToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lOGOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelCabecalho = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+>>>>>>> 3fc660cee3b7512975e3b1c210e58be527884aa8
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -159,6 +169,7 @@
             this.panel2.SuspendLayout();
             this.panelLogotipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.panelCabecalho.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -213,7 +224,7 @@
             // rbFeminino
             // 
             this.rbFeminino.AutoSize = true;
-            this.rbFeminino.Location = new System.Drawing.Point(283, 149);
+            this.rbFeminino.Location = new System.Drawing.Point(283, 161);
             this.rbFeminino.Name = "rbFeminino";
             this.rbFeminino.Size = new System.Drawing.Size(67, 17);
             this.rbFeminino.TabIndex = 37;
@@ -225,7 +236,7 @@
             // rbMasculino
             // 
             this.rbMasculino.AutoSize = true;
-            this.rbMasculino.Location = new System.Drawing.Point(204, 149);
+            this.rbMasculino.Location = new System.Drawing.Point(204, 161);
             this.rbMasculino.Name = "rbMasculino";
             this.rbMasculino.Size = new System.Drawing.Size(73, 17);
             this.rbMasculino.TabIndex = 36;
@@ -238,7 +249,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(448, 152);
+            this.label21.Location = new System.Drawing.Point(448, 164);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(11, 13);
             this.label21.TabIndex = 35;
@@ -248,7 +259,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(931, 152);
+            this.label20.Location = new System.Drawing.Point(931, 164);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(11, 13);
             this.label20.TabIndex = 34;
@@ -258,7 +269,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(931, 93);
+            this.label19.Location = new System.Drawing.Point(931, 105);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(11, 13);
             this.label19.TabIndex = 33;
@@ -268,7 +279,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(931, 34);
+            this.label18.Location = new System.Drawing.Point(931, 46);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(11, 13);
             this.label18.TabIndex = 32;
@@ -278,7 +289,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(448, 203);
+            this.label17.Location = new System.Drawing.Point(448, 215);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(11, 13);
             this.label17.TabIndex = 31;
@@ -288,7 +299,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(449, 95);
+            this.label16.Location = new System.Drawing.Point(449, 107);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(11, 13);
             this.label16.TabIndex = 30;
@@ -298,7 +309,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(449, 38);
+            this.label15.Location = new System.Drawing.Point(449, 50);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(11, 13);
             this.label15.TabIndex = 29;
@@ -307,7 +318,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(883, 73);
+            this.label14.Location = new System.Drawing.Point(883, 85);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(41, 13);
             this.label14.TabIndex = 28;
@@ -316,7 +327,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(883, 14);
+            this.label13.Location = new System.Drawing.Point(883, 26);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(41, 13);
             this.label13.TabIndex = 27;
@@ -325,7 +336,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(400, 182);
+            this.label11.Location = new System.Drawing.Point(400, 194);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 26;
@@ -334,7 +345,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(401, 18);
+            this.label10.Location = new System.Drawing.Point(401, 30);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 25;
@@ -343,7 +354,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(889, 134);
+            this.label9.Location = new System.Drawing.Point(889, 146);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 24;
@@ -355,7 +366,7 @@
             this.btnLimpar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(241)))));
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpar.Location = new System.Drawing.Point(28, 236);
+            this.btnLimpar.Location = new System.Drawing.Point(28, 265);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(109, 26);
             this.btnLimpar.TabIndex = 5;
@@ -369,7 +380,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(241)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.label2.Location = new System.Drawing.Point(128, 32);
+            this.label2.Location = new System.Drawing.Point(128, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 18);
             this.label2.TabIndex = 6;
@@ -381,7 +392,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(241)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.label3.Location = new System.Drawing.Point(25, 91);
+            this.label3.Location = new System.Drawing.Point(25, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(161, 18);
             this.label3.TabIndex = 7;
@@ -393,7 +404,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(241)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.label4.Location = new System.Drawing.Point(122, 148);
+            this.label4.Location = new System.Drawing.Point(122, 160);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 18);
             this.label4.TabIndex = 8;
@@ -405,7 +416,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(241)))));
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.label5.Location = new System.Drawing.Point(121, 198);
+            this.label5.Location = new System.Drawing.Point(121, 210);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 18);
             this.label5.TabIndex = 9;
@@ -413,7 +424,7 @@
             // 
             // tbSns
             // 
-            this.tbSns.Location = new System.Drawing.Point(687, 89);
+            this.tbSns.Location = new System.Drawing.Point(687, 101);
             this.tbSns.MaxLength = 9;
             this.tbSns.Name = "tbSns";
             this.tbSns.Size = new System.Drawing.Size(241, 20);
@@ -422,7 +433,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(687, 30);
+            this.tbEmail.Location = new System.Drawing.Point(687, 42);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(241, 20);
             this.tbEmail.TabIndex = 22;
@@ -430,7 +441,7 @@
             // 
             // tbTelefone
             // 
-            this.tbTelefone.Location = new System.Drawing.Point(687, 148);
+            this.tbTelefone.Location = new System.Drawing.Point(687, 160);
             this.tbTelefone.MaxLength = 9;
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(241, 20);
@@ -439,7 +450,7 @@
             // 
             // tbMorada
             // 
-            this.tbMorada.Location = new System.Drawing.Point(204, 198);
+            this.tbMorada.Location = new System.Drawing.Point(204, 210);
             this.tbMorada.Name = "tbMorada";
             this.tbMorada.Size = new System.Drawing.Size(241, 20);
             this.tbMorada.TabIndex = 20;
@@ -447,7 +458,7 @@
             // 
             // tbNome
             // 
-            this.tbNome.Location = new System.Drawing.Point(204, 34);
+            this.tbNome.Location = new System.Drawing.Point(204, 46);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(241, 20);
             this.tbNome.TabIndex = 16;
@@ -459,7 +470,7 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(241)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.label6.Location = new System.Drawing.Point(590, 151);
+            this.label6.Location = new System.Drawing.Point(590, 163);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 18);
             this.label6.TabIndex = 10;
@@ -471,7 +482,7 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(241)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.label7.Location = new System.Drawing.Point(513, 32);
+            this.label7.Location = new System.Drawing.Point(513, 44);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(150, 18);
             this.label7.TabIndex = 11;
@@ -483,7 +494,7 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(241)))));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.label8.Location = new System.Drawing.Point(533, 91);
+            this.label8.Location = new System.Drawing.Point(533, 103);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(130, 18);
             this.label8.TabIndex = 12;
@@ -491,7 +502,7 @@
             // 
             // dtDataNascim
             // 
-            this.dtDataNascim.Location = new System.Drawing.Point(204, 91);
+            this.dtDataNascim.Location = new System.Drawing.Point(204, 103);
             this.dtDataNascim.Name = "dtDataNascim";
             this.dtDataNascim.Size = new System.Drawing.Size(241, 20);
             this.dtDataNascim.TabIndex = 17;
@@ -1094,7 +1105,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Controls.Add(this.tabControl1);
             this.panel2.Controls.Add(this.btnProcurar);
             this.panel2.Controls.Add(this.btnRegistar);
@@ -1157,11 +1168,11 @@
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmail.ForeColor = System.Drawing.Color.White;
-            this.labelEmail.Location = new System.Drawing.Point(704, 9);
+            this.labelEmail.Location = new System.Drawing.Point(618, 9);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(313, 24);
+            this.labelEmail.Size = new System.Drawing.Size(441, 24);
             this.labelEmail.TabIndex = 1;
-            this.labelEmail.Text = "email: alberteinstein@gmail.com";
+            this.labelEmail.Text = "email: alberteinsteinhospitalesgps@gmail.com";
             // 
             // labelTelefoneFax
             // 
@@ -1195,43 +1206,33 @@
             this.panelLogotipo.Controls.Add(this.labelEmail);
             this.panelLogotipo.Controls.Add(this.labelTelefoneFax);
             this.panelLogotipo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLogotipo.Location = new System.Drawing.Point(0, 732);
+            this.panelLogotipo.Location = new System.Drawing.Point(0, 740);
             this.panelLogotipo.Name = "panelLogotipo";
             this.panelLogotipo.Size = new System.Drawing.Size(1163, 42);
             this.panelLogotipo.TabIndex = 40;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(49, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(46, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(350, 35);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1022, 24);
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.label1.Location = new System.Drawing.Point(1017, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(1067, 19);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "LOGOUT";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnPacientes
             // 
@@ -1240,7 +1241,7 @@
             this.btnPacientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
             this.btnPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPacientes.ForeColor = System.Drawing.Color.White;
-            this.btnPacientes.Location = new System.Drawing.Point(923, 19);
+            this.btnPacientes.Location = new System.Drawing.Point(922, 17);
             this.btnPacientes.Name = "btnPacientes";
             this.btnPacientes.Size = new System.Drawing.Size(84, 23);
             this.btnPacientes.TabIndex = 1;
@@ -1254,27 +1255,13 @@
             this.btnUtilizadores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
             this.btnUtilizadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUtilizadores.ForeColor = System.Drawing.Color.White;
-            this.btnUtilizadores.Location = new System.Drawing.Point(815, 19);
+            this.btnUtilizadores.Location = new System.Drawing.Point(814, 17);
             this.btnUtilizadores.Name = "btnUtilizadores";
             this.btnUtilizadores.Size = new System.Drawing.Size(99, 23);
             this.btnUtilizadores.TabIndex = 0;
             this.btnUtilizadores.Text = "UTILIZADORES";
             this.btnUtilizadores.UseVisualStyleBackColor = false;
             this.btnUtilizadores.Click += new System.EventHandler(this.btnUtilizadores_Click);
-            // 
-            // panelCabecalho
-            // 
-            this.panelCabecalho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.panelCabecalho.Controls.Add(this.pictureBox1);
-            this.panelCabecalho.Controls.Add(this.label1);
-            this.panelCabecalho.Controls.Add(this.btnLogin);
-            this.panelCabecalho.Controls.Add(this.btnPacientes);
-            this.panelCabecalho.Controls.Add(this.btnUtilizadores);
-            this.panelCabecalho.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCabecalho.Location = new System.Drawing.Point(0, 0);
-            this.panelCabecalho.Name = "panelCabecalho";
-            this.panelCabecalho.Size = new System.Drawing.Size(1163, 56);
-            this.panelCabecalho.TabIndex = 39;
             // 
             // listViewPacientes
             // 
@@ -1289,8 +1276,9 @@
             this.columnHeader7});
             this.listViewPacientes.ForeColor = System.Drawing.SystemColors.WindowText;
             this.listViewPacientes.Location = new System.Drawing.Point(100, 122);
+            this.listViewPacientes.MultiSelect = false;
             this.listViewPacientes.Name = "listViewPacientes";
-            this.listViewPacientes.Size = new System.Drawing.Size(1010, 196);
+            this.listViewPacientes.Size = new System.Drawing.Size(1010, 153);
             this.listViewPacientes.TabIndex = 43;
             this.listViewPacientes.UseCompatibleStateImageBehavior = false;
             this.listViewPacientes.View = System.Windows.Forms.View.Details;
@@ -1335,6 +1323,7 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+<<<<<<< HEAD
             // listViewConsultas
             // 
             this.listViewConsultas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -1356,17 +1345,145 @@
             // 
             this.columnHeader11.Text = "Diagnóstico";
             this.columnHeader11.Width = 486;
+=======
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(75)))), ((int)(((byte)(124)))));
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button7.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(100, 294);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(29, 23);
+            this.button7.TabIndex = 44;
+            this.button7.Text = "<<";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(75)))), ((int)(((byte)(124)))));
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button8.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(134, 294);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(16, 23);
+            this.button8.TabIndex = 45;
+            this.button8.Text = "<";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(75)))), ((int)(((byte)(124)))));
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button9.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Location = new System.Drawing.Point(154, 294);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(16, 23);
+            this.button9.TabIndex = 46;
+            this.button9.Text = ">";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(75)))), ((int)(((byte)(124)))));
+            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button10.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Location = new System.Drawing.Point(176, 294);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(29, 23);
+            this.button10.TabIndex = 47;
+            this.button10.Text = ">>";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wafToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(1075, 15, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1163, 37);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // wafToolStripMenuItem
+            // 
+            this.wafToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lOGOUTToolStripMenuItem});
+            this.wafToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("wafToolStripMenuItem.Image")));
+            this.wafToolStripMenuItem.Name = "wafToolStripMenuItem";
+            this.wafToolStripMenuItem.Size = new System.Drawing.Size(28, 20);
+            // 
+            // lOGOUTToolStripMenuItem
+            // 
+            this.lOGOUTToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lOGOUTToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.lOGOUTToolStripMenuItem.Name = "lOGOUTToolStripMenuItem";
+            this.lOGOUTToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.lOGOUTToolStripMenuItem.Text = "LOGOUT";
+            this.lOGOUTToolStripMenuItem.Click += new System.EventHandler(this.lOGOUTToolStripMenuItem_Click);
+            // 
+            // panelCabecalho
+            // 
+            this.panelCabecalho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
+            this.panelCabecalho.Controls.Add(this.menuStrip1);
+            this.panelCabecalho.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCabecalho.Location = new System.Drawing.Point(0, 0);
+            this.panelCabecalho.Name = "panelCabecalho";
+            this.panelCabecalho.Size = new System.Drawing.Size(1163, 54);
+            this.panelCabecalho.TabIndex = 39;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
+            this.label26.Location = new System.Drawing.Point(100, 278);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(41, 13);
+            this.label26.TabIndex = 48;
+            this.label26.Text = "label26";
+>>>>>>> 3fc660cee3b7512975e3b1c210e58be527884aa8
             // 
             // FormPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1163, 774);
+            this.ClientSize = new System.Drawing.Size(1163, 782);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.btnPacientes);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.btnUtilizadores);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.listViewPacientes);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.panelLogotipo);
             this.Controls.Add(this.panelCabecalho);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPaciente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Albert Einstein Hospital";
@@ -1395,9 +1512,12 @@
             this.panelLogotipo.ResumeLayout(false);
             this.panelLogotipo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.panelCabecalho.ResumeLayout(false);
             this.panelCabecalho.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1460,10 +1580,8 @@
         private System.Windows.Forms.Panel panelLogotipo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnPacientes;
         private System.Windows.Forms.Button btnUtilizadores;
-        private System.Windows.Forms.Panel panelCabecalho;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListView listViewPacientes;
         private System.Windows.Forms.Label label10;
@@ -1508,11 +1626,23 @@
         private System.Windows.Forms.CheckBox checkBox16;
         private System.Windows.Forms.CheckBox checkBox15;
         private System.Windows.Forms.CheckBox checkBox14;
+<<<<<<< HEAD
         private System.Windows.Forms.ListView listViewExames;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ListView listViewConsultas;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
+=======
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem wafToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lOGOUTToolStripMenuItem;
+        private System.Windows.Forms.Panel panelCabecalho;
+        private System.Windows.Forms.Label label26;
+>>>>>>> 3fc660cee3b7512975e3b1c210e58be527884aa8
     }
 }
