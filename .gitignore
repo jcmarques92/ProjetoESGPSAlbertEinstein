@@ -4,3 +4,7 @@ AlbertEinsteinHospital/AlbertEinsteinHospital/bin/Debug/AlbertEinsteinHospital.e
 AlbertEinsteinHospital/AlbertEinsteinHospital/obj/Debug/AlbertEinsteinHospital.csproj.FileListAbsolute.txt
 *.cache
 AlbertEinsteinHospital/AlbertEinsteinHospital/obj/Debug/AlbertEinsteinHospital.pdb
+AlbertEinsteinHospital/AlbertEinsteinHospital/AEH.edmx
+AlbertEinsteinHospital/AlbertEinsteinHospital/AEH.edmx.diagram
+AlbertEinsteinHospital/AlbertEinsteinHospital/FormPaciente.cs
+AlbertEinsteinHospital/AlbertEinsteinHospital/obj/Debug/TempPE/AEH.cs.dll
