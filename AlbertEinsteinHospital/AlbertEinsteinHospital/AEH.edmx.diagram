@@ -21,6 +21,9 @@
         <AssociationConnector Association="AEH_BDModel.PacienteExame" />
         <AssociationConnector Association="AEH_BDModel.PacienteMedicacao" />
         <AssociationConnector Association="AEH_BDModel.PacienteSintoma" />
+        <EntityTypeShape EntityType="AEH_BDModel.Consulta" Width="1.5" PointX="5.5" PointY="6.75" />
+        <AssociationConnector Association="AEH_BDModel.PacienteConsulta" />
+        <AssociationConnector Association="AEH_BDModel.ConsultaSintoma" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

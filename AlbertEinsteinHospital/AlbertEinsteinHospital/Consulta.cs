@@ -12,25 +12,19 @@ namespace AlbertEinsteinHospital
     using System;
     using System.Collections.Generic;
     
-    public partial class Paciente : Pessoa
+    public partial class Consulta
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Paciente()
+        public Consulta()
         {
-            this.Exame = new HashSet<Exame>();
-            this.Medicacao = new HashSet<Medicacao>();
             this.Sintoma = new HashSet<Sintoma>();
-            this.Consulta = new HashSet<Consulta>();
         }
     
+        public int Id { get; set; }
+        public string Diagnostico { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Exame> Exame { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Medicacao> Medicacao { get; set; }
+        public virtual Paciente Paciente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sintoma> Sintoma { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Consulta> Consulta { get; set; }
     }
 }

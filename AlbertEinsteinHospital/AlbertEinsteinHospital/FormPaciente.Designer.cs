@@ -85,6 +85,18 @@
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.checkBox15 = new System.Windows.Forms.CheckBox();
+            this.checkBox16 = new System.Windows.Forms.CheckBox();
+            this.checkBox17 = new System.Windows.Forms.CheckBox();
+            this.checkBox18 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -93,13 +105,13 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.listBox5 = new System.Windows.Forms.ListBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.listBoxExamesPacienteSelecionado = new System.Windows.Forms.ListBox();
+            this.listViewExames = new System.Windows.Forms.ListView();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.rtbDiagnostico = new System.Windows.Forms.RichTextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.listBoxSintomasPacienteSelecionado = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -125,18 +137,9 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.checkBox17 = new System.Windows.Forms.CheckBox();
-            this.checkBox18 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listViewConsultas = new System.Windows.Forms.ListView();
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -802,6 +805,123 @@
             this.panel1.Size = new System.Drawing.Size(971, 143);
             this.panel1.TabIndex = 0;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(735, 99);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(199, 20);
+            this.textBox1.TabIndex = 23;
+            // 
+            // checkBox14
+            // 
+            this.checkBox14.AutoSize = true;
+            this.checkBox14.Location = new System.Drawing.Point(674, 101);
+            this.checkBox14.Name = "checkBox14";
+            this.checkBox14.Size = new System.Drawing.Size(55, 17);
+            this.checkBox14.TabIndex = 22;
+            this.checkBox14.Text = "Outro:";
+            this.checkBox14.UseVisualStyleBackColor = true;
+            // 
+            // checkBox15
+            // 
+            this.checkBox15.AutoSize = true;
+            this.checkBox15.Location = new System.Drawing.Point(674, 78);
+            this.checkBox15.Name = "checkBox15";
+            this.checkBox15.Size = new System.Drawing.Size(114, 17);
+            this.checkBox15.TabIndex = 21;
+            this.checkBox15.Text = "Problema Recente";
+            this.checkBox15.UseVisualStyleBackColor = true;
+            // 
+            // checkBox16
+            // 
+            this.checkBox16.AutoSize = true;
+            this.checkBox16.Location = new System.Drawing.Point(674, 55);
+            this.checkBox16.Name = "checkBox16";
+            this.checkBox16.Size = new System.Drawing.Size(160, 17);
+            this.checkBox16.TabIndex = 20;
+            this.checkBox16.Text = "Provável infeção respiratória";
+            this.checkBox16.UseVisualStyleBackColor = true;
+            // 
+            // checkBox17
+            // 
+            this.checkBox17.AutoSize = true;
+            this.checkBox17.Location = new System.Drawing.Point(673, 32);
+            this.checkBox17.Name = "checkBox17";
+            this.checkBox17.Size = new System.Drawing.Size(96, 17);
+            this.checkBox17.TabIndex = 19;
+            this.checkBox17.Text = "Broncospasmo";
+            this.checkBox17.UseVisualStyleBackColor = true;
+            // 
+            // checkBox18
+            // 
+            this.checkBox18.AutoSize = true;
+            this.checkBox18.Location = new System.Drawing.Point(673, 9);
+            this.checkBox18.Name = "checkBox18";
+            this.checkBox18.Size = new System.Drawing.Size(261, 17);
+            this.checkBox18.TabIndex = 18;
+            this.checkBox18.Text = "Asma sem melhoria com o seu tratamento habitual";
+            this.checkBox18.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(339, 124);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(162, 17);
+            this.checkBox7.TabIndex = 17;
+            this.checkBox7.Text = "História significativa de asma";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(339, 101);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(213, 17);
+            this.checkBox8.TabIndex = 16;
+            this.checkBox8.Text = "SAO2 (Arterial Oxygen Saturation) baixo";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(339, 78);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(216, 17);
+            this.checkBox9.TabIndex = 15;
+            this.checkBox9.Text = "PEFR (Peak Expiratory Flow Rate) baixo";
+            this.checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Location = new System.Drawing.Point(339, 55);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(196, 17);
+            this.checkBox10.TabIndex = 14;
+            this.checkBox10.Text = "Alteração do estado de consciência";
+            this.checkBox10.UseVisualStyleBackColor = true;
+            // 
+            // checkBox11
+            // 
+            this.checkBox11.AutoSize = true;
+            this.checkBox11.Location = new System.Drawing.Point(338, 32);
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.Size = new System.Drawing.Size(241, 17);
+            this.checkBox11.TabIndex = 13;
+            this.checkBox11.Text = "SAO2 (Arterial Oxygen Saturation) muito baixo";
+            this.checkBox11.UseVisualStyleBackColor = true;
+            // 
+            // checkBox12
+            // 
+            this.checkBox12.AutoSize = true;
+            this.checkBox12.Location = new System.Drawing.Point(338, 9);
+            this.checkBox12.Name = "checkBox12";
+            this.checkBox12.Size = new System.Drawing.Size(244, 17);
+            this.checkBox12.TabIndex = 12;
+            this.checkBox12.Text = "PEFR (Peak Expiratory Flow Rate) muito baixo";
+            this.checkBox12.UseVisualStyleBackColor = true;
+            // 
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
@@ -855,7 +975,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(7, 9);
+            this.checkBox1.Location = new System.Drawing.Point(7, 10);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(150, 17);
             this.checkBox1.TabIndex = 6;
@@ -879,30 +999,13 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.listBox5);
-            this.groupBox7.Controls.Add(this.listBox4);
+            this.groupBox7.Controls.Add(this.listViewConsultas);
             this.groupBox7.Location = new System.Drawing.Point(409, 112);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(571, 92);
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Histórico Clínico";
-            // 
-            // listBox5
-            // 
-            this.listBox5.FormattingEnabled = true;
-            this.listBox5.Location = new System.Drawing.Point(282, 17);
-            this.listBox5.Name = "listBox5";
-            this.listBox5.Size = new System.Drawing.Size(283, 69);
-            this.listBox5.TabIndex = 1;
-            // 
-            // listBox4
-            // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(6, 15);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(270, 69);
-            this.listBox4.TabIndex = 0;
             // 
             // button4
             // 
@@ -916,10 +1019,11 @@
             this.button4.TabIndex = 0;
             this.button4.Text = "Guardar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.listBoxExamesPacienteSelecionado);
+            this.groupBox6.Controls.Add(this.listViewExames);
             this.groupBox6.Location = new System.Drawing.Point(6, 111);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(391, 92);
@@ -927,18 +1031,32 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Exames";
             // 
-            // listBoxExamesPacienteSelecionado
+            // listViewExames
             // 
-            this.listBoxExamesPacienteSelecionado.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxExamesPacienteSelecionado.FormattingEnabled = true;
-            this.listBoxExamesPacienteSelecionado.Location = new System.Drawing.Point(6, 16);
-            this.listBoxExamesPacienteSelecionado.Name = "listBoxExamesPacienteSelecionado";
-            this.listBoxExamesPacienteSelecionado.Size = new System.Drawing.Size(379, 65);
-            this.listBoxExamesPacienteSelecionado.TabIndex = 0;
+            this.listViewExames.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader8,
+            this.columnHeader9});
+            this.listViewExames.Location = new System.Drawing.Point(6, 16);
+            this.listViewExames.Name = "listViewExames";
+            this.listViewExames.Size = new System.Drawing.Size(379, 69);
+            this.listViewExames.TabIndex = 44;
+            this.listViewExames.UseCompatibleStateImageBehavior = false;
+            this.listViewExames.View = System.Windows.Forms.View.Details;
+            this.listViewExames.SelectedIndexChanged += new System.EventHandler(this.listViewExames_SelectedIndexChanged);
+            this.listViewExames.DoubleClick += new System.EventHandler(this.listViewExames_DoubleClick);
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Id";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Notas";
+            this.columnHeader9.Width = 298;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.richTextBox3);
+            this.groupBox5.Controls.Add(this.rtbDiagnostico);
             this.groupBox5.Location = new System.Drawing.Point(6, 210);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(974, 51);
@@ -946,14 +1064,14 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Diagnóstico";
             // 
-            // richTextBox3
+            // rtbDiagnostico
             // 
-            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox3.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(962, 26);
-            this.richTextBox3.TabIndex = 0;
-            this.richTextBox3.Text = "";
+            this.rtbDiagnostico.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbDiagnostico.Location = new System.Drawing.Point(6, 19);
+            this.rtbDiagnostico.Name = "rtbDiagnostico";
+            this.rtbDiagnostico.Size = new System.Drawing.Size(962, 26);
+            this.rtbDiagnostico.TabIndex = 0;
+            this.rtbDiagnostico.Text = "";
             // 
             // groupBox4
             // 
@@ -1217,122 +1335,27 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // checkBox7
+            // listViewConsultas
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(339, 124);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(162, 17);
-            this.checkBox7.TabIndex = 17;
-            this.checkBox7.Text = "História significativa de asma";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.listViewConsultas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader10,
+            this.columnHeader11});
+            this.listViewConsultas.Location = new System.Drawing.Point(6, 17);
+            this.listViewConsultas.Name = "listViewConsultas";
+            this.listViewConsultas.Size = new System.Drawing.Size(559, 69);
+            this.listViewConsultas.TabIndex = 45;
+            this.listViewConsultas.UseCompatibleStateImageBehavior = false;
+            this.listViewConsultas.View = System.Windows.Forms.View.Details;
+            this.listViewConsultas.DoubleClick += new System.EventHandler(this.listViewConsultas_DoubleClick);
             // 
-            // checkBox8
+            // columnHeader10
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(339, 101);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(213, 17);
-            this.checkBox8.TabIndex = 16;
-            this.checkBox8.Text = "SAO2 (Arterial Oxygen Saturation) baixo";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.columnHeader10.Text = "Id";
             // 
-            // checkBox9
+            // columnHeader11
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(339, 78);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(216, 17);
-            this.checkBox9.TabIndex = 15;
-            this.checkBox9.Text = "PEFR (Peak Expiratory Flow Rate) baixo";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(339, 55);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(196, 17);
-            this.checkBox10.TabIndex = 14;
-            this.checkBox10.Text = "Alteração do estado de consciência";
-            this.checkBox10.UseVisualStyleBackColor = true;
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(338, 32);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(241, 17);
-            this.checkBox11.TabIndex = 13;
-            this.checkBox11.Text = "SAO2 (Arterial Oxygen Saturation) muito baixo";
-            this.checkBox11.UseVisualStyleBackColor = true;
-            // 
-            // checkBox12
-            // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(338, 9);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(244, 17);
-            this.checkBox12.TabIndex = 12;
-            this.checkBox12.Text = "PEFR (Peak Expiratory Flow Rate) muito baixo";
-            this.checkBox12.UseVisualStyleBackColor = true;
-            // 
-            // checkBox14
-            // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(674, 101);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(55, 17);
-            this.checkBox14.TabIndex = 22;
-            this.checkBox14.Text = "Outro:";
-            this.checkBox14.UseVisualStyleBackColor = true;
-            // 
-            // checkBox15
-            // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Location = new System.Drawing.Point(674, 78);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(114, 17);
-            this.checkBox15.TabIndex = 21;
-            this.checkBox15.Text = "Problema Recente";
-            this.checkBox15.UseVisualStyleBackColor = true;
-            // 
-            // checkBox16
-            // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Location = new System.Drawing.Point(674, 55);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(160, 17);
-            this.checkBox16.TabIndex = 20;
-            this.checkBox16.Text = "Provável infeção respiratória";
-            this.checkBox16.UseVisualStyleBackColor = true;
-            // 
-            // checkBox17
-            // 
-            this.checkBox17.AutoSize = true;
-            this.checkBox17.Location = new System.Drawing.Point(673, 32);
-            this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(96, 17);
-            this.checkBox17.TabIndex = 19;
-            this.checkBox17.Text = "Broncospasmo";
-            this.checkBox17.UseVisualStyleBackColor = true;
-            // 
-            // checkBox18
-            // 
-            this.checkBox18.AutoSize = true;
-            this.checkBox18.Location = new System.Drawing.Point(673, 9);
-            this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(261, 17);
-            this.checkBox18.TabIndex = 18;
-            this.checkBox18.Text = "Asma sem melhoria com o seu tratamento habitual";
-            this.checkBox18.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(735, 99);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 20);
-            this.textBox1.TabIndex = 23;
+            this.columnHeader11.Text = "Diagnóstico";
+            this.columnHeader11.Width = 486;
             // 
             // FormPaciente
             // 
@@ -1421,13 +1444,10 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ListBox listBox5;
-        private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.ListBox listBoxExamesPacienteSelecionado;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox rtbDiagnostico;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ListBox listBoxSintomasPacienteSelecionado;
         private System.Windows.Forms.Panel panel2;
@@ -1488,5 +1508,11 @@
         private System.Windows.Forms.CheckBox checkBox16;
         private System.Windows.Forms.CheckBox checkBox15;
         private System.Windows.Forms.CheckBox checkBox14;
+        private System.Windows.Forms.ListView listViewExames;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ListView listViewConsultas;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
     }
 }

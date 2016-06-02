@@ -29,5 +29,6 @@ namespace AlbertEinsteinHospital
         public virtual DbSet<Medicacao> MedicacaoSet { get; set; }
         public virtual DbSet<Exame> ExameSet { get; set; }
         public virtual DbSet<Sintoma> SintomaSet { get; set; }
+        public virtual DbSet<Consulta> ConsultaSet { get; set; }
     }
 }

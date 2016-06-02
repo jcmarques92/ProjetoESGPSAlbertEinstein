@@ -58,5 +58,6 @@ namespace AlbertEinsteinHospital
         public string Notas { get; set; }
     
         public virtual Paciente Paciente { get; set; }
+        public virtual Consulta Consulta { get; set; }
     }
 }

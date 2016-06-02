@@ -10,6 +10,7 @@
     <EntitySet Name="MedicacaoSet" EntityType="AEH_BDModel.Store.MedicacaoSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ExameSet" EntityType="AEH_BDModel.Store.ExameSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SintomaSet" EntityType="AEH_BDModel.Store.SintomaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConsultaSet" EntityType="AEH_BDModel.Store.ConsultaSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PessoaSet_Paciente" EntityType="AEH_BDModel.Store.PessoaSet_Paciente" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PessoaSet_Utilizador" EntityType="AEH_BDModel.Store.PessoaSet_Utilizador" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="PacienteExame" Association="AEH_BDModel.Store.PacienteExame">
@@ -22,6 +23,14 @@
     </AssociationSet>
     <AssociationSet Name="PacienteSintoma" Association="AEH_BDModel.Store.PacienteSintoma">
       <End Role="Paciente" EntitySet="PessoaSet_Paciente" />
+      <End Role="Sintoma" EntitySet="SintomaSet" />
+    </AssociationSet>
+    <AssociationSet Name="PacienteConsulta" Association="AEH_BDModel.Store.PacienteConsulta">
+      <End Role="Paciente" EntitySet="PessoaSet_Paciente" />
+      <End Role="Consulta" EntitySet="ConsultaSet" />
+    </AssociationSet>
+    <AssociationSet Name="ConsultaSintoma" Association="AEH_BDModel.Store.ConsultaSintoma">
+      <End Role="Consulta" EntitySet="ConsultaSet" />
       <End Role="Sintoma" EntitySet="SintomaSet" />
     </AssociationSet>
     <AssociationSet Name="FK_Paciente_inherits_Pessoa" Association="AEH_BDModel.Store.FK_Paciente_inherits_Pessoa">
@@ -91,6 +100,15 @@
     <Property Name="OutroDescricao" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Notas" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Paciente_Id" Type="int" Nullable="true" />
+    <Property Name="Consulta_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ConsultaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Diagnostico" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Paciente_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="PessoaSet_Paciente">
     <Key>
@@ -144,6 +162,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="PacienteConsulta">
+    <End Role="Paciente" Type="AEH_BDModel.Store.PessoaSet_Paciente" Multiplicity="0..1" />
+    <End Role="Consulta" Type="AEH_BDModel.Store.ConsultaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Consulta">
+        <PropertyRef Name="Paciente_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ConsultaSintoma">
+    <End Role="Consulta" Type="AEH_BDModel.Store.ConsultaSet" Multiplicity="0..1" />
+    <End Role="Sintoma" Type="AEH_BDModel.Store.SintomaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Consulta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sintoma">
+        <PropertyRef Name="Consulta_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Paciente_inherits_Pessoa">
     <End Role="Pessoa" Type="AEH_BDModel.Store.PessoaSet" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -193,6 +235,15 @@
             <End Role="Paciente" EntitySet="PessoaSet" />
             <End Role="Sintoma" EntitySet="SintomaSet" />
           </AssociationSet>
+          <EntitySet Name="ConsultaSet" EntityType="AEH_BDModel.Consulta" />
+          <AssociationSet Name="PacienteConsulta" Association="AEH_BDModel.PacienteConsulta">
+            <End Role="Paciente" EntitySet="PessoaSet" />
+            <End Role="Consulta" EntitySet="ConsultaSet" />
+          </AssociationSet>
+          <AssociationSet Name="ConsultaSintoma" Association="AEH_BDModel.ConsultaSintoma">
+            <End Role="Consulta" EntitySet="ConsultaSet" />
+            <End Role="Sintoma" EntitySet="SintomaSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Utilizador" BaseType="AEH_BDModel.Pessoa">
           <Property Name="NomeUtilizador" Nullable="false" Type="String" />
@@ -217,6 +268,7 @@
           <NavigationProperty Name="Exame" Relationship="AEH_BDModel.PacienteExame" FromRole="Paciente" ToRole="Exame" />
           <NavigationProperty Name="Medicacao" Relationship="AEH_BDModel.PacienteMedicacao" FromRole="Paciente" ToRole="Medicacao" />
           <NavigationProperty Name="Sintoma" Relationship="AEH_BDModel.PacienteSintoma" FromRole="Paciente" ToRole="Sintoma" />
+          <NavigationProperty Name="Consulta" Relationship="AEH_BDModel.PacienteConsulta" FromRole="Paciente" ToRole="Consulta" />
         </EntityType>
         <EntityType Name="Medicacao">
           <Key>
@@ -263,6 +315,7 @@
           <Property Name="Outro" Type="Boolean" Nullable="false" DefaultValue="false" />
           <Property Name="OutroDescricao" Type="String" Nullable="true" />
           <Property Name="Notas" Type="String" Nullable="true" />
+          <NavigationProperty Name="Consulta" Relationship="AEH_BDModel.ConsultaSintoma" FromRole="Sintoma" ToRole="Consulta" />
         </EntityType>
         <Association Name="PacienteExame">
           <End Type="AEH_BDModel.Paciente" Role="Paciente" Multiplicity="0..1" />
@@ -274,6 +327,23 @@
         </Association>
         <Association Name="PacienteSintoma">
           <End Type="AEH_BDModel.Paciente" Role="Paciente" Multiplicity="0..1" />
+          <End Type="AEH_BDModel.Sintoma" Role="Sintoma" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Consulta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Paciente" Relationship="AEH_BDModel.PacienteConsulta" FromRole="Consulta" ToRole="Paciente" />
+          <NavigationProperty Name="Sintoma" Relationship="AEH_BDModel.ConsultaSintoma" FromRole="Consulta" ToRole="Sintoma" />
+          <Property Name="Diagnostico" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="PacienteConsulta">
+          <End Type="AEH_BDModel.Paciente" Role="Paciente" Multiplicity="0..1" />
+          <End Type="AEH_BDModel.Consulta" Role="Consulta" Multiplicity="*" />
+        </Association>
+        <Association Name="ConsultaSintoma">
+          <End Type="AEH_BDModel.Consulta" Role="Consulta" Multiplicity="0..1" />
           <End Type="AEH_BDModel.Sintoma" Role="Sintoma" Multiplicity="*" />
         </Association>
       </Schema>
@@ -356,6 +426,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ConsultaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AEH_BDModel.Consulta)">
+        <MappingFragment StoreEntitySet="ConsultaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="PacienteExame" TypeName="AEH_BDModel.PacienteExame" StoreEntitySet="ExameSet">
       <EndProperty Name="Paciente">
         <ScalarProperty Name="Id" ColumnName="Paciente_Id" />
@@ -382,6 +460,24 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
       <Condition ColumnName="Paciente_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PacienteConsulta" TypeName="AEH_BDModel.PacienteConsulta" StoreEntitySet="ConsultaSet">
+      <EndProperty Name="Paciente">
+        <ScalarProperty Name="Id" ColumnName="Paciente_Id" />
+      </EndProperty>
+      <EndProperty Name="Consulta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Paciente_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ConsultaSintoma" TypeName="AEH_BDModel.ConsultaSintoma" StoreEntitySet="SintomaSet">
+      <EndProperty Name="Consulta">
+        <ScalarProperty Name="Id" ColumnName="Consulta_Id" />
+      </EndProperty>
+      <EndProperty Name="Sintoma">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Consulta_Id" IsNull="false" />
     </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>

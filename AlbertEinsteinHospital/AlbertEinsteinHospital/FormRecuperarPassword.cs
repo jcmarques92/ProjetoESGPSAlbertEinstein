@@ -47,34 +47,47 @@ namespace AlbertEinsteinHospital
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AEH_BDEntities bd = new AEH_BDEntities();
+            try
+            {
 
-            string email = textBox1.Text;
+                AEH_BDEntities bd = new AEH_BDEntities();
 
-            Utilizador utilizador = bd.PessoaSet.OfType<Utilizador>().Where(u => u.Email.ToLower().Equals(email.ToLower())).FirstOrDefault();
+                string email = textBox1.Text;
 
-            string novaPassword = createPassword(6);
+                Utilizador utilizador = bd.PessoaSet.OfType<Utilizador>().Where(u => u.Email.ToLower().Equals(email.ToLower())).FirstOrDefault();
 
-            login = new NetworkCredential("alberteinsteinhospitalesgps@gmail.com", "projetoesgps2016");
-            client = new SmtpClient("smtp.gmail.com");
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.Credentials = login;
-            msg = new MailMessage { From = new MailAddress("alberteinsteinhospitalesgps@gmail.com") };
-            msg.To.Add(new MailAddress(email));
-            msg.Subject = "Recuperação de Password";
-            msg.Body = "A sua nova password é: " + novaPassword;
-            msg.BodyEncoding = Encoding.UTF8;
-            msg.IsBodyHtml = true;
-            msg.Priority = MailPriority.Normal;
-            msg.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
-            string userstate = "Sending...";
-            client.SendAsync(msg, userstate);
+                string novaPassword = createPassword(6);
 
-            utilizador.Password = novaPassword;
+                login = new NetworkCredential("alberteinsteinhospitalesgps@gmail.com", "projetoesgps2016");
+                client = new SmtpClient("smtp.gmail.com");
+                client.Port = 587;
+                client.EnableSsl = true;
+                client.Credentials = login;
+                msg = new MailMessage { From = new MailAddress("alberteinsteinhospitalesgps@gmail.com") };
+                msg.To.Add(new MailAddress(email));
+                msg.Subject = "Recuperação de Password";
+                msg.Body = "A sua nova password é: " + novaPassword;
+                msg.BodyEncoding = Encoding.UTF8;
+                msg.IsBodyHtml = true;
+                msg.Priority = MailPriority.Normal;
+                msg.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                string userstate = "Sending...";
+                client.SendAsync(msg, userstate);
 
-            bd.SaveChanges();
-            bd.Dispose();
+                utilizador.Password = novaPassword;
+
+                bd.SaveChanges();
+                bd.Dispose();
+
+                MessageBox.Show("Password recuperada com sucesso!");
+            }
+            catch (Exception)
+            {
+                if (textBox1.Text == null || textBox1.Text.Equals("e-mail"))
+                {
+                    MessageBox.Show("Deve introduzir o seu endereço de email");
+                };
+            }
         }
 
         public string createPassword(int length)
@@ -87,6 +100,14 @@ namespace AlbertEinsteinHospital
                 res.Append(valid[rnd.Next(valid.Length)]);
             }
             return res.ToString();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            FormLogin frmLogin = new FormLogin();
+            this.Hide();
+            frmLogin.ShowDialog();
+            this.Close();
         }
     }
 }
