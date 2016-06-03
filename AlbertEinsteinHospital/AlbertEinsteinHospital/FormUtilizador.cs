@@ -87,10 +87,17 @@ namespace AlbertEinsteinHospital
             try
             {
 
-                DadosUtilizador.registarUtilizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, DadosUtilizador.GetMD5(tbPassword.Text), cbTipoUtilizador.Text);
-                MessageBox.Show("Utilizador Registado com Sucesso!", "Sucesso");
-                limparCampos();
-                atualizar();
+                if (tbNome.Text!=null && dtDataNascim.Value!=null && genero!=null && tbMorada.Text!=null && tbEmail.Text!=null && tbSns.Text!=null && tbTelefone.Text!=null && tbNomeUtilizador.Text!=null && tbPassword.Text!=null && cbTipoUtilizador.Text!=null)
+                {
+                    DadosUtilizador.registarUtilizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, DadosUtilizador.GetMD5(tbPassword.Text), cbTipoUtilizador.Text);
+                    MessageBox.Show("Utilizador Registado com Sucesso!", "Sucesso");
+                    limparCampos();
+                    atualizar();
+                }
+                else
+                {
+                    MessageBox.Show("Deve preencher todos os campos!");
+                }
             }
             catch (Exception)
             {
@@ -272,7 +279,7 @@ namespace AlbertEinsteinHospital
             try
             {
 
-                DadosUtilizador.atualizarAtualizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, DadosUtilizador.GetMD5(tbPassword.Text), cbTipoUtilizador.Text);
+                DadosUtilizador.atualizarUtilizador(tbNome.Text, dtDataNascim.Value, genero, tbMorada.Text, int.Parse(tbTelefone.Text), ativo, tbEmail.Text, int.Parse(tbSns.Text), tbNomeUtilizador.Text, DadosUtilizador.GetMD5(tbPassword.Text), cbTipoUtilizador.Text);
                 MessageBox.Show("Utilizador Atualizado com Sucesso!", "Sucesso");
                 atualizar();
 

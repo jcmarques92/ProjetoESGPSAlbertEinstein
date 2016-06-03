@@ -23,8 +23,8 @@ namespace AlbertEinsteinHospital
 
             db.PessoaSet.Add(p);
             db.SaveChanges();
-
-            Paciente paciente = db.PessoaSet.OfType<Paciente>().Where(x => x.Id == 1).FirstOrDefault();
+            
+            Paciente paciente = db.PessoaSet.OfType<Paciente>().Where(x => x.Id == 1).OrderBy(Paciente=>p.Nome).FirstOrDefault();
             db.Dispose();
         }
 
@@ -32,7 +32,7 @@ namespace AlbertEinsteinHospital
         {
             AEH_BDEntities bd = new AEH_BDEntities();
 
-            List<Paciente> listaPacientes = bd.PessoaSet.OfType<Paciente>().ToList();
+            List<Paciente> listaPacientes = bd.PessoaSet.OfType<Paciente>().OrderBy(Paciente => Paciente.Nome).ToList();
 
             return listaPacientes;
         }
@@ -41,7 +41,7 @@ namespace AlbertEinsteinHospital
         {
             AEH_BDEntities bd = new AEH_BDEntities();
 
-            Paciente p = bd.PessoaSet.OfType<Paciente>().Where(i => i.NumSns == numSns).FirstOrDefault();
+            Paciente p = bd.PessoaSet.OfType<Paciente>().Where(i => i.NumSns == numSns).OrderBy(Paciente => Paciente.Nome).FirstOrDefault();
 
             p.Nome = nome;
             p.DataNascimento = dataNascim;

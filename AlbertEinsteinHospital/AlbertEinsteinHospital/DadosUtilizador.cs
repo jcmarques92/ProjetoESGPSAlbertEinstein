@@ -30,15 +30,15 @@ namespace AlbertEinsteinHospital
             bd.PessoaSet.Add(u);
             bd.SaveChanges();
 
-            Utilizador utilizador = bd.PessoaSet.OfType<Utilizador>().Where(i => i.Id == 1).FirstOrDefault();
+            Utilizador utilizador = bd.PessoaSet.OfType<Utilizador>().Where(i => i.Id == 1).OrderBy(Utilizador=>u.Nome).FirstOrDefault();
 
         }
 
-        public static void atualizarAtualizador(string nome, DateTime dataNascim, string genero, string morada, int telefone, bool ativo, string email, int sns, string nomeUtilizador, string password, string tipoUtilizador)
+        public static void atualizarUtilizador(string nome, DateTime dataNascim, string genero, string morada, int telefone, bool ativo, string email, int sns, string nomeUtilizador, string password, string tipoUtilizador)
         {
             AEH_BDEntities bd = new AEH_BDEntities();
 
-            Utilizador u = bd.PessoaSet.OfType<Utilizador>().Where(i => i.NumSns == sns).FirstOrDefault();
+            Utilizador u = bd.PessoaSet.OfType<Utilizador>().Where(i => i.NumSns == sns).OrderBy(Utilizador => Utilizador.Nome).FirstOrDefault();
 
             u.Nome = nome;
             u.DataNascimento = dataNascim;
@@ -59,7 +59,7 @@ namespace AlbertEinsteinHospital
         {
             AEH_BDEntities bd = new AEH_BDEntities();
 
-            List<Utilizador> listaUtilizadores = bd.PessoaSet.OfType<Utilizador>().ToList();
+            List<Utilizador> listaUtilizadores = bd.PessoaSet.OfType<Utilizador>().OrderBy(Utilizador => Utilizador.Nome).ToList();
 
             return listaUtilizadores;
         }

@@ -57,10 +57,17 @@ namespace AlbertEinsteinHospital
 
                 try
                 {
-                    DadosPaciente.registarPaciente(tbNome.Text, dtDataNascim.Value, int.Parse(tbSns.Text), genero, tbMorada.Text, int.Parse(tbTelefone.Text), tbEmail.Text);
-                    MessageBox.Show("Paciente Registado com Sucesso!", "Sucesso");
-                    limparCampos();
-                    atualizar();
+                    if (tbNome.Text != null && dtDataNascim.Value != null && genero != null && tbMorada.Text != null && tbEmail.Text != null && tbSns.Text != null && tbTelefone.Text != null)
+                    {
+                        DadosPaciente.registarPaciente(tbNome.Text, dtDataNascim.Value, int.Parse(tbSns.Text), genero, tbMorada.Text, int.Parse(tbTelefone.Text), tbEmail.Text);
+                        MessageBox.Show("Paciente Registado com Sucesso!", "Sucesso");
+                        limparCampos();
+                        atualizar();
+                    }
+                    else
+                    {
+                         MessageBox.Show("Deve preencher todos os campos!");
+                    }
                 }
                 catch (Exception)
                 {
