@@ -194,10 +194,33 @@ namespace AlbertEinsteinHospital
                 mostrarExames();
                 mostrarSintomas();
                 mostrarConsultas();
+                mostrarMedicacao();
                 btnRegistar.Enabled = false;
                 btnProcurar.Enabled = false;
                 listaExames = getExames().ToList();
                 label26.Text = ("Paciente " + (intselectedindex + 1) + " de " + totalItems);
+            }
+        }
+
+        private void mostrarMedicacao()
+        {
+            listViewMedicacao.Items.Clear();
+
+            List<Medicacao> listaMedicacao = getMedicacao();
+
+            ListViewItem item1 = new ListViewItem();
+
+            listViewMedicacao.FullRowSelect = true;
+
+            for (int i = 0; i < listaMedicacao.Count; i++)
+            {
+
+                item1 = new ListViewItem(listaMedicacao[i].DataInicio.ToString());
+                item1.SubItems.Add(listaMedicacao[i].DataFim.ToString());
+                item1.SubItems.Add(listaMedicacao[i].Medicamento.ToString());
+                item1.SubItems.Add(listaMedicacao[i].Dosagem.ToString());
+
+                listViewMedicacao.Items.Add(item1);
             }
         }
 
@@ -338,7 +361,7 @@ namespace AlbertEinsteinHospital
         private void tbNome_TextChanged(object sender, EventArgs e)
         {
             
-            Regex modelo = new Regex(@"^[aA-zZ]+((\s[aA-zZ]+)+)?$");
+            Regex modelo = new Regex(@"^[\p{L} \.\-]+$");
             if (modelo.IsMatch(tbNome.Text))
             {
                 tbNome.ForeColor = Color.Green;
@@ -396,6 +419,27 @@ namespace AlbertEinsteinHospital
 
         private void FormPaciente_Load(object sender, EventArgs e)
         {
+            if (utilizadorLogado.TipoUtilizador != "Administrador de Sistema")
+            {
+                btnUtilizadores.Visible = false;
+            }
+
+            if (utilizadorLogado.TipoUtilizador.Equals("Assistente"))
+            {
+                tabControl2.TabPages.Remove(tabPage5);
+                tabControl2.TabPages.Remove(tabPage6);
+                tabControl2.TabPages.Remove(tabPage7);
+            }
+
+            if (utilizadorLogado.TipoUtilizador.Equals("Enfermeiro"))
+            {
+                tabControl2.TabPages.Remove(tabPage3);
+                tabControl2.TabPages.Remove(tabPage4);
+                tabControl2.TabPages.Remove(tabPage5);
+                tabControl2.TabPages.Remove(tabPage6);
+            }
+
+
             label1.Text = utilizadorLogado.NomeUtilizador;
 
             ListViewItem item1 = new ListViewItem();

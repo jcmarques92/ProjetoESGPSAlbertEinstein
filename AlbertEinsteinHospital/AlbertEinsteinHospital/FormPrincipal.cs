@@ -22,6 +22,16 @@ namespace AlbertEinsteinHospital
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            if (utilizador.TipoUtilizador != "Administrador de Sistema")
+            {
+                btnUtilizadores.Visible = false;
+            }
+
+            if (utilizador.TipoUtilizador.Equals("Administrador de Sistema"))
+            {
+                btnPacientes.Visible = false;
+            }
+
             label1.Text = utilizador.NomeUtilizador;
         }
 

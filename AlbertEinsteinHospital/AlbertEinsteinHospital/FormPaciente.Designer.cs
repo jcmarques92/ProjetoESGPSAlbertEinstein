@@ -147,6 +147,12 @@
             this.lOGOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelCabecalho = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.listViewMedicacao = new System.Windows.Forms.ListView();
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -168,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panelCabecalho.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -315,7 +322,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(883, 85);
+            this.label14.Location = new System.Drawing.Point(836, 85);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(41, 13);
             this.label14.TabIndex = 28;
@@ -324,7 +331,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(883, 26);
+            this.label13.Location = new System.Drawing.Point(791, 26);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(41, 13);
             this.label13.TabIndex = 27;
@@ -333,7 +340,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(400, 194);
+            this.label11.Location = new System.Drawing.Point(366, 194);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 26;
@@ -342,7 +349,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(401, 30);
+            this.label10.Location = new System.Drawing.Point(338, 30);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 25;
@@ -351,7 +358,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(889, 146);
+            this.label9.Location = new System.Drawing.Point(775, 144);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 24;
@@ -519,6 +526,7 @@
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Controls.Add(this.tabPage6);
@@ -1459,6 +1467,51 @@
             this.label26.TabIndex = 48;
             this.label26.Text = "label26";
             // 
+            // tabPage7
+            // 
+            this.tabPage7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
+            this.tabPage7.Controls.Add(this.listViewMedicacao);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(992, 294);
+            this.tabPage7.TabIndex = 4;
+            this.tabPage7.Text = "Histórico Medicação";
+            // 
+            // listViewMedicacao
+            // 
+            this.listViewMedicacao.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15});
+            this.listViewMedicacao.Location = new System.Drawing.Point(35, 31);
+            this.listViewMedicacao.Name = "listViewMedicacao";
+            this.listViewMedicacao.Size = new System.Drawing.Size(929, 230);
+            this.listViewMedicacao.TabIndex = 46;
+            this.listViewMedicacao.UseCompatibleStateImageBehavior = false;
+            this.listViewMedicacao.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Data de Início (tratamento)";
+            this.columnHeader12.Width = 179;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Data de Fim (tratamento)";
+            this.columnHeader13.Width = 227;
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Medicamento";
+            this.columnHeader14.Width = 189;
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Dosagem";
+            this.columnHeader15.Width = 302;
+            // 
             // FormPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1511,6 +1564,7 @@
             this.menuStrip1.PerformLayout();
             this.panelCabecalho.ResumeLayout(false);
             this.panelCabecalho.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1636,5 +1690,11 @@
         private System.Windows.Forms.ListView listViewExames;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.ListView listViewMedicacao;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
     }
 }

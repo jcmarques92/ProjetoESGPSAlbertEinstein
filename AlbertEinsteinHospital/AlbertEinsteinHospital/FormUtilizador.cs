@@ -190,14 +190,6 @@ namespace AlbertEinsteinHospital
             this.Close();
         }
 
-        private void btnPacientes_Click(object sender, EventArgs e)
-        {
-            FormPaciente frmPaciente = new FormPaciente(utilizadorLogado);
-            this.Hide();
-            frmPaciente.ShowDialog();
-            this.Close();
-        }
-
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView1.SelectedIndices.Count <= 0)
@@ -323,7 +315,7 @@ namespace AlbertEinsteinHospital
 
         private void tbNome_TextChanged(object sender, EventArgs e)
         {
-            Regex modelo = new Regex(@"^[aA-zZ]+((\s[aA-zZ]+)+)?$");
+            Regex modelo = new Regex(@"^[\p{L} \.\-]+$");
             if (modelo.IsMatch(tbNome.Text))
             {
                 tbNome.ForeColor = Color.Green;
@@ -554,7 +546,7 @@ namespace AlbertEinsteinHospital
                     listView1.Items[selectedIndex - 1].Selected = true;
                     listView1.Select();
                     listView1.Items[selectedIndex - 1].EnsureVisible();
-                    label26.Text = ("Utilizador " + (selectedIndex) + " de " + totalItems);
+                    label30.Text = ("Utilizador " + (selectedIndex) + " de " + totalItems);
                 }
             }
             catch (Exception)
@@ -575,7 +567,7 @@ namespace AlbertEinsteinHospital
                     listView1.Items[selectedItems + 1].Selected = true;
                     listView1.Select();
                     listView1.Items[selectedItems + 1].EnsureVisible();
-                    label26.Text = ("Utilizador " + (selectedItems + 1 + 1) + " de " + totalItems);
+                    label30.Text = ("Utilizador " + (selectedItems + 1 + 1) + " de " + totalItems);
                 }
             }
             catch (Exception)
@@ -593,7 +585,12 @@ namespace AlbertEinsteinHospital
 
             int selectedIndex = listView1.SelectedIndices[0];
             var totalItems = listView1.Items.Count;
-            label26.Text = ("Utilizador " + (selectedIndex + 1) + " de " + totalItems);
+            label30.Text = ("Utilizador " + (selectedIndex + 1) + " de " + totalItems);
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

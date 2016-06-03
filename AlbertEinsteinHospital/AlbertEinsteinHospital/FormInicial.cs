@@ -32,5 +32,9 @@ namespace AlbertEinsteinHospital
             frmInicial.ShowDialog();
             this.Close();
         }
+
+        private void FormInicial_FormClosing(object sender, FormClosingEventArgs e)
+        {
+        }
     }
 }

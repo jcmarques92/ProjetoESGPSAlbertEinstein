@@ -86,7 +86,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnUtilizadores = new System.Windows.Forms.Button();
-            this.btnPacientes = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelCabecalho = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -260,7 +259,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(423, 71);
+            this.label29.Location = new System.Drawing.Point(395, 71);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(41, 13);
             this.label29.TabIndex = 53;
@@ -289,11 +288,12 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(925, 162);
+            this.label26.Location = new System.Drawing.Point(863, 162);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(41, 13);
             this.label26.TabIndex = 50;
             this.label26.Text = "label26";
+            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // label25
             // 
@@ -308,7 +308,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(426, 217);
+            this.label24.Location = new System.Drawing.Point(317, 216);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(41, 13);
             this.label24.TabIndex = 48;
@@ -387,7 +387,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(924, 75);
+            this.label14.Location = new System.Drawing.Point(872, 75);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(41, 13);
             this.label14.TabIndex = 40;
@@ -396,7 +396,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(924, 20);
+            this.label13.Location = new System.Drawing.Point(833, 20);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(41, 13);
             this.label13.TabIndex = 39;
@@ -405,7 +405,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(425, 166);
+            this.label12.Location = new System.Drawing.Point(391, 165);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 38;
@@ -414,7 +414,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(425, 20);
+            this.label16.Location = new System.Drawing.Point(356, 18);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 13);
             this.label16.TabIndex = 37;
@@ -423,7 +423,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(924, 119);
+            this.label22.Location = new System.Drawing.Point(827, 119);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(41, 13);
             this.label22.TabIndex = 36;
@@ -743,27 +743,12 @@
             this.btnUtilizadores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
             this.btnUtilizadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUtilizadores.ForeColor = System.Drawing.Color.White;
-            this.btnUtilizadores.Location = new System.Drawing.Point(814, 17);
+            this.btnUtilizadores.Location = new System.Drawing.Point(907, 17);
             this.btnUtilizadores.Name = "btnUtilizadores";
             this.btnUtilizadores.Size = new System.Drawing.Size(99, 23);
             this.btnUtilizadores.TabIndex = 0;
             this.btnUtilizadores.Text = "UTILIZADORES";
             this.btnUtilizadores.UseVisualStyleBackColor = false;
-            // 
-            // btnPacientes
-            // 
-            this.btnPacientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(163)))), ((int)(((byte)(207)))));
-            this.btnPacientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
-            this.btnPacientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(94)))));
-            this.btnPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPacientes.ForeColor = System.Drawing.Color.White;
-            this.btnPacientes.Location = new System.Drawing.Point(922, 17);
-            this.btnPacientes.Name = "btnPacientes";
-            this.btnPacientes.Size = new System.Drawing.Size(84, 23);
-            this.btnPacientes.TabIndex = 1;
-            this.btnPacientes.Text = "PACIENTES";
-            this.btnPacientes.UseVisualStyleBackColor = false;
-            this.btnPacientes.Click += new System.EventHandler(this.btnPacientes_Click);
             // 
             // label1
             // 
@@ -782,7 +767,6 @@
             this.panelCabecalho.Controls.Add(this.pictureBox1);
             this.panelCabecalho.Controls.Add(this.label1);
             this.panelCabecalho.Controls.Add(this.btnUtilizadores);
-            this.panelCabecalho.Controls.Add(this.btnPacientes);
             this.panelCabecalho.Controls.Add(this.menuStrip1);
             this.panelCabecalho.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCabecalho.Location = new System.Drawing.Point(0, 0);
@@ -1002,7 +986,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnPacientes;
         private System.Windows.Forms.Button btnUtilizadores;
         private System.Windows.Forms.Panel panelCabecalho;
         private System.Windows.Forms.MenuStrip menuStrip1;
